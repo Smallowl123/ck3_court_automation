@@ -1,0 +1,796 @@
+namespace = cpa_eunuch
+cpa_eunuch.1 = {
+	#Eunuch
+	title = cpa.3.t
+	desc = cpa.default_event.desc
+	theme = stewardship
+	right_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	immediate = {
+		every_close_family_member = {
+			if = {
+				limit = {
+					is_unemployed_able_adult = yes
+					is_landed = no
+					cpa_is_not_a_candidate = yes
+					has_trait = eunuch
+				}
+				add_to_list = close_nepo_candidates
+			}
+		}
+		ordered_in_list = {
+			list = close_nepo_candidates
+			order_by = chief_eunuch_aptitude
+			save_scope_as = close_nepo_candidate
+		}
+		every_close_or_extended_family_member = {
+			if = {
+				limit = {
+					is_unemployed_able_adult = yes
+					is_landed = no
+					cpa_is_not_a_candidate = yes
+					has_trait = eunuch
+				}
+				add_to_list = nepo_candidates
+			}
+		}
+		ordered_in_list = {
+			list = nepo_candidates
+			order_by = chief_eunuch_aptitude
+			save_scope_as = nepo_candidate
+		}
+		if = {
+			limit = {
+				exists = root.primary_spouse
+			}
+			root.primary_spouse = {
+				save_scope_as = spouse
+			}
+			scope:spouse = {
+				every_close_or_extended_family_member = {
+					if = {
+						limit = {
+							is_unemployed_able_adult = yes
+							is_landed = no
+							cpa_is_not_a_candidate = yes
+							has_trait = eunuch
+						}
+						add_to_list = spouse_nepo_candidates
+					}
+				}
+			}
+			ordered_in_list = {
+				list = spouse_nepo_candidates
+				order_by = chief_eunuch_aptitude
+				save_scope_as = spouse_nepo_candidate
+			}
+		}
+		ordered_vassal = {
+			order_by = max_military_strength
+			limit = {
+				opinion = {
+					target = root
+					value < 80
+				}
+				is_in_civil_war = no
+				OR = {
+					is_a_faction_leader = yes
+					is_a_faction_member = yes
+				}
+			}
+			save_scope_as = vassal
+		}
+		if = {
+			limit = {
+				NOT = {
+					exists = scope:vassal
+				}
+			}
+			ordered_vassal = {
+				order_by = max_military_strength
+				limit = {
+					opinion = {
+						target = root
+						value < 80
+					}
+					is_in_civil_war = no
+				}
+				save_scope_as = vassal
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:vassal
+			}
+			scope:vassal = {
+				every_close_or_extended_family_member = {
+					if = {
+						limit = {
+							is_unemployed_able_adult = yes
+							is_landed = no
+							cpa_is_not_a_candidate = yes
+							has_trait = eunuch
+						}
+						add_to_list = vassal_nepo_candidates
+					}
+				}
+			}
+			ordered_in_list = {
+				list = vassal_nepo_candidates
+				order_by = chief_eunuch_aptitude
+				save_scope_as = vassal_nepo_candidate
+			}
+		}
+		every_relation = {
+			type = friend
+			limit = {
+				is_unemployed_able_adult = yes
+				is_landed = no
+				cpa_is_not_a_candidate = yes
+				has_trait = eunuch
+			}
+			add_to_list = friend_candidates
+		}
+		ordered_in_list = {
+			list = friend_candidates
+			order_by = chief_eunuch_aptitude
+			save_scope_as = friend_candidate
+		}
+		every_relation = {
+			type = lover
+			limit = {
+				is_unemployed_able_adult = yes
+				is_landed = no
+				cpa_is_not_a_candidate = yes
+				has_trait = eunuch
+			}
+			add_to_list = lover_candidates
+		}
+		ordered_in_list = {
+			list = lover_candidates
+			order_by = chief_eunuch_aptitude
+			save_scope_as = lover_candidate
+		}
+		ordered_courtier = {
+			order_by = chief_eunuch_aptitude
+			limit = {
+				is_unemployed_able_adult = yes
+				is_landed = no
+				cpa_is_not_a_candidate = yes
+				has_trait = eunuch
+			}
+			save_scope_as = courtier_candidate
+		}
+		every_realm_province = {
+			if = {
+				limit = {
+					save_temporary_scope_as = potential_province
+					NOT = {
+						any_in_list = {
+							list = pool_provinces
+							county.duchy = scope:potential_province.county.duchy
+						}
+					}
+				}
+				add_to_temporary_list = pool_provinces
+			}
+		}
+		every_in_list = {
+			list = pool_provinces
+			save_temporary_scope_as = pool_province
+			every_pool_character = {
+				province = scope:pool_province
+				limit = {
+					is_unemployed_able_adult = yes
+					is_landed = no
+					cpa_is_not_a_candidate = yes
+					has_trait = eunuch
+					chief_eunuch_aptitude > 49
+				}
+				add_to_temporary_list = stranger_candidates
+			}
+		}
+		ordered_in_list = {
+			list = stranger_candidates
+			order_by = chief_eunuch_aptitude
+			save_scope_as = stranger_candidate
+		}
+		every_prisoner = {
+			limit = {
+				is_landed = no
+				is_adult = yes
+				is_incapable = no
+				is_alive = yes
+				cpa_is_not_a_candidate = yes
+				chief_eunuch_aptitude > 49
+			}
+			add_to_temporary_list = prisoner_candidates
+		}
+		ordered_in_list = {
+			list = prisoner_candidates
+			order_by = chief_eunuch_aptitude
+			save_scope_as = prisoner_candidate
+		}
+		every_close_or_extended_family_member = {
+			if = {
+				limit = {
+					is_unemployed_able_adult = yes
+					is_landed = no
+					cpa_is_not_a_candidate = yes
+					OR = {
+						target_is_liege_or_above = root
+						is_foreign_court_or_pool_guest_of = root
+					}
+					is_male = yes
+				}
+				add_to_list = nepo_mutulated_candidates
+			}
+		}
+		ordered_in_list = {
+			list = nepo_mutulated_candidates
+			order_by = chief_eunuch_aptitude
+			save_scope_as = nepo_mutulated_candidate
+		}
+	}
+	option = {
+		#Close family member (if there is such)
+		name = cpa.default_close_nepo_name.desc
+		trigger = {
+			exists = scope:close_nepo_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:close_nepo_candidate.chief_eunuch_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:close_nepo_candidate.chief_eunuch_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:close_nepo_candidate.chief_eunuch_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:close_nepo_candidate.chief_eunuch_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+			}
+		}
+		scope:close_nepo_candidate = {
+			if = {
+				limit = {
+					NOT = {
+						liege = root
+					}
+				}
+				root = {
+					add_courtier = scope:close_nepo_candidate
+				}
+			}
+		}
+		appoint_court_position = {
+			recipient = scope:close_nepo_candidate
+			court_position = chief_eunuch_court_position
+		}
+	}
+	option = {
+		#close or extended family (if there is such)
+		name = cpa.default_nepo_name.desc
+		trigger = {
+			exists = scope:nepo_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:nepo_candidate.chief_eunuch_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:nepo_candidate.chief_eunuch_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:nepo_candidate.chief_eunuch_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:nepo_candidate.chief_eunuch_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+			}
+		}
+		scope:nepo_candidate = {
+			if = {
+				limit = {
+					NOT = {
+						liege = root
+					}
+				}
+				root = {
+					add_courtier = scope:nepo_candidate
+				}
+			}
+		}
+		appoint_court_position = {
+			recipient = scope:nepo_candidate
+			court_position = chief_eunuch_court_position
+		}
+	}
+	option = {
+		#close or extended family to mutulate
+		name = cpa.eunuch_nepo_name.desc
+		trigger = {
+			exists = scope:nepo_mutulated_candidate
+			has_trait = sadistic
+		}
+		trait = sadistic
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:nepo_mutulated_candidate.chief_eunuch_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:nepo_mutulated_candidate.chief_eunuch_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:nepo_mutulated_candidate.chief_eunuch_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:nepo_mutulated_candidate.chief_eunuch_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+			}
+		}
+		chief_eunuch_me_effect = {
+			RECIPIENT = scope:nepo_mutulated_candidate
+		}
+	}
+	option = {
+		#Spouse family member (if there is such)
+		name = cpa.default_spouse_nepo_name.desc
+		trigger = {
+			exists = scope:spouse_nepo_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:spouse_nepo_candidate.chief_eunuch_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:spouse_nepo_candidate.chief_eunuch_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:spouse_nepo_candidate.chief_eunuch_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:spouse_nepo_candidate.chief_eunuch_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+			}
+		}
+		scope:spouse_nepo_candidate = {
+			if = {
+				limit = {
+					NOT = {
+						liege = root
+					}
+				}
+				root = {
+					add_courtier = scope:spouse_nepo_candidate
+				}
+			}
+		}
+		appoint_court_position = {
+			recipient = scope:spouse_nepo_candidate
+			court_position = chief_eunuch_court_position
+		}
+		scope:spouse = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 20
+			}
+		}
+	}
+	option = {
+		#Vassal family member (if there is such)
+		name = cpa.default_vassal_nepo_name.desc
+		trigger = {
+			exists = scope:vassal_nepo_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:vassal_nepo_candidate.chief_eunuch_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:vassal_nepo_candidate.chief_eunuch_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:vassal_nepo_candidate.chief_eunuch_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:vassal_nepo_candidate.chief_eunuch_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+			}
+		}
+		scope:vassal_nepo_candidate = {
+			if = {
+				limit = {
+					NOT = {
+						liege = root
+					}
+				}
+				root = {
+					add_courtier = scope:vassal_nepo_candidate
+				}
+			}
+		}
+		appoint_court_position = {
+			recipient = scope:vassal_nepo_candidate
+			court_position = chief_eunuch_court_position
+		}
+		scope:vassal = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 20
+			}
+		}
+	}
+	option = {
+		#Hire friend
+		name = cpa.default_friend_name.desc
+		trigger = {
+			exists = scope:friend_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:friend_candidate.chief_eunuch_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:friend_candidate.chief_eunuch_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:friend_candidate.chief_eunuch_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:friend_candidate.chief_eunuch_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+			}
+		}
+		scope:friend_candidate = {
+			if = {
+				limit = {
+					NOT = {
+						liege = root
+					}
+				}
+				root = {
+					add_courtier = scope:friend_candidate
+				}
+			}
+		}
+		appoint_court_position = {
+			recipient = scope:friend_candidate
+			court_position = chief_eunuch_court_position
+		}
+	}
+	option = {
+		#Hire lover
+		name = cpa.default_lover_name.desc
+		trigger = {
+			exists = scope:lover_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:lover_candidate.chief_eunuch_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:lover_candidate.chief_eunuch_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:lover_candidate.chief_eunuch_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:lover_candidate.chief_eunuch_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+			}
+		}
+		scope:lover_candidate = {
+			if = {
+				limit = {
+					NOT = {
+						liege = root
+					}
+				}
+				root = {
+					add_courtier = scope:lover_candidate
+				}
+			}
+		}
+		appoint_court_position = {
+			recipient = scope:lover_candidate
+			court_position = chief_eunuch_court_position
+		}
+	}
+	option = {
+		#Hire a courtier (if there is such)
+		name = cpa.default_courtier_name.desc
+		trigger = {
+			exists = scope:courtier_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:courtier_candidate.chief_eunuch_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:courtier_candidate.chief_eunuch_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:courtier_candidate.chief_eunuch_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:courtier_candidate.chief_eunuch_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+			}
+		}
+		appoint_court_position = {
+			recipient = scope:courtier_candidate
+			court_position = chief_eunuch_court_position
+		}
+	}
+	option = {
+		#Hire a skilled stranger
+		name = cpa.default_stranger_name.desc
+		trigger = {
+			exists = scope:stranger_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:stranger_candidate.chief_eunuch_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:stranger_candidate.chief_eunuch_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:stranger_candidate.chief_eunuch_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:stranger_candidate.chief_eunuch_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+			}
+		}
+		root = {
+			add_courtier = scope:stranger_candidate
+		}
+		appoint_court_position = {
+			recipient = scope:stranger_candidate
+			court_position = chief_eunuch_court_position
+		}
+	}
+	option = {
+		#Hire a skilled prisoner (if there is such)
+		name = cpa.default_prisoner_name.desc
+		trigger = {
+			exists = scope:prisoner_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:prisoner_candidate.chief_eunuch_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:prisoner_candidate.chief_eunuch_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:prisoner_candidate.chief_eunuch_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:prisoner_candidate.chief_eunuch_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+			}
+		}
+		scope:prisoner_candidate = {
+			if = {
+				limit = {
+					root = {
+						culture = {
+							has_cultural_parameter = can_recruit_prisoners_easily
+						}
+					}
+				}
+				add_opinion = {
+					modifier = loyal_servant
+					target = root
+				}
+				root = {
+					if = {
+						limit = {
+							can_add_hook = {
+								target = scope:prisoner_candidate
+								type = loyalty_hook
+							}
+						}
+						add_hook = {
+							type = loyalty_hook
+							target = scope:prisoner_candidate
+						}
+					}
+				}
+			}
+			else = {
+				add_opinion = {
+					modifier = demanded_recruitment
+					target = root
+				}
+			}
+			root = {
+				add_courtier = scope:prisoner_candidate
+			}
+			release_from_prison = yes
+		}
+		appoint_court_position = {
+			recipient = scope:prisoner_candidate
+			court_position = chief_eunuch_court_position
+		}
+	}
+	option = {
+		#Don't hire anyone
+		name = cpa.default_not_hire_name.desc
+		flavor = {
+			desc = cpa.not_hire_flavor
+		}
+		hidden_effect = {
+			remove_global_variable = chief_eunuch_auto
+		}
+	}
+}

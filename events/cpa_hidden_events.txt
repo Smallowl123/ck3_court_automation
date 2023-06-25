@@ -1,0 +1,39 @@
+namespace = cpa
+cpa.1 = {
+	#Bunch of triggers checking if position require filling and firing events
+	hidden = yes
+	trigger = {
+		is_ai = no
+	}
+	immediate = {
+		if = {
+			limit = {
+				NOR = {
+					employs_court_position = court_physician_court_position
+					any_court_position_holder = {
+						type = court_physician_court_position
+					}
+				}
+				has_global_variable = court_physician_auto
+			}
+			trigger_event = cpa_physician.1
+		}
+		if = {
+			limit = {
+				NOR = {
+					employs_court_position = chief_eunuch_court_position
+					any_court_position_holder = {
+						type = chief_eunuch_court_position
+					}
+					culture = {
+						# Culture that has eunuchs
+						has_cultural_parameter = can_appoint_chief_eunuch
+					}
+					highest_held_title_tier >= tier_kingdom
+				}
+				has_global_variable = chief_eunuch_auto
+			}
+			trigger_event = cpa_eunuch.1
+		}
+	}
+}

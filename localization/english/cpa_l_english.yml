@@ -1,0 +1,29 @@
+﻿l_english: 
+ #Titles
+ cpa.2.t:0 "Open for hiring: Court Physician"
+ cpa.3.t:0 "Open for hiring: Chief Eunuch"
+
+#Event descs
+ cpa.default_event.desc:0 "Who will you choose?"
+
+#Option names
+ cpa.default_close_nepo_name.desc:0 "My [ROOT.GetCharacter.Custom2('RelationToMeShort', close_nepo_candidate )] [close_nepo_candidate.GetFirstName] should have this job"
+ cpa.default_nepo_name.desc:0 "My [ROOT.GetCharacter.Custom2('RelationToMeShort', nepo_candidate )] [nepo_candidate.GetFirstName] will do great"
+ cpa.default_spouse_nepo_name.desc:0 "[spouse.GetFirstName] would be happy if I hire [spouse.GetHerHis] [spouse.Custom2('RelationToMeShort', spouse_nepo_candidate )] [spouse_nepo_candidate.GetFirstName]"
+ cpa.default_vassal_nepo_name.desc:0 "It will improve my stance with [vassal.GetTitledFirstName] if I hire [vassal.GetHerHis] [vassal.Custom2('RelationToMeShort', vassal_nepo_candidate )] [vassal_nepo_candidate.GetFirstName]"
+ cpa.bishop_physician.desc:0 "My [ROOT.Char.GetCouncillorPosition('councillor_court_chaplain').GetPositionName] knows his way around medicine"
+ cpa.default_friend_name.desc:0 "My friend [friend_candidate.GetFirstName] will do it"
+ cpa.default_lover_name.desc:0 "Send for [lover_candidate.GetFullName], [lover_candidate.GetSheHe] shall have this job"
+ cpa.default_courtier_name.desc:0 "[courtier_candidate.GetFullName] has the right skills"
+ cpa.default_stranger_name.desc:0 "Find the best in the realm for me"
+ cpa.default_prisoner_name.desc:0 "Let's release [prisoner_candidate.GetFullName] and exploit [prisoner_candidate.GetHerHis] talents"
+ cpa.default_not_hire_name.desc:0 "Don't hire anyone"
+ cpa.not_hire_flavor:0 "Automation will be turned off until you employ somebody"
+ cpa.eunuch_nepo_name.desc:0 "Cut my [ROOT.GetCharacter.Custom2('RelationToMeShort', nepo_mutulated_candidate )] [nepo_mutulated_candidate.GetFirstNamePossessive] balls off, he starts tomorrow"
+
+#Aptitudes
+ cpa.excellent.desc:0 "Aptitude will be #P excellent!#!"
+ cpa.good.desc:0 "Aptitude will be #P good#!"
+ cpa.average.desc:0 "Aptitude will be average"
+ cpa.poor.desc:0 "Aptitude will be #N poor#!"
+ cpa.terrible.desc:0 "Aptitude will be #N terrible!#!"

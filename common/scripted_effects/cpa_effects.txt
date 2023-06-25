@@ -1,0 +1,65 @@
+chief_eunuch_me_effect = {
+	root = {
+		save_scope_as = actor
+	}
+	$RECIPIENT$ = {
+		save_scope_as = recipient
+	}
+	scope:recipient = {
+		add_character_flag = {
+			flag = is_being_tortured
+			months = 6			# Players in MP can keep the event window open...
+		}
+		if = {
+			limit = {
+				NOT = {
+					liege = scope:actor
+				}
+			}
+			scope:actor = {
+				add_courtier = scope:recipient
+			}
+		}
+		add_trait = eunuch
+
+		add_character_modifier = {
+			modifier = recently_castrated
+			years = 1
+		}
+		random = {
+			chance = 5
+			add_trait = lunatic_1
+		}
+	
+		if = {
+			limit = {
+				NOR = {
+					has_trait = craven
+					has_trait = brave
+				}
+			}
+			add_stress = major_stress_impact_gain
+		}
+		else = {
+			stress_impact = {
+				craven = massive_stress_gain
+				brave = medium_stress_impact_gain
+			}
+		}
+	}
+	blind_and_castrate_actor_effect = yes	#Stress & dread
+	imprison_tyranny_effect = yes
+	torture_blind_castrate_opinion_effect = {
+		VERB = castrated
+	}
+	scope:actor = {
+		trigger_event = {
+			id = prison.1025
+			days = 1
+		}
+		appoint_court_position = {
+			recipient = scope:recipient
+			court_position = chief_eunuch_court_position
+		}
+	}
+}
