@@ -21,7 +21,6 @@ chief_eunuch_me_effect = {
 			}
 		}
 		add_trait = eunuch
-
 		add_character_modifier = {
 			modifier = recently_castrated
 			years = 1
@@ -30,7 +29,6 @@ chief_eunuch_me_effect = {
 			chance = 5
 			add_trait = lunatic_1
 		}
-	
 		if = {
 			limit = {
 				NOR = {
@@ -48,7 +46,17 @@ chief_eunuch_me_effect = {
 		}
 	}
 	blind_and_castrate_actor_effect = yes	#Stress & dread
-	imprison_tyranny_effect = yes
+	if = {
+		limit = {
+			NOT = {
+				scope:recipient = {
+					is_imprisoned_by = scope:actor
+				}
+			}
+		}
+		imprison_tyranny_effect = yes
+	}
+	
 	torture_blind_castrate_opinion_effect = {
 		VERB = castrated
 	}

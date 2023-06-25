@@ -103,4 +103,44 @@ cpa_is_not_a_candidate = {
 			this = scope:rival_candidate
 		}
 	}
+	trigger_if = {
+		limit = {
+			exists = scope:nepo_mutulated_candidate
+		}
+		NOT = {
+			this = scope:nepo_mutulated_candidate
+		}
+	}
+	trigger_if = {
+		limit = {
+			exists = scope:vassal_mutulated_candidate
+		}
+		NOT = {
+			this = scope:vassal_mutulated_candidate
+		}
+	}
+	trigger_if = {
+		limit = {
+			exists = scope:courtier_mutulated_candidate
+		}
+		NOT = {
+			this = scope:courtier_mutulated_candidate
+		}
+	}
+	trigger_if = {
+		limit = {
+			exists = scope:mutulated_prisoner_candidate
+		}
+		NOT = {
+			this = scope:mutulated_prisoner_candidate
+		}
+	}
+	trigger_if = {
+		limit = {
+			exists = scope:stranger_mutulated_candidate
+		}
+		NOT = {
+			this = scope:stranger_mutulated_candidate
+		}
+	}
 }
