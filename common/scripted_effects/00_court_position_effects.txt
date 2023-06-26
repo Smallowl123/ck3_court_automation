@@ -289,6 +289,17 @@ high_almoner_title_invalidated_effect = {
 # CUPBEARER
 cupbearer_title_accepted_effect = {
 	basic_gained_court_position_effect = yes
+	if = {
+		limit = {
+			scope:liege = {
+				is_ai = no
+			}
+		}
+		set_global_variable = {
+			name = cupbearer_auto
+			value = yes
+		}
+	}
 }
 cupbearer_title_revoked_effect = {
 	basic_revoked_court_position_effect = yes

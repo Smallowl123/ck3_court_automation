@@ -159,269 +159,334 @@ chief_eunuch_aptitude = {
 
 keeper_of_swans_aptitude = {
 	value = 40
+	add = {
+		value = stewardship
+		multiply = 4
+		max = 50
+		desc = court_position_skill_stewardship
+	}
+	if = {
+		limit = {
+			hunt_lifestyle_track_greater_equal_trigger = {
+				TRACK = hunter
+				GREATER_EQUAL = 100
+			}
+		}
 		add = {
-			value = stewardship
-			multiply = 4
-			max = 50
-			desc = court_position_skill_stewardship
+			value = 20
+			desc = court_position_hunter_3_trait
 		}
-		if = {
-			limit = {
-				hunt_lifestyle_track_greater_equal_trigger = { TRACK = hunter GREATER_EQUAL = 100 }
-			}
-			add = { 
-				value = 20
-				desc = court_position_hunter_3_trait
+	}
+	else_if = {
+		limit = {
+			hunt_lifestyle_track_greater_equal_trigger = {
+				TRACK = hunter
+				GREATER_EQUAL = 50
 			}
 		}
-		else_if = {
-			limit = {
-				hunt_lifestyle_track_greater_equal_trigger = { TRACK = hunter GREATER_EQUAL = 50 }
-			}
-			add = { 
-				value = 10
-				desc = court_position_hunter_2_trait
-			}
+		add = {
+			value = 10
+			desc = court_position_hunter_2_trait
 		}
-		else_if = {
-			limit = { has_trait = lifestyle_hunter }
-			add = { 
-				value = 5
-				desc = court_position_hunter_1_trait
-			}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_hunter
 		}
-		if = {
-			limit = {
-				has_trait = blind # Can't see the damn birds
-			}
-			add = {
-				value = -20
-				desc = court_position_blind_trait
-			}
+		add = {
+			value = 5
+			desc = court_position_hunter_1_trait
 		}
-		add = court_position_aptitude_family_business_value
-		add = court_position_aptitude_low_penalty_value
+	}
+	if = {
+		limit = {
+			has_trait = blind			# Can't see the damn birds
+		}
+		add = {
+			value = -20
+			desc = court_position_blind_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
 }
 
 master_of_horse_aptitude = {
 	value = 25
-		add = {
-			value = martial
-			multiply = 2.5
-			max = 50
-			desc = court_position_skill_martial
+	add = {
+		value = martial
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_martial
+	}
+	add = {
+		value = prowess
+		multiply = 2
+		max = 50
+		desc = court_position_skill_prowess
+	}
+	if = {
+		limit = {
+			has_trait = overseer
 		}
 		add = {
-			value = prowess
-			multiply = 2
-			max = 50
-			desc = court_position_skill_prowess
+			value = 10
+			desc = court_position_overseer_trait
 		}
-		if = {
-			limit = { has_trait = overseer }
-			add = {
-				value = 10
-				desc = court_position_overseer_trait
-			}
-		}
-		add = court_position_aptitude_family_business_value
-		add = court_position_aptitude_high_penalty_value
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_high_penalty_value
 }
 
 court_jester_aptitude = {
 	value = 1
+	add = {
+		value = diplomacy
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_diplomacy
+	}
+	if = {
+		limit = {
+			has_trait = gregarious
+		}
 		add = {
-			value = diplomacy
-			multiply = 2.5
-			max = 50
-			desc = court_position_skill_diplomacy
+			value = 20
+			desc = court_position_gregarious_trait
 		}
-		if = {
-			limit = {
-				has_trait = gregarious
-			}
-			add = { 
-				value = 20
-				desc = court_position_gregarious_trait
-			}
+	}
+	if = {
+		limit = {
+			has_trait = stubborn
 		}
-		if = {
-			limit = {
-				has_trait = stubborn
-			}
-			add = { 
-				value = 20
-				desc = court_position_stubborn_trait
-			}
+		add = {
+			value = 20
+			desc = court_position_stubborn_trait
 		}
-		if = {
-			limit = {
-				has_trait = shrewd
-			}
-			add = { 
-				value = 20
-				desc = court_position_shrewd_trait
-			}
+	}
+	if = {
+		limit = {
+			has_trait = shrewd
 		}
-		if = {
-			limit = {
-				has_trait = poet
-			}
-			add = { 
-				value = 10
-				desc = court_position_poet_trait
-			}
+		add = {
+			value = 20
+			desc = court_position_shrewd_trait
 		}
-		if = { # An acrobatic jester is a good jester
-			limit = {
-				has_trait = athletic
-			}
-			add = { 
-				value = 10
-				desc = court_position_athletic_trait
-			}
+	}
+	if = {
+		limit = {
+			has_trait = poet
 		}
-		add = court_position_aptitude_family_business_value
-		add = court_position_aptitude_high_penalty_value
+		add = {
+			value = 10
+			desc = court_position_poet_trait
+		}
+	}
+	if = {
+		# An acrobatic jester is a good jester
+		limit = {
+			has_trait = athletic
+		}
+		add = {
+			value = 10
+			desc = court_position_athletic_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_high_penalty_value
 }
 
 master_of_hunt_aptitude = {
 	value = 25
+	add = {
+		value = prowess
+		multiply = 2
+		max = 50
+		desc = court_position_skill_prowess
+	}
+	add = {
+		value = learning
+		multiply = 1.5
+		max = 50
+		desc = court_position_skill_learning
+	}
+	if = {
+		limit = {
+			hunt_lifestyle_track_greater_equal_trigger = {
+				TRACK = hunter
+				GREATER_EQUAL = 100
+			}
+		}
 		add = {
-			value = prowess
-			multiply = 2
-			max = 50
-			desc = court_position_skill_prowess
+			value = 40
+			desc = court_position_hunter_3_trait
+		}
+	}
+	else_if = {
+		limit = {
+			hunt_lifestyle_track_greater_equal_trigger = {
+				TRACK = hunter
+				GREATER_EQUAL = 50
+			}
 		}
 		add = {
-			value = learning
-			multiply = 1.5
-			max = 50
-			desc = court_position_skill_learning
+			value = 30
+			desc = court_position_hunter_2_trait
 		}
-		if = {
-			limit = {
-				hunt_lifestyle_track_greater_equal_trigger = { TRACK = hunter GREATER_EQUAL = 100 }
-			}
-			add = { 
-				value = 40
-				desc = court_position_hunter_3_trait
-			}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_hunter
 		}
-		else_if = {
-			limit = {
-				hunt_lifestyle_track_greater_equal_trigger = { TRACK = hunter GREATER_EQUAL = 50 }
-			}
-			add = { 
-				value = 30
-				desc = court_position_hunter_2_trait
-			}
+		add = {
+			value = 20
+			desc = court_position_hunter_1_trait
 		}
-		else_if = {
-			limit = { has_trait = lifestyle_hunter }
-			add = { 
-				value = 20
-				desc = court_position_hunter_1_trait
-			}
+	}
+	if = {
+		limit = {
+			has_trait = brave
 		}
-		if = {
-			limit = { has_trait = brave }
-			add = {
-				value = 5
-				desc = court_position_brave_trait
-			}
+		add = {
+			value = 5
+			desc = court_position_brave_trait
 		}
-		if = {
-			limit = { has_trait = craven }
-			add = {
-				value = -10
-				desc = court_position_craven_trait
-			}
+	}
+	if = {
+		limit = {
+			has_trait = craven
 		}
-		if = {
-			limit = {
-				has_character_modifier = ep2_beastmaster_modifier
-			}
-			add = {
-				value = 10
-				desc = court_position_beastmaster_modifier
-			}
+		add = {
+			value = -10
+			desc = court_position_craven_trait
 		}
-		add = court_position_aptitude_family_business_value
-		add = court_position_aptitude_high_penalty_value
+	}
+	if = {
+		limit = {
+			has_character_modifier = ep2_beastmaster_modifier
+		}
+		add = {
+			value = 10
+			desc = court_position_beastmaster_modifier
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_high_penalty_value
 }
+
 high_almoner_aptitude = {
 	value = 1
+	add = {
+		value = learning
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_learning
+	}
+	if = {
+		limit = {
+			is_clergy = yes
+		}
 		add = {
-			value = learning
-			multiply = 2.5
-			max = 50
-			desc = court_position_skill_learning
+			value = 20
+			desc = court_position_clergy_trait
 		}
-		if = {
-			limit = {
-				is_clergy = yes
-			}
-			add = {
-				value = 20
-				desc = court_position_clergy_trait
-			}
+	}
+	if = {
+		limit = {
+			has_trait = generous
 		}
-		if = {
-			limit = {
-				has_trait = generous
-			}
-			add = {
-				value = 20
-				desc = court_position_generous_trait
-			}
+		add = {
+			value = 20
+			desc = court_position_generous_trait
 		}
-		if = {
-			limit = {
-				has_trait = compassionate
-			}
-			add = {
-				value = 20
-				desc = court_position_compassionate_trait
-			}
+	}
+	if = {
+		limit = {
+			has_trait = compassionate
 		}
-		if = {
-			limit = {
-				has_trait = greedy
-			}
-			add = {
-				value = -10
-				desc = court_position_greedy_trait
-			}
+		add = {
+			value = 20
+			desc = court_position_compassionate_trait
 		}
-		if = {
-			limit = {
-				has_trait = profligate
-			}
-			add = {
-				value = -10
-				desc = court_position_profligate_trait
-			}
+	}
+	if = {
+		limit = {
+			has_trait = greedy
 		}
-		if = {
-			limit = {
-				has_trait = avaricious
-			}
-			add = {
-				value = -10
-				desc = court_position_avaricious_trait
+		add = {
+			value = -10
+			desc = court_position_greedy_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = profligate
+		}
+		add = {
+			value = -10
+			desc = court_position_profligate_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = avaricious
+		}
+		add = {
+			value = -10
+			desc = court_position_avaricious_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = devoted
+			culture = {
+				has_cultural_parameter = devoted_trait_bonuses
 			}
 		}
-		if = {
-			limit = {
-				has_trait = devoted
-				culture = { has_cultural_parameter = devoted_trait_bonuses }
-			}
-			add = {
-				value = 20
-				desc = tradition_monastic_communities_name
-			}
+		add = {
+			value = 20
+			desc = tradition_monastic_communities_name
 		}
-		add = court_position_aptitude_family_business_value
-		add = court_position_aptitude_low_penalty_value
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
+
+cupbearer_aptitude = {
+	value = 25
+	add = {
+		value = diplomacy
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_diplomacy
+	}
+	if = {
+		limit = {
+			has_trait = honest
+		}
+		add = {
+			value = 10
+			desc = court_position_honest_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = trusting
+		}
+		add = {
+			value = 10
+			desc = court_position_trusting_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = deceitful
+		}
+		add = {
+			value = -10
+			desc = court_position_deceitful_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_high_penalty_value
 }

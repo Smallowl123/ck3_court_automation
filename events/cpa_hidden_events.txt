@@ -135,5 +135,23 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		if = {
+			limit = {
+				NOR = {
+					employs_court_position = cupbearer_court_position
+					any_court_position_holder = {
+						type = cupbearer_court_position
+					}
+					has_global_variable = cpa_event_been_triggered
+				}
+				has_global_variable = cupbearer_auto
+				highest_held_title_tier >= tier_kingdom
+			}
+			trigger_event = cpa_cupbearer.1
+			set_global_variable = {
+				name = cpa_event_been_triggered
+				value = yes
+			}
+		}
 	}
 }
