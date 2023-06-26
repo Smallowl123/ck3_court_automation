@@ -1,4 +1,4 @@
-namespace = cpa_master_of_horse
+﻿namespace = cpa_master_of_horse
 
 cpa_master_of_horse.1 = {
 	#Master of the Horse

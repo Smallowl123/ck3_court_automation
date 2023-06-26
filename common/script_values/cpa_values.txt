@@ -227,3 +227,60 @@ master_of_horse_aptitude = {
 		add = court_position_aptitude_family_business_value
 		add = court_position_aptitude_high_penalty_value
 }
+
+court_jester_aptitude = {
+	value = 1
+		add = {
+			value = diplomacy
+			multiply = 2.5
+			max = 50
+			desc = court_position_skill_diplomacy
+		}
+		if = {
+			limit = {
+				has_trait = gregarious
+			}
+			add = { 
+				value = 20
+				desc = court_position_gregarious_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = stubborn
+			}
+			add = { 
+				value = 20
+				desc = court_position_stubborn_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = shrewd
+			}
+			add = { 
+				value = 20
+				desc = court_position_shrewd_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = poet
+			}
+			add = { 
+				value = 10
+				desc = court_position_poet_trait
+			}
+		}
+		if = { # An acrobatic jester is a good jester
+			limit = {
+				has_trait = athletic
+			}
+			add = { 
+				value = 10
+				desc = court_position_athletic_trait
+			}
+		}
+		add = court_position_aptitude_family_business_value
+		add = court_position_aptitude_high_penalty_value
+}

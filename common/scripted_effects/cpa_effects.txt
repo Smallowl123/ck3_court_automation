@@ -1,4 +1,4 @@
-chief_eunuch_me_effect = {
+﻿chief_eunuch_me_effect = {
 	root = {
 		save_scope_as = actor
 	}

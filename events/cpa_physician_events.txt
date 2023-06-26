@@ -1,4 +1,4 @@
-namespace = cpa_physician
+﻿namespace = cpa_physician
 cpa_physician.1 = {
 	#Physician
 	title = cpa.2.t

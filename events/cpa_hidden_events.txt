@@ -1,4 +1,4 @@
-namespace = cpa
+﻿namespace = cpa
 cpa.1 = {
 	#Bunch of triggers checking if position require filling and firing events
 	hidden = yes
@@ -61,6 +61,19 @@ cpa.1 = {
 				has_global_variable = master_of_horse_auto
 			}
 			trigger_event = cpa_master_of_horse.1
+		}
+		if = {
+			limit = {
+				NOR = {
+					employs_court_position = court_jester_court_position
+					any_court_position_holder = {
+						type = court_jester_court_position
+					}
+				}
+				highest_held_title_tier >= tier_duchy
+				has_global_variable = court_jester_auto
+			}
+			trigger_event = cpa_court_jester.1
 		}
 	}
 }

@@ -209,7 +209,17 @@ master_of_horse_title_invalidated_effect = {
 
 # COURT JESTER
 court_jester_title_accepted_effect = {
-
+	if = {
+		limit = {
+			scope:liege = {
+				is_ai = no
+			}
+		}
+		set_global_variable = {
+			name = court_jester_auto
+			value = yes
+		}
+	}
 }
 court_jester_title_revoked_effect = {
 	scope:employee = {
