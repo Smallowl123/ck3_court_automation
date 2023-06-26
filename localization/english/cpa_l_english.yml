@@ -2,6 +2,7 @@
  #Titles
  cpa.2.t:0 "Open for hiring: Court Physician"
  cpa.3.t:0 "Open for hiring: Chief Eunuch"
+ cpa.4.t:0 "Open for hiring: Keeper of Swans"
 
 #Event descs
  cpa.default_event.desc:0 "Who will you choose?"
@@ -25,6 +26,7 @@
  cpa.eunuch_prisoner_name.desc:0 "Just choose the best candidate among our prisoners."
  cpa.eunuch_rival_name.desc:0 "I know just the right person!"
  cpa.eunuch_stranger_name.desc:0 "Find the best in the realm for me, whatever the cost."
+ cpa.default_vassal_name.desc:0 "It will improve my stance with [vassal.GetTitledFirstName] if I hire [vassal.GetHerHim]."
 
 #Aptitudes
  cpa.excellent.desc:0 "Aptitude will be #P excellent!#!"

@@ -156,3 +156,49 @@ chief_eunuch_aptitude = {
 	}
 	add = court_position_aptitude_family_business_value
 }
+
+keeper_of_swans_aptitude = {
+	value = 40
+		add = {
+			value = stewardship
+			multiply = 4
+			max = 50
+			desc = court_position_skill_stewardship
+		}
+		if = {
+			limit = {
+				hunt_lifestyle_track_greater_equal_trigger = { TRACK = hunter GREATER_EQUAL = 100 }
+			}
+			add = { 
+				value = 20
+				desc = court_position_hunter_3_trait
+			}
+		}
+		else_if = {
+			limit = {
+				hunt_lifestyle_track_greater_equal_trigger = { TRACK = hunter GREATER_EQUAL = 50 }
+			}
+			add = { 
+				value = 10
+				desc = court_position_hunter_2_trait
+			}
+		}
+		else_if = {
+			limit = { has_trait = lifestyle_hunter }
+			add = { 
+				value = 5
+				desc = court_position_hunter_1_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = blind # Can't see the damn birds
+			}
+			add = {
+				value = -20
+				desc = court_position_blind_trait
+			}
+		}
+		add = court_position_aptitude_family_business_value
+		add = court_position_aptitude_low_penalty_value
+}

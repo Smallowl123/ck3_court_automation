@@ -218,11 +218,7 @@ cpa_eunuch.1 = {
 					is_unemployed_able_adult = yes
 					is_landed = no
 					cpa_is_not_a_candidate = yes
-					OR = {
-						target_is_liege_or_above = root
-						is_foreign_court_or_pool_guest_of = root
-						is_pool_character = yes
-					}
+					cpa_can_be_captured = yes
 					is_male = yes
 					NOT = {
 						has_trait = eunuch
@@ -262,11 +258,7 @@ cpa_eunuch.1 = {
 							is_physically_able_adult = yes
 							is_landed = no
 							cpa_is_not_a_candidate = yes
-							OR = {
-								target_is_liege_or_above = root
-								is_foreign_court_or_pool_guest_of = root
-								is_pool_character = yes
-							}
+							cpa_can_be_captured = yes
 							is_male = yes
 							NOT = {
 								has_trait = eunuch
@@ -322,13 +314,9 @@ cpa_eunuch.1 = {
 				is_physically_able_adult = yes
 				is_landed = no
 				cpa_is_not_a_candidate = yes
+				cpa_can_be_captured = yes
 				NOT = {
 					has_trait = eunuch
-				}
-				OR = {
-					target_is_liege_or_above = root
-					is_foreign_court_or_pool_guest_of = root
-					is_pool_character = yes
 				}
 			}
 			add_to_list = rival_candidates
@@ -337,20 +325,6 @@ cpa_eunuch.1 = {
 			list = rival_candidates
 			order_by = chief_eunuch_aptitude
 			save_scope_as = rival_candidate
-		}
-		every_realm_province = {
-			if = {
-				limit = {
-					save_temporary_scope_as = potential_province
-					NOT = {
-						any_in_list = {
-							list = pool_provinces
-							county.duchy = scope:potential_province.county.duchy
-						}
-					}
-				}
-				add_to_temporary_list = pool_provinces
-			}
 		}
 		every_in_list = {
 			list = pool_provinces

@@ -144,3 +144,11 @@ cpa_is_not_a_candidate = {
 		}
 	}
 }
+
+cpa_can_be_captured = {
+	OR = {
+		target_is_liege_or_above = root
+		is_foreign_court_or_pool_guest_of = root
+		is_pool_character = yes
+	}
+}

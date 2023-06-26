@@ -166,6 +166,17 @@ chief_eunuch_title_invalidated_effect = {
 # KEEPER OF SWANS
 keeper_of_swans_title_accepted_effect = {
 	basic_gained_court_position_effect = yes
+	if = {
+		limit = {
+			scope:liege = {
+				is_ai = no
+			}
+		}
+		set_global_variable = {
+			name = keeper_of_swans_auto
+			value = yes
+		}
+	}
 }
 keeper_of_swans_title_revoked_effect = {
 	basic_revoked_court_position_effect = yes

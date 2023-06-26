@@ -71,3 +71,24 @@ chief_eunuch_me_effect = {
 		}
 	}
 }
+
+assign_to_position_effect = {
+	scope:candidate = {
+		if = {
+			limit = {
+				NOT = {
+					liege = root
+				}
+			}
+			root = {
+				add_courtier = scope:candidate
+			}
+		}
+	}
+	root = {
+		appoint_court_position = {
+			recipient = scope:candidate
+			court_position = $POSITION$_court_position
+		}
+	}
+}
