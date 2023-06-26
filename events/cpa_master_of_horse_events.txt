@@ -77,6 +77,7 @@ cpa_master_of_horse.1 = {
 		ordered_vassal = {
 			order_by = max_military_strength
 			limit = {
+				is_unemployed_able_adult = yes
 				opinion = {
 					target = root
 					value < 80
@@ -98,6 +99,7 @@ cpa_master_of_horse.1 = {
 			ordered_vassal = {
 				order_by = max_military_strength
 				limit = {
+					is_unemployed_able_adult = yes
 					opinion = {
 						target = root
 						value < 80

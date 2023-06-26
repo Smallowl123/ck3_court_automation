@@ -1,8 +1,8 @@
-﻿namespace = cpa_keeper_of_swans
+﻿namespace = cpa_master_of_hunt
 
-cpa_keeper_of_swans.1 = {
-	#Keeper_of_swans
-	title = cpa.4.t 
+cpa_master_of_hunt.1 = {
+	#Master of the Horse
+	title = cpa.7.t 
 	desc = cpa.default_event.desc
 	theme = stewardship
 	right_portrait = {
@@ -19,13 +19,22 @@ cpa_keeper_of_swans.1 = {
 						liege = root
 					}
 					cpa_is_not_a_candidate = yes
+					NOR = {
+						has_trait = blind
+						has_trait = infirm
+					}
+					can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+					trigger_if = {
+						limit = { is_clergy = yes }
+						faith = { has_doctrine_parameter = clergy_can_fight }
+					}
 				}
 				add_to_list = close_nepo_candidates
 			}
 		}
 		ordered_in_list = {
 			list = close_nepo_candidates
-			order_by = keeper_of_swans_aptitude
+			order_by = master_of_hunt_aptitude
 			save_scope_as = close_nepo_candidate
 		}
 		every_close_or_extended_family_member = {
@@ -37,13 +46,22 @@ cpa_keeper_of_swans.1 = {
 						liege = root
 					}
 					cpa_is_not_a_candidate = yes
+					NOR = {
+						has_trait = blind
+						has_trait = infirm
+					}
+					can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+					trigger_if = {
+						limit = { is_clergy = yes }
+						faith = { has_doctrine_parameter = clergy_can_fight }
+					}
 				}
 				add_to_list = nepo_candidates
 			}
 		}
 		ordered_in_list = {
 			list = nepo_candidates
-			order_by = keeper_of_swans_aptitude
+			order_by = master_of_hunt_aptitude
 			save_scope_as = nepo_candidate
 		}
 		if = {
@@ -63,6 +81,15 @@ cpa_keeper_of_swans.1 = {
 								liege = root
 							}
 							cpa_is_not_a_candidate = yes
+							NOR = {
+								has_trait = blind
+								has_trait = infirm
+							}
+							can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+							trigger_if = {
+								limit = { is_clergy = yes }
+								faith = { has_doctrine_parameter = clergy_can_fight }
+							}
 						}
 						add_to_list = spouse_nepo_candidates
 					}
@@ -70,7 +97,7 @@ cpa_keeper_of_swans.1 = {
 			}
 			ordered_in_list = {
 				list = spouse_nepo_candidates
-				order_by = keeper_of_swans_aptitude
+				order_by = master_of_hunt_aptitude
 				save_scope_as = spouse_nepo_candidate
 			}
 		}
@@ -86,6 +113,15 @@ cpa_keeper_of_swans.1 = {
 				OR = {
 					is_a_faction_leader = yes
 					is_a_faction_member = yes
+				}
+				NOR = {
+					has_trait = blind
+					has_trait = infirm
+				}
+				can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+				trigger_if = {
+					limit = { is_clergy = yes }
+					faith = { has_doctrine_parameter = clergy_can_fight }
 				}
 			}
 			save_scope_as = vassal
@@ -105,6 +141,15 @@ cpa_keeper_of_swans.1 = {
 						value < 80
 					}
 					is_in_civil_war = no
+					NOR = {
+						has_trait = blind
+						has_trait = infirm
+					}
+					can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+					trigger_if = {
+						limit = { is_clergy = yes }
+						faith = { has_doctrine_parameter = clergy_can_fight }
+					}
 				}
 				save_scope_as = vassal
 			}
@@ -118,12 +163,21 @@ cpa_keeper_of_swans.1 = {
 					liege = root
 				}
 				cpa_is_not_a_candidate = yes
+				NOR = {
+					has_trait = blind
+					has_trait = infirm
+				}
+				can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+				trigger_if = {
+					limit = { is_clergy = yes }
+					faith = { has_doctrine_parameter = clergy_can_fight }
+				}
 			}
 			add_to_list = friend_candidates
 		}
 		ordered_in_list = {
 			list = friend_candidates
-			order_by = keeper_of_swans_aptitude
+			order_by = master_of_hunt_aptitude
 			save_scope_as = friend_candidate
 		}
 		every_relation = {
@@ -135,20 +189,38 @@ cpa_keeper_of_swans.1 = {
 					liege = root
 				}
 				cpa_is_not_a_candidate = yes
+				NOR = {
+					has_trait = blind
+					has_trait = infirm
+				}
+				can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+				trigger_if = {
+					limit = { is_clergy = yes }
+					faith = { has_doctrine_parameter = clergy_can_fight }
+				}
 			}
 			add_to_list = lover_candidates
 		}
 		ordered_in_list = {
 			list = lover_candidates
-			order_by = keeper_of_swans_aptitude
+			order_by = master_of_hunt_aptitude
 			save_scope_as = lover_candidate
 		}
 		ordered_courtier = {
-			order_by = keeper_of_swans_aptitude
+			order_by = master_of_hunt_aptitude
 			limit = {
 				is_unemployed_able_adult = yes
 				is_landed = no
 				cpa_is_not_a_candidate = yes
+				NOR = {
+					has_trait = blind
+					has_trait = infirm
+				}
+				can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+				trigger_if = {
+					limit = { is_clergy = yes }
+					faith = { has_doctrine_parameter = clergy_can_fight }
+				}
 			}
 			save_scope_as = courtier_candidate
 		}
@@ -175,14 +247,23 @@ cpa_keeper_of_swans.1 = {
 					is_unemployed_able_adult = yes
 					is_landed = no
 					cpa_is_not_a_candidate = yes
-					keeper_of_swans_aptitude > 49
+					master_of_hunt_aptitude > 49
+					NOR = {
+						has_trait = blind
+						has_trait = infirm
+					}
+					can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+					trigger_if = {
+						limit = { is_clergy = yes }
+						faith = { has_doctrine_parameter = clergy_can_fight }
+					}
 				}
 				add_to_temporary_list = stranger_candidates
 			}
 		}
 		ordered_in_list = {
 			list = stranger_candidates
-			order_by = keeper_of_swans_aptitude
+			order_by = master_of_hunt_aptitude
 			save_scope_as = stranger_candidate
 		}
 		every_prisoner = {
@@ -192,13 +273,22 @@ cpa_keeper_of_swans.1 = {
 				is_incapable = no
 				is_alive = yes
 				cpa_is_not_a_candidate = yes
-				keeper_of_swans_aptitude > 49
+				master_of_hunt_aptitude > 49
+				NOR = {
+					has_trait = blind
+					has_trait = infirm
+				}
+				can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+				trigger_if = {
+					limit = { is_clergy = yes }
+					faith = { has_doctrine_parameter = clergy_can_fight }
+				}
 			}
 			add_to_temporary_list = prisoner_candidates
 		}
 		ordered_in_list = {
 			list = prisoner_candidates
-			order_by = keeper_of_swans_aptitude
+			order_by = master_of_hunt_aptitude
 			save_scope_as = prisoner_candidate
 		}
 	}
@@ -213,25 +303,25 @@ cpa_keeper_of_swans.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:close_nepo_candidate.keeper_of_swans_aptitude > 79
+							scope:close_nepo_candidate.master_of_hunt_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:close_nepo_candidate.keeper_of_swans_aptitude > 59
+							scope:close_nepo_candidate.master_of_hunt_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:close_nepo_candidate.keeper_of_swans_aptitude > 39
+							scope:close_nepo_candidate.master_of_hunt_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:close_nepo_candidate.keeper_of_swans_aptitude > 19
+							scope:close_nepo_candidate.master_of_hunt_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -242,7 +332,7 @@ cpa_keeper_of_swans.1 = {
 		scope:close_nepo_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "keeper_of_swans"
+				POSITION = "master_of_hunt"
 			}
 		}
 	}
@@ -257,25 +347,25 @@ cpa_keeper_of_swans.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:nepo_candidate.keeper_of_swans_aptitude > 79
+							scope:nepo_candidate.master_of_hunt_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:nepo_candidate.keeper_of_swans_aptitude > 59
+							scope:nepo_candidate.master_of_hunt_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:nepo_candidate.keeper_of_swans_aptitude > 39
+							scope:nepo_candidate.master_of_hunt_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:nepo_candidate.keeper_of_swans_aptitude > 19
+							scope:nepo_candidate.master_of_hunt_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -286,7 +376,7 @@ cpa_keeper_of_swans.1 = {
 		scope:nepo_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "keeper_of_swans"
+				POSITION = "master_of_hunt"
 			}
 		}
 	}
@@ -301,25 +391,25 @@ cpa_keeper_of_swans.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:spouse_nepo_candidate.keeper_of_swans_aptitude > 79
+							scope:spouse_nepo_candidate.master_of_hunt_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:spouse_nepo_candidate.keeper_of_swans_aptitude > 59
+							scope:spouse_nepo_candidate.master_of_hunt_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:spouse_nepo_candidate.keeper_of_swans_aptitude > 39
+							scope:spouse_nepo_candidate.master_of_hunt_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:spouse_nepo_candidate.keeper_of_swans_aptitude > 19
+							scope:spouse_nepo_candidate.master_of_hunt_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -330,7 +420,7 @@ cpa_keeper_of_swans.1 = {
 		scope:spouse_nepo_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "keeper_of_swans"
+				POSITION = "master_of_hunt"
 			}
 		}
 		scope:spouse = {
@@ -351,25 +441,25 @@ cpa_keeper_of_swans.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:vassal.keeper_of_swans_aptitude > 79
+							scope:vassal.master_of_hunt_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:vassal.keeper_of_swans_aptitude > 59
+							scope:vassal.master_of_hunt_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:vassal.keeper_of_swans_aptitude > 39
+							scope:vassal.master_of_hunt_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:vassal.keeper_of_swans_aptitude > 19
+							scope:vassal.master_of_hunt_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -380,7 +470,7 @@ cpa_keeper_of_swans.1 = {
 		scope:vassal = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "keeper_of_swans"
+				POSITION = "master_of_hunt"
 			}
 		}
 	}
@@ -394,25 +484,25 @@ cpa_keeper_of_swans.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:friend_candidate.keeper_of_swans_aptitude > 79
+							scope:friend_candidate.master_of_hunt_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:friend_candidate.keeper_of_swans_aptitude > 59
+							scope:friend_candidate.master_of_hunt_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:friend_candidate.keeper_of_swans_aptitude > 39
+							scope:friend_candidate.master_of_hunt_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:friend_candidate.keeper_of_swans_aptitude > 19
+							scope:friend_candidate.master_of_hunt_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -423,7 +513,7 @@ cpa_keeper_of_swans.1 = {
 		scope:friend_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "keeper_of_swans"
+				POSITION = "master_of_hunt"
 			}
 		}
 	}
@@ -437,25 +527,25 @@ cpa_keeper_of_swans.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:lover_candidate.keeper_of_swans_aptitude > 79
+							scope:lover_candidate.master_of_hunt_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:lover_candidate.keeper_of_swans_aptitude > 59
+							scope:lover_candidate.master_of_hunt_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:lover_candidate.keeper_of_swans_aptitude > 39
+							scope:lover_candidate.master_of_hunt_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:lover_candidate.keeper_of_swans_aptitude > 19
+							scope:lover_candidate.master_of_hunt_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -466,7 +556,7 @@ cpa_keeper_of_swans.1 = {
 		scope:lover_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "keeper_of_swans"
+				POSITION = "master_of_hunt"
 			}
 		}
 	}
@@ -480,25 +570,25 @@ cpa_keeper_of_swans.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:courtier_candidate.keeper_of_swans_aptitude > 79
+							scope:courtier_candidate.master_of_hunt_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:courtier_candidate.keeper_of_swans_aptitude > 59
+							scope:courtier_candidate.master_of_hunt_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:courtier_candidate.keeper_of_swans_aptitude > 39
+							scope:courtier_candidate.master_of_hunt_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:courtier_candidate.keeper_of_swans_aptitude > 19
+							scope:courtier_candidate.master_of_hunt_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -508,7 +598,7 @@ cpa_keeper_of_swans.1 = {
 		}
 		appoint_court_position = {
 			recipient = scope:courtier_candidate
-			court_position = keeper_of_swans_court_position
+			court_position = master_of_hunt_court_position
 		}
 	}
 	option = {
@@ -521,25 +611,25 @@ cpa_keeper_of_swans.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:stranger_candidate.keeper_of_swans_aptitude > 79
+							scope:stranger_candidate.master_of_hunt_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:stranger_candidate.keeper_of_swans_aptitude > 59
+							scope:stranger_candidate.master_of_hunt_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:stranger_candidate.keeper_of_swans_aptitude > 39
+							scope:stranger_candidate.master_of_hunt_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:stranger_candidate.keeper_of_swans_aptitude > 19
+							scope:stranger_candidate.master_of_hunt_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -550,7 +640,7 @@ cpa_keeper_of_swans.1 = {
 		scope:stranger_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "keeper_of_swans"
+				POSITION = "master_of_hunt"
 			}
 		} 
 	}
@@ -564,25 +654,25 @@ cpa_keeper_of_swans.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:prisoner_candidate.keeper_of_swans_aptitude > 79
+							scope:prisoner_candidate.master_of_hunt_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:prisoner_candidate.keeper_of_swans_aptitude > 59
+							scope:prisoner_candidate.master_of_hunt_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:prisoner_candidate.keeper_of_swans_aptitude > 39
+							scope:prisoner_candidate.master_of_hunt_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:prisoner_candidate.keeper_of_swans_aptitude > 19
+							scope:prisoner_candidate.master_of_hunt_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -631,7 +721,7 @@ cpa_keeper_of_swans.1 = {
 		}
 		appoint_court_position = {
 			recipient = scope:prisoner_candidate
-			court_position = keeper_of_swans_court_position
+			court_position = master_of_hunt_court_position
 		}
 	}
 	option = {
@@ -640,7 +730,7 @@ cpa_keeper_of_swans.1 = {
 			desc = cpa.not_hire_flavor
 		}
 		hidden_effect = {
-			remove_global_variable = keeper_of_swans_auto
+			remove_global_variable = master_of_hunt_auto
 		}
 	}
 }
