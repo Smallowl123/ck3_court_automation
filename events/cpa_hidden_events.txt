@@ -103,15 +103,33 @@ cpa.1 = {
 		if = {
 			limit = {
 				NOR = {
-					employs_court_position = court_jester_court_position
+					employs_court_position = master_of_hunt_court_position
 					any_court_position_holder = {
-						type = court_jester_court_position
+						type = master_of_hunt_court_position
 					}
 					has_global_variable = cpa_event_been_triggered
 				}
 				has_global_variable = master_of_hunt_auto
 			}
 			trigger_event = cpa_master_of_hunt.1
+			set_global_variable = {
+				name = cpa_event_been_triggered
+				value = yes
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					employs_court_position = high_almoner_court_position
+					any_court_position_holder = {
+						type = high_almoner_court_position
+					}
+					has_global_variable = cpa_event_been_triggered
+				}
+				has_global_variable = high_almoner_auto
+				highest_held_title_tier >= tier_kingdom
+			}
+			trigger_event = cpa_high_almoner.1
 			set_global_variable = {
 				name = cpa_event_been_triggered
 				value = yes

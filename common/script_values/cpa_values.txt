@@ -350,3 +350,78 @@ master_of_hunt_aptitude = {
 		add = court_position_aptitude_family_business_value
 		add = court_position_aptitude_high_penalty_value
 }
+high_almoner_aptitude = {
+	value = 1
+		add = {
+			value = learning
+			multiply = 2.5
+			max = 50
+			desc = court_position_skill_learning
+		}
+		if = {
+			limit = {
+				is_clergy = yes
+			}
+			add = {
+				value = 20
+				desc = court_position_clergy_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = generous
+			}
+			add = {
+				value = 20
+				desc = court_position_generous_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = compassionate
+			}
+			add = {
+				value = 20
+				desc = court_position_compassionate_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = greedy
+			}
+			add = {
+				value = -10
+				desc = court_position_greedy_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = profligate
+			}
+			add = {
+				value = -10
+				desc = court_position_profligate_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = avaricious
+			}
+			add = {
+				value = -10
+				desc = court_position_avaricious_trait
+			}
+		}
+		if = {
+			limit = {
+				has_trait = devoted
+				culture = { has_cultural_parameter = devoted_trait_bonuses }
+			}
+			add = {
+				value = 20
+				desc = tradition_monastic_communities_name
+			}
+		}
+		add = court_position_aptitude_family_business_value
+		add = court_position_aptitude_low_penalty_value
+}
