@@ -188,6 +188,17 @@ keeper_of_swans_title_invalidated_effect = {
 # MASTER OF THE HORSE
 master_of_horse_title_accepted_effect = {
 	basic_gained_court_position_effect = yes
+	if = {
+		limit = {
+			scope:liege = {
+				is_ai = no
+			}
+		}
+		set_global_variable = {
+			name = master_of_horse_auto
+			value = yes
+		}
+	}
 }
 master_of_horse_title_revoked_effect = {
 	basic_revoked_court_position_effect = yes

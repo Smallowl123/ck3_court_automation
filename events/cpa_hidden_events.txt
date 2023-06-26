@@ -47,7 +47,20 @@ cpa.1 = {
 				has_title = title:k_england
 				has_global_variable = keeper_of_swans_auto
 			}
-			trigger_event = cpa_keeper_swans.1
+			trigger_event = cpa_keeper_of_swans.1
+		}
+		if = {
+			limit = {
+				NOR = {
+					employs_court_position = master_of_horse_court_position
+					any_court_position_holder = {
+						type = master_of_horse_court_position
+					}
+				}
+				highest_held_title_tier >= tier_kingdom
+				has_global_variable = master_of_horse_auto
+			}
+			trigger_event = cpa_master_of_horse.1
 		}
 	}
 }
