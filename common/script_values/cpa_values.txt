@@ -1098,3 +1098,39 @@ lady_in_waiting_aptitude = {
 	add = court_position_aptitude_family_business_value
 	add = court_position_aptitude_low_penalty_value
 }
+
+executioner_aptitude = {
+	value = 1
+	add = {
+		value = intrigue
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_intrigue
+	}
+	add = {
+		value = prowess
+		multiply = 2
+		max = 50
+		desc = court_position_skill_prowess
+	}
+	if = {
+		limit = {
+			has_trait = torturer
+		}
+		add = {
+			value = 25
+			desc = court_position_torturer_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = sadistic
+		}
+		add = {
+			value = 20
+			desc = court_position_sadistic_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_high_penalty_value
+}

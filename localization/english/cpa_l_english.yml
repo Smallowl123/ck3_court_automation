@@ -18,6 +18,7 @@
  cpa.17.t:0 "Open for hiring: Court Musician"
  cpa.18.t:0 "Open for hiring: Food Taster"
  cpa.19.t:0 "Open for hiring: Lady-in-Waiting"
+ cpa.20.t:0 "Open for hiring: Executioner"
 
 #Event descs
  cpa.default_event.desc:0 "Who will you choose?"
@@ -45,6 +46,8 @@
  cpa.jester_vassal_name.desc:0 "[vassal.GetTitledFirstName] been fooling around long enough to secure the job"
  cpa.jester_rival_name.desc:0 "Oh, I know one fool!"
  cpa.bishop_almoner.desc:0 "Taking care of poor is a job for my [ROOT.Char.GetCouncillorPosition('councillor_court_chaplain').GetPositionName]"
+ cpa.executioner_nepo_name.desc:0 "My [ROOT.GetCharacter.Custom2('RelationToMeShort', nepo_candidate )] [nepo_candidate.GetFirstName] will do it."
+ cpa.executioner_courtier_name.desc:0 "[courtier_candidate.GetFullName] knows what to do."
 
 #Aptitudes
  cpa.excellent.desc:0 "Aptitude will be #P excellent!#!"
