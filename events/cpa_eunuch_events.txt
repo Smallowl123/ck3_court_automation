@@ -553,7 +553,7 @@ cpa_eunuch.1 = {
 		scope:spouse = {
 			add_opinion = {
 				target = root
-				modifier = grateful_opinion
+				modifier = friendliness_opinion
 				opinion = 20
 			}
 		}
@@ -614,7 +614,7 @@ cpa_eunuch.1 = {
 		scope:vassal = {
 			add_opinion = {
 				target = root
-				modifier = grateful_opinion
+				modifier = friendliness_opinion
 				opinion = 20
 			}
 		}

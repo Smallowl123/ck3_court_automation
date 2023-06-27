@@ -336,7 +336,7 @@ cpa_keeper_of_swans.1 = {
 		scope:spouse = {
 			add_opinion = {
 				target = root
-				modifier = grateful_opinion
+				modifier = friendliness_opinion
 				opinion = 20
 			}
 		}

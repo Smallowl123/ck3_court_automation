@@ -355,7 +355,7 @@ cpa_physician.1 = {
 		scope:spouse = {
 			add_opinion = {
 				target = root
-				modifier = grateful_opinion
+				modifier = friendliness_opinion
 				opinion = 20
 			}
 		}
@@ -405,7 +405,7 @@ cpa_physician.1 = {
 		scope:vassal = {
 			add_opinion = {
 				target = root
-				modifier = grateful_opinion
+				modifier = friendliness_opinion
 				opinion = 20
 			}
 		}

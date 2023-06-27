@@ -336,7 +336,7 @@ cpa_royal_architect.1 = {
 		scope:spouse = {
 			add_opinion = {
 				target = root
-				modifier = grateful_opinion
+				modifier = friendliness_opinion
 				opinion = 20
 			}
 		}
