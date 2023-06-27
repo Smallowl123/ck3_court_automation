@@ -247,6 +247,21 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Food Taster
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = cpa_event_been_triggered
+				}
+				can_employ_court_position_type = food_taster_court_position
+				has_global_variable = food_taster_auto
+			}
+			trigger_event = cpa_food_taster.1
+			set_global_variable = {
+				name = cpa_event_been_triggered
+				value = yes
+			}
+		}
 		
 	}
 }

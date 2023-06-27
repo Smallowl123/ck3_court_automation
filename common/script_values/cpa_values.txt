@@ -1009,3 +1009,62 @@ court_musician_aptitude = {
 	add = court_position_aptitude_family_business_value
 	add = court_position_aptitude_low_penalty_value
 }
+
+food_taster_aptitude = {
+	value = 10
+	add = {
+		value = intrigue
+		multiply = 3
+		max = 50
+		desc = court_position_skill_intrigue
+	}
+	if = {
+		limit = {
+			has_trait = gluttonous
+		}
+		add = {
+			value = 25
+			desc = court_position_gluttonous_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = comfort_eater
+		}
+		add = {
+			value = 15
+			desc = court_position_comfort_eater_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_herbalist
+		}
+		add = {
+			value = 15
+			desc = court_position_herbalist_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = inappetetic
+		}
+		add = {
+			value = -50
+			desc = court_position_inappetetic_trait
+		}
+	}
+	if = {
+		limit = {
+			culture = {
+				has_cultural_parameter = characters_are_better_food_tasters
+			}
+		}
+		add = {
+			value = 20
+			desc = court_position_tradition_culinary_art
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
