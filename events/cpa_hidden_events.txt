@@ -292,5 +292,21 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Garuda
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = cpa_event_been_triggered
+				}
+				can_employ_court_position_type = garuda_court_position
+				has_global_variable = garuda_auto
+			}
+			trigger_event = cpa_garuda.1
+			set_global_variable = {
+				name = cpa_event_been_triggered
+				value = yes
+			}
+		}
+		
 	}
 }
