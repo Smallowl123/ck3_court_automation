@@ -698,3 +698,42 @@ royal_architect_aptitude = {
 	add = court_position_aptitude_family_business_value
 	add = court_position_aptitude_low_penalty_value
 }
+
+court_poet_aptitude = {
+	value = 25
+	add = {
+		value = diplomacy
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_diplomacy
+	}
+	add = {
+		value = learning
+		multiply = 1
+		max = 50
+		desc = court_position_skill_learning
+	}
+	if = {
+		limit = {
+			has_trait = gregarious
+		}
+		add = {
+			value = 15
+			desc = court_position_gregarious_trait
+		}
+	}
+	if = {
+		#Cultural Tradition that improves the aptitude of characters of that culture
+		limit = {
+			culture = {
+				has_cultural_parameter = characters_are_better_court_poets
+			}
+		}
+		add = {
+			value = 20
+			desc = court_position_tradition_poetry
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}

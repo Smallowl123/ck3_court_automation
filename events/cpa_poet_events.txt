@@ -1,7 +1,7 @@
-﻿namespace = cpa_court_jester
-cpa_court_jester.1 = {
-	#Jester
-	title = cpa.6.t
+﻿namespace = cpa_court_poet
+cpa_court_poet.1 = {
+	#Poet
+	title = cpa.14.t
 	desc = cpa.default_event.desc
 	theme = stewardship
 	right_portrait = {
@@ -13,55 +13,59 @@ cpa_court_jester.1 = {
 			if = {
 				limit = {
 					is_unemployed_able_adult = yes
-					OR = {
-						is_landed = no
-						liege = root
-					}
+					is_landed = no
 					cpa_is_not_a_candidate = yes
-					OR = {
-						root = {
-							opinion = {
-								target = this
-								value <= 0
-							}
-						}
-						is_lowborn = yes
-					}
+					has_trait = poet
 				}
 				add_to_list = close_nepo_candidates
 			}
 		}
 		ordered_in_list = {
 			list = close_nepo_candidates
-			order_by = court_jester_aptitude
+			order_by = court_poet_aptitude
 			save_scope_as = close_nepo_candidate
 		}
 		every_close_or_extended_family_member = {
 			if = {
 				limit = {
 					is_unemployed_able_adult = yes
-					OR = {
-						is_landed = no
-						liege = root
-					}
+					is_landed = no
 					cpa_is_not_a_candidate = yes
-					OR = {
-						root = {
-							opinion = {
-								target = this
-								value <= 0
-							}
-						}
-						is_lowborn = yes
-					}
+					has_trait = poet
 				}
 				add_to_list = nepo_candidates
 			}
 		}
 		ordered_in_list = {
 			list = nepo_candidates
-			order_by = court_jester_aptitude
+			order_by = court_poet_aptitude
 			save_scope_as = nepo_candidate
+		}
+		if = {
+			limit = {
+				exists = root.primary_spouse
+			}
+			root.primary_spouse = {
+				save_scope_as = spouse
+			}
+			scope:spouse = {
+				every_close_or_extended_family_member = {
+					if = {
+						limit = {
+							is_unemployed_able_adult = yes
+							is_landed = no
+							cpa_is_not_a_candidate = yes
+							has_trait = poet
+						}
+						add_to_list = spouse_nepo_candidates
+					}
+				}
+			}
+			ordered_in_list = {
+				list = spouse_nepo_candidates
+				order_by = court_poet_aptitude
+				save_scope_as = spouse_nepo_candidate
+			}
 		}
 		ordered_vassal = {
 			order_by = max_military_strength
@@ -96,57 +100,66 @@ cpa_court_jester.1 = {
 				save_scope_as = vassal
 			}
 		}
+		if = {
+			limit = {
+				exists = scope:vassal
+			}
+			scope:vassal = {
+				every_close_or_extended_family_member = {
+					if = {
+						limit = {
+							is_unemployed_able_adult = yes
+							is_landed = no
+							cpa_is_not_a_candidate = yes
+							has_trait = poet
+						}
+						add_to_list = vassal_nepo_candidates
+					}
+				}
+			}
+			ordered_in_list = {
+				list = vassal_nepo_candidates
+				order_by = court_poet_aptitude
+				save_scope_as = vassal_nepo_candidate
+			}
+		}
 		every_relation = {
 			type = friend
 			limit = {
 				is_unemployed_able_adult = yes
-				OR = {
-					is_landed = no
-					liege = root
-				}
+				is_landed = no
 				cpa_is_not_a_candidate = yes
-				is_lowborn = yes
+				has_trait = poet
 			}
 			add_to_list = friend_candidates
 		}
 		ordered_in_list = {
 			list = friend_candidates
-			order_by = court_jester_aptitude
+			order_by = court_poet_aptitude
 			save_scope_as = friend_candidate
 		}
 		every_relation = {
 			type = lover
 			limit = {
 				is_unemployed_able_adult = yes
-				OR = {
-					is_landed = no
-					liege = root
-				}
+				is_landed = no
 				cpa_is_not_a_candidate = yes
-				is_lowborn = yes
+				has_trait = poet
 			}
 			add_to_list = lover_candidates
 		}
 		ordered_in_list = {
 			list = lover_candidates
-			order_by = court_jester_aptitude
+			order_by = court_poet_aptitude
 			save_scope_as = lover_candidate
 		}
 		ordered_courtier = {
-			order_by = court_jester_aptitude
+			order_by = court_poet_aptitude
 			limit = {
 				is_unemployed_able_adult = yes
 				is_landed = no
 				cpa_is_not_a_candidate = yes
-				OR = {
-					root = {
-						opinion = {
-							target = this
-							value <= 0
-						}
-					}
-					is_lowborn = yes
-				}
+				has_trait = poet
 			}
 			save_scope_as = courtier_candidate
 		}
@@ -173,22 +186,14 @@ cpa_court_jester.1 = {
 					is_unemployed_able_adult = yes
 					is_landed = no
 					cpa_is_not_a_candidate = yes
-					OR = {
-						root = {
-							opinion = {
-								target = this
-								value <= 0
-							}
-						}
-						is_lowborn = yes
-					}
+					has_trait = poet
 				}
 				add_to_temporary_list = stranger_candidates
 			}
 		}
 		ordered_in_list = {
 			list = stranger_candidates
-			order_by = court_jester_aptitude
+			order_by = court_poet_aptitude
 			save_scope_as = stranger_candidate
 		}
 		every_prisoner = {
@@ -198,27 +203,39 @@ cpa_court_jester.1 = {
 				is_incapable = no
 				is_alive = yes
 				cpa_is_not_a_candidate = yes
+				has_trait = poet
 			}
 			add_to_temporary_list = prisoner_candidates
 		}
 		ordered_in_list = {
 			list = prisoner_candidates
-			order_by = court_jester_aptitude
+			order_by = court_poet_aptitude
 			save_scope_as = prisoner_candidate
 		}
-		every_relation = {
-			type = rival
+		if = {
 			limit = {
-				is_physically_able_adult = yes
-				cpa_is_not_a_candidate = yes
-				cpa_can_be_captured = yes
+				NOT = {
+					exists = scope:stranger_candidate
+				}
 			}
-			add_to_list = rival_candidates
-		}
-		ordered_in_list = {
-			list = rival_candidates
-			order_by = court_jester_aptitude
-			save_scope_as = rival_candidate
+			every_in_list = {
+				list = pool_provinces
+				save_temporary_scope_as = pool_province
+				every_pool_character = {
+					province = scope:pool_province
+					limit = {
+						is_unemployed_able_adult = yes
+						is_landed = no
+						cpa_is_not_a_candidate = yes
+					}
+					add_to_temporary_list = stranger_candidates
+				}
+			}
+			ordered_in_list = {
+				list = stranger_candidates
+				order_by = court_poet_aptitude
+				save_scope_as = stranger_candidate
+			}
 		}
 	}
 	option = {
@@ -232,25 +249,25 @@ cpa_court_jester.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:close_nepo_candidate.court_jester_aptitude > 79
+							scope:close_nepo_candidate.court_poet_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:close_nepo_candidate.court_jester_aptitude > 59
+							scope:close_nepo_candidate.court_poet_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:close_nepo_candidate.court_jester_aptitude > 39
+							scope:close_nepo_candidate.court_poet_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:close_nepo_candidate.court_jester_aptitude > 19
+							scope:close_nepo_candidate.court_poet_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -261,7 +278,7 @@ cpa_court_jester.1 = {
 		scope:close_nepo_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "court_jester"
+				POSITION = "court_poet"
 			}
 		}
 	}
@@ -276,25 +293,25 @@ cpa_court_jester.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:nepo_candidate.court_jester_aptitude > 79
+							scope:nepo_candidate.court_poet_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:nepo_candidate.court_jester_aptitude > 59
+							scope:nepo_candidate.court_poet_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:nepo_candidate.court_jester_aptitude > 39
+							scope:nepo_candidate.court_poet_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:nepo_candidate.court_jester_aptitude > 19
+							scope:nepo_candidate.court_poet_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -305,39 +322,40 @@ cpa_court_jester.1 = {
 		scope:nepo_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "court_jester"
+				POSITION = "court_poet"
 			}
 		}
 	}
 	option = {
-		name = cpa.jester_vassal_name.desc		#Vassal 
+		#Spouse family member (if there is such)	
+		name = cpa.default_spouse_nepo_name.desc
 		trigger = {
-			exists = scope:vassal
+			exists = scope:spouse_nepo_candidate
 		}
 		flavor = {
 			desc = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:vassal.court_jester_aptitude > 79
+							scope:spouse_nepo_candidate.court_poet_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:vassal.court_jester_aptitude > 59
+							scope:spouse_nepo_candidate.court_poet_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:vassal.court_jester_aptitude > 39
+							scope:spouse_nepo_candidate.court_poet_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:vassal.court_jester_aptitude > 19
+							scope:spouse_nepo_candidate.court_poet_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -345,10 +363,67 @@ cpa_court_jester.1 = {
 				}
 			}
 		}
-		scope:vassal = {
+		scope:spouse_nepo_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "court_jester"
+				POSITION = "court_poet"
+			}
+		}
+		scope:spouse = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 20
+			}
+		}
+	}
+	option = {
+		name = cpa.default_vassal_nepo_name.desc		#Vassal family member (if there is such)
+		trigger = {
+			exists = scope:vassal_nepo_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:vassal_nepo_candidate.court_poet_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:vassal_nepo_candidate.court_poet_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:vassal_nepo_candidate.court_poet_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:vassal_nepo_candidate.court_poet_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+			}
+		}
+		scope:vassal_nepo_candidate = {
+			save_scope_as = candidate
+			assign_to_position_effect = {
+				POSITION = "court_poet"
+			}
+		}
+		scope:vassal = {
+			add_opinion = {
+				target = root
+				modifier = grateful_opinion
+				opinion = 20
 			}
 		}
 	}
@@ -362,25 +437,25 @@ cpa_court_jester.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:friend_candidate.court_jester_aptitude > 79
+							scope:friend_candidate.court_poet_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:friend_candidate.court_jester_aptitude > 59
+							scope:friend_candidate.court_poet_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:friend_candidate.court_jester_aptitude > 39
+							scope:friend_candidate.court_poet_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:friend_candidate.court_jester_aptitude > 19
+							scope:friend_candidate.court_poet_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -391,7 +466,7 @@ cpa_court_jester.1 = {
 		scope:friend_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "court_jester"
+				POSITION = "court_poet"
 			}
 		}
 	}
@@ -405,25 +480,25 @@ cpa_court_jester.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:lover_candidate.court_jester_aptitude > 79
+							scope:lover_candidate.court_poet_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:lover_candidate.court_jester_aptitude > 59
+							scope:lover_candidate.court_poet_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:lover_candidate.court_jester_aptitude > 39
+							scope:lover_candidate.court_poet_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:lover_candidate.court_jester_aptitude > 19
+							scope:lover_candidate.court_poet_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -434,7 +509,7 @@ cpa_court_jester.1 = {
 		scope:lover_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "court_jester"
+				POSITION = "court_poet"
 			}
 		}
 	}
@@ -448,25 +523,25 @@ cpa_court_jester.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:courtier_candidate.court_jester_aptitude > 79
+							scope:courtier_candidate.court_poet_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:courtier_candidate.court_jester_aptitude > 59
+							scope:courtier_candidate.court_poet_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:courtier_candidate.court_jester_aptitude > 39
+							scope:courtier_candidate.court_poet_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:courtier_candidate.court_jester_aptitude > 19
+							scope:courtier_candidate.court_poet_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -476,7 +551,7 @@ cpa_court_jester.1 = {
 		}
 		appoint_court_position = {
 			recipient = scope:courtier_candidate
-			court_position = court_jester_court_position
+			court_position = court_poet_court_position
 		}
 	}
 	option = {
@@ -489,25 +564,25 @@ cpa_court_jester.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:stranger_candidate.court_jester_aptitude > 79
+							scope:stranger_candidate.court_poet_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:stranger_candidate.court_jester_aptitude > 59
+							scope:stranger_candidate.court_poet_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:stranger_candidate.court_jester_aptitude > 39
+							scope:stranger_candidate.court_poet_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:stranger_candidate.court_jester_aptitude > 19
+							scope:stranger_candidate.court_poet_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -518,61 +593,17 @@ cpa_court_jester.1 = {
 		scope:stranger_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "court_jester"
-			}
-		}
-	}
-	option = {
-		name = cpa.jester_rival_name.desc		#Hire a rival
-		trigger = {
-			exists = scope:rival_candidate
-		}
-		flavor = {
-			desc = {
-				first_valid = {
-					triggered_desc = {
-						trigger = {
-							scope:rival_candidate.court_jester_aptitude > 79
-						}
-						desc = cpa.excellent.desc
-					}
-					triggered_desc = {
-						trigger = {
-							scope:rival_candidate.court_jester_aptitude > 59
-						}
-						desc = cpa.good.desc
-					}
-					triggered_desc = {
-						trigger = {
-							scope:rival_candidate.court_jester_aptitude > 39
-						}
-						desc = cpa.average.desc
-					}
-					triggered_desc = {
-						trigger = {
-							scope:rival_candidate.court_jester_aptitude > 19
-						}
-						desc = cpa.poor.desc
-					}
-					desc = cpa.terrible.desc
-				}
-			}
-		}
-		scope:rival_candidate = {
-			save_scope_as = candidate
-			assign_to_position_effect = {
-				POSITION = "court_jester"
+				POSITION = "court_poet"
 			}
 			if = {
 				limit = {
-					NOR = {
-						is_imprisoned_by = root
-						liege = root
+					NOT = {
+						has_trait = poet
 					}
 				}
-				imprison_tyranny_effect = yes
+				add_trait = poet
 			}
-		}
+		} 
 	}
 	option = {
 		name = cpa.default_prisoner_name.desc		#Hire a skilled prisoner (if there is such)
@@ -584,25 +615,25 @@ cpa_court_jester.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:prisoner_candidate.court_jester_aptitude > 79
+							scope:prisoner_candidate.court_poet_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:prisoner_candidate.court_jester_aptitude > 59
+							scope:prisoner_candidate.court_poet_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:prisoner_candidate.court_jester_aptitude > 39
+							scope:prisoner_candidate.court_poet_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:prisoner_candidate.court_jester_aptitude > 19
+							scope:prisoner_candidate.court_poet_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -651,7 +682,7 @@ cpa_court_jester.1 = {
 		}
 		appoint_court_position = {
 			recipient = scope:prisoner_candidate
-			court_position = court_jester_court_position
+			court_position = court_poet_court_position
 		}
 	}
 	option = {
@@ -660,7 +691,7 @@ cpa_court_jester.1 = {
 			desc = cpa.not_hire_flavor
 		}
 		hidden_effect = {
-			remove_global_variable = court_jester_auto
+			remove_global_variable = court_poet_auto
 		}
 	}
 }

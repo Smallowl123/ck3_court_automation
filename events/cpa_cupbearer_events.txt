@@ -119,21 +119,6 @@ cpa_cupbearer.1 = {
 				save_scope_as = vassal_nepo_candidate
 			}
 		}
-		if = {
-			limit = {
-				exists = cp:councillor_court_chaplain
-			}
-			if = {
-				limit = {
-					cp:councillor_court_chaplain = {
-						is_landed = no
-					}
-				}
-				cp:councillor_court_chaplain = {
-					save_scope_as = bishop_candidate
-				}
-			}
-		}
 		every_relation = {
 			type = friend
 			limit = {
