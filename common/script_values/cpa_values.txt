@@ -1234,3 +1234,327 @@ court_gardener_aptitude = {
 	}
 	add = court_position_aptitude_family_business_value
 }
+
+travel_leader_aptitude = {
+	value = 1
+	add = {
+		value = learning
+		multiply = 1
+		max = 50
+		desc = court_position_skill_learning
+	}
+	add = {
+		value = stewardship
+		multiply = 1.3
+		max = 50
+		desc = court_position_skill_stewardship
+	}
+	if = {
+		limit = {
+			num_of_known_languages >= 2
+		}
+		add = {
+			value = num_of_known_languages
+			subtract = 1
+			multiply = 5
+			max = 50
+			desc = court_position_languages
+		}
+	}
+	# SPEED 
+	add = {
+		value = travel_leader_speed
+		multiply = 1.8
+		subtract = 10
+		min = 0
+		desc = court_position_speed
+	}
+	# SAFETY 
+	add = {
+		value = travel_leader_safety
+		multiply = 1.8
+		subtract = 10
+		min = 0
+		desc = court_position_safety
+	}
+	# POSITIVES
+	if = {
+		limit = {
+			has_trait = adventurer
+		}
+		add = {
+			value = 10
+			desc = court_position_adventurer_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = brave
+		}
+		add = {
+			value = 5
+			desc = court_position_brave_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_herbalist
+		}
+		add = {
+			value = 5
+			desc = court_position_herbalist_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_hunter
+		}
+		add = {
+			value = 5
+			desc = court_position_hunter_1_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = diligent
+		}
+		add = {
+			value = 5
+			desc = court_position_diligent_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = flexible_leader
+		}
+		add = {
+			value = 10
+			desc = court_position_flexible_leader_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = forest_fighter
+		}
+		add = {
+			value = 10
+			desc = court_position_forest_fighter_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = open_terrain_expert
+		}
+		add = {
+			value = 10
+			desc = court_position_open_terrain_expert_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = rough_terrain_expert
+		}
+		add = {
+			value = 10
+			desc = court_position_rough_terrain_expert_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = desert_warrior
+		}
+		add = {
+			value = 10
+			desc = court_position_desert_warrior_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = jungle_stalker
+		}
+		add = {
+			value = 10
+			desc = court_position_jungle_stalker_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = winter_soldier
+		}
+		add = {
+			value = 10
+			desc = court_position_winter_soldier_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = administrator
+		}
+		add = {
+			value = 5
+			desc = court_position_administrator_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = scholar
+		}
+		add = {
+			value = 5
+			desc = court_position_scholar_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_physician
+		}
+		add = {
+			value = 5
+			desc = court_position_physician_1_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait_xp = {
+				trait = lifestyle_traveler
+				track = travel
+				value >= 75
+			}
+		}
+		add = {
+			value = 40
+			desc = court_position_traveler_trait_experienced
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait_xp = {
+				trait = lifestyle_traveler
+				track = danger
+				value >= 75
+			}
+		}
+		add = {
+			value = 40
+			desc = court_position_traveler_trait_experienced_danger
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait_xp = {
+				trait = lifestyle_traveler
+				track = travel
+				value >= 50
+			}
+		}
+		add = {
+			value = 30
+			desc = court_position_traveler_trait_experienced
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait_xp = {
+				trait = lifestyle_traveler
+				track = danger
+				value >= 50
+			}
+		}
+		add = {
+			value = 30
+			desc = court_position_traveler_trait_experienced_danger
+		}
+	}
+	else = {
+		limit = {
+			has_trait = lifestyle_traveler
+		}
+		add = {
+			value = 20
+			desc = court_position_traveler_trait
+		}
+	}
+	if = {
+		limit = {
+			has_character_modifier = ep2_beastmaster_modifier
+		}
+		add = {
+			value = 30
+			desc = court_position_beastmaster_modifier
+		}
+	}
+	# NEGATIVES
+	if = {
+		limit = {
+			has_trait = craven
+		}
+		add = {
+			value = -20
+			desc = court_position_craven_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lazy
+		}
+		add = {
+			value = -10
+			desc = court_position_lazy_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = clubfooted
+		}
+		add = {
+			value = -30
+			desc = court_position_clubfooted_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = blind
+		}
+		add = {
+			value = -50
+			desc = court_position_blind_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = incapable
+		}
+		multiply = {
+			value = 0
+			desc = court_position_incapable_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = infirm
+		}
+		add = {
+			value = -50
+			desc = court_position_infirm_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = maimed
+		}
+		add = {
+			value = -30
+			desc = court_position_maimed_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_reveler
+		}
+		add = {
+			value = -5
+			desc = court_position_reveler_1_trait
+		}
+	}
+	min = 0
+}
