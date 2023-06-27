@@ -1186,3 +1186,51 @@ garuda_aptitude = {
 	add = court_position_aptitude_family_business_value
 	add = court_position_aptitude_high_penalty_value
 }
+
+court_gardener_aptitude = {
+	value = 1
+	add = {
+		value = stewardship
+		multiply = 2.5
+		max = 60
+		desc = court_position_skill_stewardship
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_gardener
+		}
+		add = {
+			value = 20
+			desc = court_position_gardener_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_herbalist
+		}
+		add = {
+			value = 10
+			desc = court_position_herbalist_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = patient
+		}
+		add = {
+			value = 10
+			desc = court_position_patient_trait
+		}
+	}
+	if = {
+		# Architect gives a tiny bonus, since building stuff is also a part of gardening
+		limit = {
+			has_trait = architect
+		}
+		add = {
+			value = 5
+			desc = court_position_architect_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+}
