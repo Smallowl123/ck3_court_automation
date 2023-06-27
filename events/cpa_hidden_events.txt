@@ -7,15 +7,13 @@ cpa.1 = {
 	}
 	immediate = {
 		remove_global_variable = cpa_event_been_triggered
+		#Court Physician
 		if = {
 			limit = {
-				NOR = {
-					employs_court_position = court_physician_court_position
-					any_court_position_holder = {
-						type = court_physician_court_position
-					}
+				NOT = {
 					has_global_variable = cpa_event_been_triggered
 				}
+				can_employ_court_position_type = court_physician_court_position
 				has_global_variable = court_physician_auto
 			}
 			trigger_event = cpa_physician.1
@@ -24,20 +22,13 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Chief Eunuch
 		if = {
 			limit = {
-				NOR = {
-					employs_court_position = chief_eunuch_court_position
-					any_court_position_holder = {
-						type = chief_eunuch_court_position
-					}
+				NOT = {
 					has_global_variable = cpa_event_been_triggered
 				}
-				culture = {
-					# Culture that has eunuchs
-					has_cultural_parameter = can_appoint_chief_eunuch
-				}
-				highest_held_title_tier >= tier_kingdom
+				can_employ_court_position_type = chief_eunuch_court_position
 				has_global_variable = chief_eunuch_auto
 			}
 			trigger_event = cpa_eunuch.1
@@ -46,16 +37,13 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Keeper of Swans
 		if = {
 			limit = {
-				NOR = {
-					employs_court_position = keeper_of_swans_court_position
-					any_court_position_holder = {
-						type = keeper_of_swans_court_position
-					}
+				NOT = {
 					has_global_variable = cpa_event_been_triggered
 				}
-				has_title = title:k_england
+				can_employ_court_position_type = keeper_of_swans_court_position
 				has_global_variable = keeper_of_swans_auto
 			}
 			trigger_event = cpa_keeper_of_swans.1
@@ -64,16 +52,13 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Master of Horse
 		if = {
 			limit = {
-				NOR = {
-					employs_court_position = master_of_horse_court_position
-					any_court_position_holder = {
-						type = master_of_horse_court_position
-					}
+				NOT = {
 					has_global_variable = cpa_event_been_triggered
 				}
-				highest_held_title_tier >= tier_kingdom
+				can_employ_court_position_type = master_of_horse_court_position
 				has_global_variable = master_of_horse_auto
 			}
 			trigger_event = cpa_master_of_horse.1
@@ -82,16 +67,13 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Court Jester
 		if = {
 			limit = {
-				NOR = {
-					employs_court_position = court_jester_court_position
-					any_court_position_holder = {
-						type = court_jester_court_position
-					}
+				NOT = {
 					has_global_variable = cpa_event_been_triggered
 				}
-				highest_held_title_tier >= tier_duchy
+				can_employ_court_position_type = court_jester_court_position
 				has_global_variable = court_jester_auto
 			}
 			trigger_event = cpa_court_jester.1
@@ -100,15 +82,13 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Master of Hunt
 		if = {
 			limit = {
-				NOR = {
-					employs_court_position = master_of_hunt_court_position
-					any_court_position_holder = {
-						type = master_of_hunt_court_position
-					}
+				NOT = {
 					has_global_variable = cpa_event_been_triggered
 				}
+				can_employ_court_position_type = master_of_hunt_court_position
 				has_global_variable = master_of_hunt_auto
 			}
 			trigger_event = cpa_master_of_hunt.1
@@ -117,17 +97,14 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#High Almoner
 		if = {
 			limit = {
-				NOR = {
-					employs_court_position = high_almoner_court_position
-					any_court_position_holder = {
-						type = high_almoner_court_position
-					}
+				NOT = {
 					has_global_variable = cpa_event_been_triggered
 				}
+				can_employ_court_position_type = high_almoner_court_position
 				has_global_variable = high_almoner_auto
-				highest_held_title_tier >= tier_kingdom
 			}
 			trigger_event = cpa_high_almoner.1
 			set_global_variable = {
@@ -135,17 +112,14 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Cup-Bearer
 		if = {
 			limit = {
-				NOR = {
-					employs_court_position = cupbearer_court_position
-					any_court_position_holder = {
-						type = cupbearer_court_position
-					}
+				NOT = {
 					has_global_variable = cpa_event_been_triggered
 				}
+				can_employ_court_position_type = cupbearer_court_position
 				has_global_variable = cupbearer_auto
-				highest_held_title_tier >= tier_kingdom
 			}
 			trigger_event = cpa_cupbearer.1
 			set_global_variable = {
@@ -153,15 +127,13 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Seneschal
 		if = {
 			limit = {
-				NOR = {
-					employs_court_position = seneschal_court_position
-					any_court_position_holder = {
-						type = seneschal_court_position
-					}
+				NOT = {
 					has_global_variable = cpa_event_been_triggered
 				}
+				can_employ_court_position_type = seneschal_court_position
 				has_global_variable = seneschal_auto
 			}
 			trigger_event = cpa_seneschal.1
@@ -170,15 +142,13 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Antiquarian
 		if = {
 			limit = {
-				NOR = {
-					employs_court_position = antiquarian_court_position
-					any_court_position_holder = {
-						type = antiquarian_court_position
-					}
+				NOT = {
 					has_global_variable = cpa_event_been_triggered
 				}
+				can_employ_court_position_type = antiquarian_court_position
 				has_global_variable = antiquarian_auto
 			}
 			trigger_event = cpa_antiquarian.1
@@ -187,15 +157,13 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Court Tutor
 		if = {
 			limit = {
-				NOR = {
-					employs_court_position = court_tutor_court_position
-					any_court_position_holder = {
-						type = court_tutor_court_position
-					}
+				NOT = {
 					has_global_variable = cpa_event_been_triggered
 				}
+				can_employ_court_position_type = court_tutor_court_position
 				has_global_variable = court_tutor_auto
 			}
 			trigger_event = cpa_court_tutor.1
@@ -204,17 +172,14 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Royal Architect
 		if = {
 			limit = {
-				NOR = {
-					employs_court_position = royal_architect_court_position
-					any_court_position_holder = {
-						type = royal_architect_court_position
-					}
+				NOT = {
 					has_global_variable = cpa_event_been_triggered
 				}
+				can_employ_court_position_type = royal_architect_court_position
 				has_global_variable = royal_architect_auto
-				highest_held_title_tier >= tier_kingdom
 			}
 			trigger_event = cpa_royal_architect.1
 			set_global_variable = {
@@ -222,17 +187,14 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Court Poet
 		if = {
 			limit = {
-				NOR = {
-					employs_court_position = court_poet_court_position
-					any_court_position_holder = {
-						type = court_poet_court_position
-					}
+				NOT = {
 					has_global_variable = cpa_event_been_triggered
 				}
+				can_employ_court_position_type = court_poet_court_position
 				has_global_variable = court_poet_auto
-				highest_held_title_tier >= tier_kingdom
 			}
 			trigger_event = cpa_court_poet.1
 			set_global_variable = {
@@ -240,6 +202,7 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Bodyguard (who fights like a crow)
 		if = {
 			limit = {
 				NOT = {
