@@ -614,6 +614,21 @@ court_travel_leader_title_invalidated_effect = {
 	basic_invalidated_court_position_effect = yes
 }
 
+# CHIEF QADI
+chief_qadi_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+}
+
+# CULTURAL EMISSARY
+cultural_emissary_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+}
+
+# COURT ARTIFICER
+court_artificer_title_accepted_effect = {
+	basic_gained_court_position_effect = yes
+}
+
 court_position_old_holder_effect = { # Save existing holder if relevant
 	$EMPLOYER$ = {
 		if = {
