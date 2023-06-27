@@ -829,3 +829,131 @@ bodyguard_aptitude = {
 	add = court_position_aptitude_family_business_value
 	add = court_position_aptitude_high_penalty_value
 }
+
+champion_aptitude = {
+	value = 1
+	add = {
+		value = prowess
+		multiply = 4
+		max = 50
+		desc = court_position_skill_prowess
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_blademaster
+			has_trait_xp = {
+				trait = lifestyle_blademaster
+				value >= 100
+			}
+		}
+		add = {
+			value = 30
+			desc = court_position_blademaster_3_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_blademaster
+			has_trait_xp = {
+				trait = lifestyle_blademaster
+				value >= 50
+			}
+		}
+		add = {
+			value = 15
+			desc = court_position_blademaster_2_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_blademaster
+		}
+		add = {
+			value = 5
+			desc = court_position_blademaster_1_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = shieldmaiden
+		}
+		add = {
+			value = 20
+			desc = court_position_shieldmaiden_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = brave
+		}
+		add = {
+			value = 20
+			desc = court_position_brave_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = craven
+		}
+		add = {
+			value = -10
+			desc = court_position_craven_trait
+		}
+	}
+	if = {
+		limit = {
+			is_landed = yes
+		}
+		add = {
+			value = -20
+			desc = court_position_landed_penalty
+		}
+	}
+	if = {
+		limit = {
+			has_trait = maimed
+		}
+		add = {
+			value = -50
+			desc = court_position_maimed_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = wounded_3
+		}
+		add = {
+			value = -50
+			desc = court_position_wounded_3_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = wounded_2
+		}
+		add = {
+			value = -25
+			desc = court_position_wounded_2_trait
+		}
+	}
+	#Wounded_1 is ok since it's not a serious injury... yet
+	if = {
+		limit = {
+			has_trait = blind
+		}
+		add = {
+			value = -50
+			desc = court_position_blind_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = infirm
+		}
+		add = {
+			value = -75
+			desc = court_position_infirm_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+}
