@@ -1068,3 +1068,33 @@ food_taster_aptitude = {
 	add = court_position_aptitude_family_business_value
 	add = court_position_aptitude_low_penalty_value
 }
+
+lady_in_waiting_aptitude = {
+	value = 25
+	add = {
+		value = diplomacy
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_diplomacy
+	}
+	if = {
+		limit = {
+			has_trait = gregarious
+		}
+		add = {
+			value = 40
+			desc = court_position_gregarious_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = honest
+		}
+		add = {
+			value = 10
+			desc = court_position_honest_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
