@@ -957,3 +957,55 @@ champion_aptitude = {
 	}
 	add = court_position_aptitude_family_business_value
 }
+
+court_musician_aptitude = {
+	value = 1
+	add = {
+		value = diplomacy
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_diplomacy
+	}
+	if = {
+		limit = {
+			has_trait = gregarious
+		}
+		add = {
+			value = 30
+			desc = court_position_gregarious_trait
+		}
+	}
+	if = {
+		#Being a poet helps a little bit
+		limit = {
+			has_trait = poet
+		}
+		add = {
+			value = 10
+			desc = court_position_poet_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = shy
+		}
+		add = {
+			value = -10
+			desc = court_position_shy_trait
+		}
+	}
+	if = {
+		#Cultural Tradition that improves the aptitude of characters of that culture
+		limit = {
+			culture = {
+				has_cultural_parameter = characters_are_better_court_musicians
+			}
+		}
+		add = {
+			value = 20
+			desc = court_position_tradition_music_theory
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
