@@ -667,3 +667,34 @@ court_tutor_aptitude = {
 	add = court_position_aptitude_family_business_value
 	add = court_position_aptitude_low_penalty_value
 }
+
+royal_architect_aptitude = {
+	value = 25
+	add = {
+		value = stewardship
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_stewardship
+	}
+	if = {
+		limit = {
+			has_trait = architect
+		}
+		add = {
+			value = 40
+			desc = court_position_architect_trait
+		}
+	}
+	if = {
+		#Hard to design building if you can't see them
+		limit = {
+			has_trait = blind
+		}
+		add = {
+			value = -50
+			desc = court_position_blind_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
