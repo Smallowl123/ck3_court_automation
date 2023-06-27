@@ -520,3 +520,53 @@ seneschal_aptitude = {
 	add = court_position_aptitude_family_business_value
 	add = court_position_aptitude_low_penalty_value
 }
+
+antiquarian_aptitude = {
+	value = 1
+	add = {
+		value = learning
+		multiply = 2.5
+		max = 60
+		desc = court_position_skill_learning
+	}
+	if = {
+		# Characters with a completed inspiration are very good Antiquarians
+		limit = {
+			has_completed_inspiration = yes
+		}
+		add = {
+			value = 30
+			desc = court_position_completed_inspiration
+		}
+	}
+	if = {
+		# Shy characters are likely to spend more time with the artifacts than other people
+		limit = {
+			has_trait = shy
+		}
+		add = {
+			value = 10
+			desc = court_position_shy_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = administrator
+		}
+		add = {
+			value = 10
+			desc = court_position_administrator_trait
+		}
+	}
+	if = {
+		limit = {
+			has_variable = fund_inspiration_6508_architect_improvement
+		}
+		add = {
+			value = 5
+			desc = court_position_architect_study_experience
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}

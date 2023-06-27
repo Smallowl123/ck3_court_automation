@@ -194,7 +194,7 @@ cpa_high_almoner.1 = {
 					is_unemployed_able_adult = yes
 					is_landed = no
 					cpa_is_not_a_candidate = yes
-					high_almoner_aptitude > 49
+					high_almoner_aptitude > 40
 				}
 				add_to_temporary_list = stranger_candidates
 			}
@@ -211,7 +211,7 @@ cpa_high_almoner.1 = {
 				is_incapable = no
 				is_alive = yes
 				cpa_is_not_a_candidate = yes
-				high_almoner_aptitude > 49
+				high_almoner_aptitude > 40
 			}
 			add_to_temporary_list = prisoner_candidates
 		}

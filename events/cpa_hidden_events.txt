@@ -170,5 +170,22 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		if = {
+			limit = {
+				NOR = {
+					employs_court_position = antiquarian_court_position
+					any_court_position_holder = {
+						type = antiquarian_court_position
+					}
+					has_global_variable = cpa_event_been_triggered
+				}
+				has_global_variable = antiquarian_auto
+			}
+			trigger_event = cpa_antiquarian.1
+			set_global_variable = {
+				name = cpa_event_been_triggered
+				value = yes
+			}
+		}
 	}
 }

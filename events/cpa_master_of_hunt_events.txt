@@ -247,7 +247,7 @@ cpa_master_of_hunt.1 = {
 					is_unemployed_able_adult = yes
 					is_landed = no
 					cpa_is_not_a_candidate = yes
-					master_of_hunt_aptitude > 49
+					master_of_hunt_aptitude > 40
 					NOR = {
 						has_trait = blind
 						has_trait = infirm
@@ -273,7 +273,7 @@ cpa_master_of_hunt.1 = {
 				is_incapable = no
 				is_alive = yes
 				cpa_is_not_a_candidate = yes
-				master_of_hunt_aptitude > 49
+				master_of_hunt_aptitude > 40
 				NOR = {
 					has_trait = blind
 					has_trait = infirm

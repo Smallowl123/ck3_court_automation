@@ -1,7 +1,7 @@
-﻿namespace = cpa_physician
-cpa_physician.1 = {
-	#Physician
-	title = cpa.2.t
+﻿namespace = cpa_antiquarian
+cpa_antiquarian.1 = {
+	#Antiquarian
+	title = cpa.11.t
 	desc = cpa.default_event.desc
 	theme = stewardship
 	right_portrait = {
@@ -21,7 +21,7 @@ cpa_physician.1 = {
 		}
 		ordered_in_list = {
 			list = close_nepo_candidates
-			order_by = court_physician_aptitude
+			order_by = antiquarian_aptitude
 			save_scope_as = close_nepo_candidate
 		}
 		every_close_or_extended_family_member = {
@@ -36,7 +36,7 @@ cpa_physician.1 = {
 		}
 		ordered_in_list = {
 			list = nepo_candidates
-			order_by = court_physician_aptitude
+			order_by = antiquarian_aptitude
 			save_scope_as = nepo_candidate
 		}
 		if = {
@@ -60,7 +60,7 @@ cpa_physician.1 = {
 			}
 			ordered_in_list = {
 				list = spouse_nepo_candidates
-				order_by = court_physician_aptitude
+				order_by = antiquarian_aptitude
 				save_scope_as = spouse_nepo_candidate
 			}
 		}
@@ -115,7 +115,7 @@ cpa_physician.1 = {
 			}
 			ordered_in_list = {
 				list = vassal_nepo_candidates
-				order_by = court_physician_aptitude
+				order_by = antiquarian_aptitude
 				save_scope_as = vassal_nepo_candidate
 			}
 		}
@@ -145,7 +145,7 @@ cpa_physician.1 = {
 		}
 		ordered_in_list = {
 			list = friend_candidates
-			order_by = court_physician_aptitude
+			order_by = antiquarian_aptitude
 			save_scope_as = friend_candidate
 		}
 		every_relation = {
@@ -159,11 +159,11 @@ cpa_physician.1 = {
 		}
 		ordered_in_list = {
 			list = lover_candidates
-			order_by = court_physician_aptitude
+			order_by = antiquarian_aptitude
 			save_scope_as = lover_candidate
 		}
 		ordered_courtier = {
-			order_by = court_physician_aptitude
+			order_by = antiquarian_aptitude
 			limit = {
 				is_unemployed_able_adult = yes
 				is_landed = no
@@ -194,14 +194,14 @@ cpa_physician.1 = {
 					is_unemployed_able_adult = yes
 					is_landed = no
 					cpa_is_not_a_candidate = yes
-					court_physician_aptitude > 40
+					antiquarian_aptitude >= 40
 				}
 				add_to_temporary_list = stranger_candidates
 			}
 		}
 		ordered_in_list = {
 			list = stranger_candidates
-			order_by = court_physician_aptitude
+			order_by = antiquarian_aptitude
 			save_scope_as = stranger_candidate
 		}
 		every_prisoner = {
@@ -211,13 +211,13 @@ cpa_physician.1 = {
 				is_incapable = no
 				is_alive = yes
 				cpa_is_not_a_candidate = yes
-				court_physician_aptitude > 40
+				antiquarian_aptitude >= 40
 			}
 			add_to_temporary_list = prisoner_candidates
 		}
 		ordered_in_list = {
 			list = prisoner_candidates
-			order_by = court_physician_aptitude
+			order_by = antiquarian_aptitude
 			save_scope_as = prisoner_candidate
 		}
 	}
@@ -232,25 +232,25 @@ cpa_physician.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:close_nepo_candidate.court_physician_aptitude > 79
+							scope:close_nepo_candidate.antiquarian_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:close_nepo_candidate.court_physician_aptitude > 59
+							scope:close_nepo_candidate.antiquarian_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:close_nepo_candidate.court_physician_aptitude > 39
+							scope:close_nepo_candidate.antiquarian_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:close_nepo_candidate.court_physician_aptitude > 19
+							scope:close_nepo_candidate.antiquarian_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -261,7 +261,7 @@ cpa_physician.1 = {
 		scope:close_nepo_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "court_physician"
+				POSITION = "antiquarian"
 			}
 		}
 	}
@@ -276,25 +276,25 @@ cpa_physician.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:nepo_candidate.court_physician_aptitude > 79
+							scope:nepo_candidate.antiquarian_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:nepo_candidate.court_physician_aptitude > 59
+							scope:nepo_candidate.antiquarian_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:nepo_candidate.court_physician_aptitude > 39
+							scope:nepo_candidate.antiquarian_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:nepo_candidate.court_physician_aptitude > 19
+							scope:nepo_candidate.antiquarian_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -305,7 +305,7 @@ cpa_physician.1 = {
 		scope:nepo_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "court_physician"
+				POSITION = "antiquarian"
 			}
 		}
 	}
@@ -320,25 +320,25 @@ cpa_physician.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:spouse_nepo_candidate.court_physician_aptitude > 79
+							scope:spouse_nepo_candidate.antiquarian_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:spouse_nepo_candidate.court_physician_aptitude > 59
+							scope:spouse_nepo_candidate.antiquarian_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:spouse_nepo_candidate.court_physician_aptitude > 39
+							scope:spouse_nepo_candidate.antiquarian_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:spouse_nepo_candidate.court_physician_aptitude > 19
+							scope:spouse_nepo_candidate.antiquarian_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -349,7 +349,7 @@ cpa_physician.1 = {
 		scope:spouse_nepo_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "court_physician"
+				POSITION = "antiquarian"
 			}
 		}
 		scope:spouse = {
@@ -370,25 +370,25 @@ cpa_physician.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:vassal_nepo_candidate.court_physician_aptitude > 79
+							scope:vassal_nepo_candidate.antiquarian_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:vassal_nepo_candidate.court_physician_aptitude > 59
+							scope:vassal_nepo_candidate.antiquarian_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:vassal_nepo_candidate.court_physician_aptitude > 39
+							scope:vassal_nepo_candidate.antiquarian_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:vassal_nepo_candidate.court_physician_aptitude > 19
+							scope:vassal_nepo_candidate.antiquarian_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -399,7 +399,7 @@ cpa_physician.1 = {
 		scope:vassal_nepo_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "court_physician"
+				POSITION = "antiquarian"
 			}
 		}
 		scope:vassal = {
@@ -408,47 +408,6 @@ cpa_physician.1 = {
 				modifier = grateful_opinion
 				opinion = 20
 			}
-		}
-	}
-	option = {
-		name = cpa.bishop_physician.desc		#Hire your bishop (if he's a courtier)
-		trigger = {
-			exists = scope:bishop_candidate
-		}
-		flavor = {
-			desc = {
-				first_valid = {
-					triggered_desc = {
-						trigger = {
-							scope:bishop_candidate.court_physician_aptitude > 79
-						}
-						desc = cpa.excellent.desc
-					}
-					triggered_desc = {
-						trigger = {
-							scope:bishop_candidate.court_physician_aptitude > 59
-						}
-						desc = cpa.good.desc
-					}
-					triggered_desc = {
-						trigger = {
-							scope:bishop_candidate.court_physician_aptitude > 39
-						}
-						desc = cpa.average.desc
-					}
-					triggered_desc = {
-						trigger = {
-							scope:bishop_candidate.court_physician_aptitude > 19
-						}
-						desc = cpa.poor.desc
-					}
-					desc = cpa.terrible.desc
-				}
-			}
-		}
-		appoint_court_position = {
-			recipient = scope:bishop_candidate
-			court_position = court_physician_court_position
 		}
 	}
 	option = {
@@ -461,25 +420,25 @@ cpa_physician.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:friend_candidate.court_physician_aptitude > 79
+							scope:friend_candidate.antiquarian_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:friend_candidate.court_physician_aptitude > 59
+							scope:friend_candidate.antiquarian_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:friend_candidate.court_physician_aptitude > 39
+							scope:friend_candidate.antiquarian_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:friend_candidate.court_physician_aptitude > 19
+							scope:friend_candidate.antiquarian_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -490,7 +449,7 @@ cpa_physician.1 = {
 		scope:friend_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "court_physician"
+				POSITION = "antiquarian"
 			}
 		}
 	}
@@ -504,25 +463,25 @@ cpa_physician.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:lover_candidate.court_physician_aptitude > 79
+							scope:lover_candidate.antiquarian_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:lover_candidate.court_physician_aptitude > 59
+							scope:lover_candidate.antiquarian_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:lover_candidate.court_physician_aptitude > 39
+							scope:lover_candidate.antiquarian_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:lover_candidate.court_physician_aptitude > 19
+							scope:lover_candidate.antiquarian_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -533,7 +492,7 @@ cpa_physician.1 = {
 		scope:lover_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "court_physician"
+				POSITION = "antiquarian"
 			}
 		}
 	}
@@ -547,25 +506,25 @@ cpa_physician.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:courtier_candidate.court_physician_aptitude > 79
+							scope:courtier_candidate.antiquarian_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:courtier_candidate.court_physician_aptitude > 59
+							scope:courtier_candidate.antiquarian_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:courtier_candidate.court_physician_aptitude > 39
+							scope:courtier_candidate.antiquarian_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:courtier_candidate.court_physician_aptitude > 19
+							scope:courtier_candidate.antiquarian_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -575,7 +534,7 @@ cpa_physician.1 = {
 		}
 		appoint_court_position = {
 			recipient = scope:courtier_candidate
-			court_position = court_physician_court_position
+			court_position = antiquarian_court_position
 		}
 	}
 	option = {
@@ -588,25 +547,25 @@ cpa_physician.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:stranger_candidate.court_physician_aptitude > 79
+							scope:stranger_candidate.antiquarian_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:stranger_candidate.court_physician_aptitude > 59
+							scope:stranger_candidate.antiquarian_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:stranger_candidate.court_physician_aptitude > 39
+							scope:stranger_candidate.antiquarian_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:stranger_candidate.court_physician_aptitude > 19
+							scope:stranger_candidate.antiquarian_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -617,7 +576,7 @@ cpa_physician.1 = {
 		scope:stranger_candidate = {
 			save_scope_as = candidate
 			assign_to_position_effect = {
-				POSITION = "court_physician"
+				POSITION = "antiquarian"
 			}
 		} 
 	}
@@ -631,25 +590,25 @@ cpa_physician.1 = {
 				first_valid = {
 					triggered_desc = {
 						trigger = {
-							scope:prisoner_candidate.court_physician_aptitude > 79
+							scope:prisoner_candidate.antiquarian_aptitude > 79
 						}
 						desc = cpa.excellent.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:prisoner_candidate.court_physician_aptitude > 59
+							scope:prisoner_candidate.antiquarian_aptitude > 59
 						}
 						desc = cpa.good.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:prisoner_candidate.court_physician_aptitude > 39
+							scope:prisoner_candidate.antiquarian_aptitude > 39
 						}
 						desc = cpa.average.desc
 					}
 					triggered_desc = {
 						trigger = {
-							scope:prisoner_candidate.court_physician_aptitude > 19
+							scope:prisoner_candidate.antiquarian_aptitude > 19
 						}
 						desc = cpa.poor.desc
 					}
@@ -698,7 +657,7 @@ cpa_physician.1 = {
 		}
 		appoint_court_position = {
 			recipient = scope:prisoner_candidate
-			court_position = court_physician_court_position
+			court_position = antiquarian_court_position
 		}
 	}
 	option = {
@@ -707,7 +666,7 @@ cpa_physician.1 = {
 			desc = cpa.not_hire_flavor
 		}
 		hidden_effect = {
-			remove_global_variable = court_physician_auto
+			remove_global_variable = antiquarian_auto
 		}
 	}
 }

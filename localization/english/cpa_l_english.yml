@@ -9,6 +9,7 @@
  cpa.8.t:0 "Open for hiring: High Almoner"
  cpa.9.t:0 "Open for hiring: Cup-Bearer"
  cpa.10.t:0 "Open for hiring: Seneschal"
+ cpa.11.t:0 "Open for hiring: Antiquarian"
 
 #Event descs
  cpa.default_event.desc:0 "Who will you choose?"
