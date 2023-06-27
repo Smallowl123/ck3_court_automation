@@ -337,6 +337,20 @@ cpa.1 = {
 				value = yes
 			}
 		}
-		
+		#Chief Qadi
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = cpa_event_been_triggered
+				}
+				can_employ_court_position_type = chief_qadi_court_position
+				has_global_variable = chief_qadi_auto
+			}
+			trigger_event = cpa_chief_qadi.1
+			set_global_variable = {
+				name = cpa_event_been_triggered
+				value = yes
+			}
+		}
 	}
 }

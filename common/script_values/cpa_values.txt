@@ -1558,3 +1558,69 @@ travel_leader_aptitude = {
 	}
 	min = 0
 }
+
+chief_qadi_aptitude = {
+	value = 1
+	add = {
+		value = learning
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_learning
+	}
+	if = {
+		limit = {
+			has_trait = generous
+		}
+		add = {
+			value = 15
+			desc = court_position_generous_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = just
+		}
+		add = {
+			value = 15
+			desc = court_position_just_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = temperate
+		}
+		add = {
+			value = 15
+			desc = court_position_temperate_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = scholar
+		}
+		add = {
+			value = 15
+			desc = court_position_scholar_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = greedy
+		}
+		add = {
+			value = -10
+			desc = court_position_greedy_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = arbitrary
+		}
+		add = {
+			value = -10
+			desc = court_position_arbitrary_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
