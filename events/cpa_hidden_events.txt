@@ -153,5 +153,22 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		if = {
+			limit = {
+				NOR = {
+					employs_court_position = seneschal_court_position
+					any_court_position_holder = {
+						type = seneschal_court_position
+					}
+					has_global_variable = cpa_event_been_triggered
+				}
+				has_global_variable = seneschal_auto
+			}
+			trigger_event = cpa_seneschal.1
+			set_global_variable = {
+				name = cpa_event_been_triggered
+				value = yes
+			}
+		}
 	}
 }
