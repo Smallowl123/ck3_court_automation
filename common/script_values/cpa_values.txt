@@ -570,3 +570,100 @@ antiquarian_aptitude = {
 	add = court_position_aptitude_family_business_value
 	add = court_position_aptitude_low_penalty_value
 }
+
+court_tutor_aptitude = {
+	value = 25
+	add = {
+		value = learning
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_learning
+	}
+	if = {
+		limit = {
+			diplomacy >= high_skill_rating
+			martial >= high_skill_rating
+			stewardship >= high_skill_rating
+			intrigue >= high_skill_rating
+			learning >= high_skill_rating
+		}
+		add = {
+			value = 20
+			desc = court_position_high_skills_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = patient
+		}
+		add = {
+			value = 10
+			desc = court_position_patient_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = shy
+		}
+		add = {
+			value = -10
+			desc = court_position_shy_trait
+		}
+	}
+	if = {
+		limit = {
+			is_landed = yes
+		}
+		add = {
+			value = -20
+			desc = court_position_landed_penalty
+		}
+	}
+	if = {
+		limit = {
+			has_trait = intellect_good_3
+		}
+		add = {
+			value = 40
+			desc = court_position_intellect_good_3_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = intellect_good_2
+		}
+		add = {
+			value = 20
+			desc = court_position_intellect_good_2_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = intellect_good_1
+		}
+		add = {
+			value = 10
+			desc = court_position_intellect_good_1_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = shrewd
+		}
+		add = {
+			value = 10
+			desc = court_position_shrewd_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = reclusive
+		}
+		add = {
+			value = -10
+			desc = court_position_reclusive_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
