@@ -352,7 +352,6 @@ cpa.1 = {
 				value = yes
 			}
 		}
-		
 		#Cultural Emissary
 		if = {
 			limit = {
@@ -363,6 +362,21 @@ cpa.1 = {
 				has_global_variable = cultural_emissary_auto
 			}
 			trigger_event = cpa_cultural_emissary.1
+			set_global_variable = {
+				name = cpa_event_been_triggered
+				value = yes
+			}
+		}
+		#Court Artificer
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = cpa_event_been_triggered
+				}
+				can_employ_court_position_type = court_artificer_court_position
+				has_global_variable = court_artificer_auto
+			}
+			trigger_event = cpa_court_artificer.1
 			set_global_variable = {
 				name = cpa_event_been_triggered
 				value = yes

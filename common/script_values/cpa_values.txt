@@ -1670,3 +1670,42 @@ cultural_emissary_aptitude = {
 	add = court_position_aptitude_family_business_value
 	add = court_position_aptitude_low_penalty_value
 }
+
+court_artificer_aptitude = {
+	value = 1
+	add = {
+		value = prowess
+		desc = court_position_skill_prowess
+	}
+	add = {
+		value = diplomacy
+		desc = court_position_skill_diplomacy
+	}
+	add = {
+		value = intrigue
+		desc = court_position_skill_intrigue
+	}
+	add = {
+		value = learning
+		desc = court_position_skill_learning
+	}
+	add = {
+		value = martial
+		desc = court_position_skill_martial
+	}
+	add = {
+		value = stewardship
+		desc = court_position_skill_stewardship
+	}
+	if = {
+		limit = {
+			has_character_modifier = local_artisan_modifier
+		}
+		add = {
+			value = -20
+			desc = local_artisan_modifier
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	#add = court_position_aptitude_high_penalty_value
+}

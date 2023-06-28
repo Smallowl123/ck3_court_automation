@@ -127,6 +127,9 @@ cpa_high_almoner.1 = {
 				limit = {
 					cp:councillor_court_chaplain = {
 						is_landed = no
+						NOT = {
+							is_vassal_of = root
+						}
 					}
 				}
 				cp:councillor_court_chaplain = {
