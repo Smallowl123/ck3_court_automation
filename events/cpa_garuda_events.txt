@@ -285,8 +285,14 @@ cpa_garuda.1 = {
 							liege = root
 						}
 					}
-					root = {
-						add_courtier = scope:candidate
+					every_traveling_family_member = {
+						limit = {
+							cpa_is_unemployed_adult = yes
+						}
+						root = { add_courtier = prev }
+						hidden_effect = {
+							return_to_court = yes
+						}
 					}
 				}
 			}
@@ -342,8 +348,14 @@ cpa_garuda.1 = {
 							liege = root
 						}
 					}
-					root = {
-						add_courtier = scope:candidate
+					every_traveling_family_member = {
+						limit = {
+							cpa_is_unemployed_adult = yes
+						}
+						root = { add_courtier = prev }
+						hidden_effect = {
+							return_to_court = yes
+						}
 					}
 				}
 			}
@@ -399,8 +411,14 @@ cpa_garuda.1 = {
 							liege = root
 						}
 					}
-					root = {
-						add_courtier = scope:candidate
+					every_traveling_family_member = {
+						limit = {
+							cpa_is_unemployed_adult = yes
+						}
+						root = { add_courtier = prev }
+						hidden_effect = {
+							return_to_court = yes
+						}
 					}
 				}
 			}
@@ -462,8 +480,14 @@ cpa_garuda.1 = {
 							liege = root
 						}
 					}
-					root = {
-						add_courtier = scope:candidate
+					every_traveling_family_member = {
+						limit = {
+							cpa_is_unemployed_adult = yes
+						}
+						root = { add_courtier = prev }
+						hidden_effect = {
+							return_to_court = yes
+						}
 					}
 				}
 			}
@@ -526,8 +550,14 @@ cpa_garuda.1 = {
 							liege = root
 						}
 					}
-					root = {
-						add_courtier = scope:candidate
+					every_traveling_family_member = {
+						limit = {
+							cpa_is_unemployed_adult = yes
+						}
+						root = { add_courtier = prev }
+						hidden_effect = {
+							return_to_court = yes
+						}
 					}
 				}
 			}
@@ -583,8 +613,14 @@ cpa_garuda.1 = {
 							liege = root
 						}
 					}
-					root = {
-						add_courtier = scope:candidate
+					every_traveling_family_member = {
+						limit = {
+							cpa_is_unemployed_adult = yes
+						}
+						root = { add_courtier = prev }
+						hidden_effect = {
+							return_to_court = yes
+						}
 					}
 				}
 			}
@@ -640,8 +676,14 @@ cpa_garuda.1 = {
 							liege = root
 						}
 					}
-					root = {
-						add_courtier = scope:candidate
+					every_traveling_family_member = {
+						limit = {
+							cpa_is_unemployed_adult = yes
+						}
+						root = { add_courtier = prev }
+						hidden_effect = {
+							return_to_court = yes
+						}
 					}
 				}
 			}
@@ -699,8 +741,14 @@ cpa_garuda.1 = {
 								liege = root
 							}
 						}
-						root = {
-							add_courtier = scope:candidate
+						every_traveling_family_member = {
+							limit = {
+								cpa_is_unemployed_adult = yes
+							}
+							root = { add_courtier = prev }
+							hidden_effect = {
+								return_to_court = yes
+							}
 						}
 					}
 				}
