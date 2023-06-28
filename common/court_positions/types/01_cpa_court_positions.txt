@@ -677,7 +677,7 @@ court_cave_hermit_position = {
 			value = learning
 			multiply = 2.5
 			max = 50
-			desc = court_position_skill_diplomacy
+			desc = court_position_skill_learning
 		}
 		if = {
 			limit = {

@@ -1709,3 +1709,68 @@ court_artificer_aptitude = {
 	add = court_position_aptitude_family_business_value
 	#add = court_position_aptitude_high_penalty_value
 }
+
+court_cave_hermit_aptitude = {
+	value = 25
+	add = {
+		value = learning
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_diplomacy
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_mystic
+			has_trait_xp = {
+				trait = lifestyle_mystic
+				value >= 100
+			}
+		}
+		add = {
+			value = 20
+			desc = court_position_mystic_3_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_mystic
+			has_trait_xp = {
+				trait = lifestyle_mystic
+				value >= 50
+			}
+		}
+		add = {
+			value = 10
+			desc = court_position_mystic_2_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_mystic
+		}
+		add = {
+			value = 5
+			desc = court_position_mystic_1_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_herbalist
+		}
+		add = {
+			value = 10
+			desc = court_position_herbalist_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_gardener
+		}
+		add = {
+			value = 10
+			desc = court_position_gardener_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}

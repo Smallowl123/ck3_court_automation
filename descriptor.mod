@@ -4,4 +4,4 @@ tags={
 	"Events"
 }
 name="Court Position Automation"
-supported_version="1.9.0.4"
+supported_version="1.9.2.*"
