@@ -4,4 +4,5 @@ tags={
 	"Events"
 }
 name="Court Position Automation"
+picture="thumbnail.png"
 supported_version="1.9.2.*"
