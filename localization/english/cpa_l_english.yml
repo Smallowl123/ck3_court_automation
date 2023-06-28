@@ -25,6 +25,7 @@
  cpa.24.t:0 "Open for hiring: Chief Qadi"
  cpa.25.t:0 "Open for hiring: Cultural Emissary"
  cpa.26.t:0 "Open for hiring: Court Artificer"
+ cpa.27.t:0 "Open for hiring: Cave Hermit"
 
 #Event descs
  cpa.default_event.desc:0 "Who will you choose?"
@@ -41,7 +42,6 @@
  cpa.default_stranger_name.desc:0 "Find the best in the realm for me."
  cpa.default_prisoner_name.desc:0 "Let's release [prisoner_candidate.GetFullName] and exploit [prisoner_candidate.GetHerHis] talents."
  cpa.default_not_hire_name.desc:0 "Don't hire anyone."
- cpa.not_hire_flavor:0 "Automation will be turned off until you employ somebody."
  cpa.eunuch_nepo_name.desc:0 "Cut my [ROOT.GetCharacter.Custom2('RelationToMeShort', nepo_mutulated_candidate )] [nepo_mutulated_candidate.GetFirstNamePossessive] balls off, he starts tomorrow."
  cpa.eunuch_vassal_name.desc:0 "[vassal_for_mutulation.GetTitledFirstName] dares to oppose me? Seize [vassal_for_mutulation.GetHerHis] [vassal_for_mutulation.Custom2('RelationToMeShort', vassal_mutulated_candidate )] [vassal_mutulated_candidate.GetFirstName]!"
  cpa.eunuch_courtier_name.desc:0 "Take [courtier_mutulated_candidate.GetFullNamePossessive] manhood. He'll serve as Chief Eunuch."
@@ -54,6 +54,11 @@
  cpa.bishop_almoner.desc:0 "Taking care of poor is a job for my [ROOT.Char.GetCouncillorPosition('councillor_court_chaplain').GetPositionName]"
  cpa.executioner_nepo_name.desc:0 "My [ROOT.GetCharacter.Custom2('RelationToMeShort', nepo_candidate )] [nepo_candidate.GetFirstName] will do it."
  cpa.executioner_courtier_name.desc:0 "[courtier_candidate.GetFullName] knows what to do."
+ cpa.hermit_close_nepo_name.desc:0 "Put my [ROOT.GetCharacter.Custom2('RelationToMeShort', close_nepo_candidate )] [close_nepo_candidate.GetFirstName] in the hole."
+ cpa.hermit_nepo_name.desc:0 "Put my [ROOT.GetCharacter.Custom2('RelationToMeShort', nepo_candidate )] [nepo_candidate.GetFirstName] in the hole."
+ cpa.hermit_courtier_name.desc:0 "[courtier_candidate.GetFullName] now lives in the cave."
+ cpa.hermit_prisoner_name.desc:0 "[prisoner_candidate.GetFullName] now on cave arrest."
+ cpa.hermit_stranger_name.desc:0 "Find me the best damn hermit!"
 
 #Aptitudes
  cpa.excellent.desc:0 "Aptitude will be #P excellent!#!"
@@ -61,3 +66,7 @@
  cpa.average.desc:0 "Aptitude will be average."
  cpa.poor.desc:0 "Aptitude will be #N poor.#!"
  cpa.terrible.desc:0 "Aptitude will be #N terrible!#!"
+
+#Flavor
+ cpa.not_hire_flavor:0 "Automation will be turned off until you employ somebody."
+ cpa.you_do_not_like_them_much.desc:0 "\nThis option is available because you don't like them much."

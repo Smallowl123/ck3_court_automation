@@ -1,0 +1,452 @@
+﻿namespace = cpa_court_cave_hermit
+cpa_court_cave_hermit.1 = {
+	title = cpa.27.t
+	desc = cpa.default_event.desc
+	theme = stewardship
+	right_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	immediate = {
+		every_close_family_member = {
+			if = {
+				limit = {
+					is_unemployed_able_adult = yes
+					is_landed = no
+					cpa_is_not_a_candidate = yes
+					has_trait = lifestyle_mystic
+					has_trait_xp = {
+						trait = lifestyle_mystic
+						value >= 50
+					}
+					root = {
+						opinion = {
+							target = this
+							value <= 0
+						}
+					}
+				}
+				add_to_list = close_nepo_candidates
+			}
+		}
+		ordered_in_list = {
+			list = close_nepo_candidates
+			order_by = court_cave_hermit_aptitude
+			save_scope_as = close_nepo_candidate
+		}
+		every_close_or_extended_family_member = {
+			if = {
+				limit = {
+					is_unemployed_able_adult = yes
+					is_landed = no
+					cpa_is_not_a_candidate = yes
+					has_trait = lifestyle_mystic
+					has_trait_xp = {
+						trait = lifestyle_mystic
+						value >= 50
+					}
+					root = {
+						opinion = {
+							target = this
+							value <= 0
+						}
+					}
+				}
+				add_to_list = nepo_candidates
+			}
+		}
+		ordered_in_list = {
+			list = nepo_candidates
+			order_by = court_cave_hermit_aptitude
+			save_scope_as = nepo_candidate
+		}
+		ordered_courtier = {
+			order_by = court_cave_hermit_aptitude
+			limit = {
+				is_unemployed_able_adult = yes
+				is_landed = no
+				cpa_is_not_a_candidate = yes
+				NOT = {
+					is_close_or_extended_family_of = root
+				}
+				has_trait = lifestyle_mystic
+				has_trait_xp = {
+					trait = lifestyle_mystic
+					value >= 50
+				}
+			}
+			save_scope_as = courtier_candidate
+		}
+		every_realm_province = {
+			if = {
+				limit = {
+					save_temporary_scope_as = potential_province
+					NOT = {
+						any_in_list = {
+							list = pool_provinces
+							county.duchy = scope:potential_province.county.duchy
+						}
+					}
+				}
+				add_to_temporary_list = pool_provinces
+			}
+		}
+		every_in_list = {
+			list = pool_provinces
+			save_temporary_scope_as = pool_province
+			every_pool_character = {
+				province = scope:pool_province
+				limit = {
+					is_unemployed_able_adult = yes
+					is_landed = no
+					cpa_is_not_a_candidate = yes
+					has_trait = lifestyle_mystic
+					has_trait_xp = {
+						trait = lifestyle_mystic
+						value >= 50
+					}
+					is_lowborn = yes
+				}
+				add_to_temporary_list = stranger_candidates
+			}
+		}
+		ordered_in_list = {
+			list = stranger_candidates
+			order_by = court_cave_hermit_aptitude
+			save_scope_as = stranger_candidate
+		}
+		every_prisoner = {
+			limit = {
+				is_landed = no
+				is_adult = yes
+				is_incapable = no
+				is_alive = yes
+				cpa_is_not_a_candidate = yes
+				has_trait = lifestyle_mystic
+				has_trait_xp = {
+					trait = lifestyle_mystic
+					value >= 50
+				}
+			}
+			add_to_temporary_list = prisoner_candidates
+		}
+		ordered_in_list = {
+			list = prisoner_candidates
+			order_by = court_cave_hermit_aptitude
+			save_scope_as = prisoner_candidate
+		}
+		if = {
+			limit = {
+				NOT = {
+					exists = stranger_candidate
+				}
+			}
+			every_in_list = {
+				list = pool_provinces
+				save_temporary_scope_as = pool_province
+				every_pool_character = {
+					province = scope:pool_province
+					limit = {
+						is_unemployed_able_adult = yes
+						is_landed = no
+						cpa_is_not_a_candidate = yes
+					}
+					add_to_temporary_list = stranger_candidates
+				}
+			}
+			ordered_in_list = {
+				list = stranger_candidates
+				order_by = court_cave_hermit_aptitude
+				save_scope_as = stranger_candidate
+			}
+			scope:stranger_candidate = {
+				if = {
+					limit = {
+						NOT = {
+							has_trait = lifestyle_mystic
+						}
+					}
+					hidden_effect = {
+						add_trait = lifestyle_mystic
+						add_trait_xp = {
+							trait = lifestyle_mystic
+							value = 50
+						}
+					}
+				}
+				else = {
+					hidden_effect = {
+						add_trait_xp = {
+							trait = lifestyle_mystic
+							value = 50
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		#Close family member (if there is such)
+		name = cpa.hermit_close_nepo_name.desc
+		trigger = {
+			exists = scope:close_nepo_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:close_nepo_candidate.court_cave_hermit_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:close_nepo_candidate.court_cave_hermit_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:close_nepo_candidate.court_cave_hermit_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:close_nepo_candidate.court_cave_hermit_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+				desc = cpa.you_do_not_like_them_much.desc
+			}
+		}
+		scope:close_nepo_candidate = {
+			save_scope_as = candidate
+			assign_to_position_effect_hermit_ed = {
+				POSITION = "court_cave_hermit"
+			}
+		}
+	}
+	option = {
+		#close or extended family (if there is such)
+		name = cpa.hermit_nepo_name.desc
+		trigger = {
+			exists = scope:nepo_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:nepo_candidate.court_cave_hermit_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:nepo_candidate.court_cave_hermit_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:nepo_candidate.court_cave_hermit_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:nepo_candidate.court_cave_hermit_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+				desc = cpa.you_do_not_like_them_much.desc
+			}
+		}
+		scope:nepo_candidate = {
+			save_scope_as = candidate
+			assign_to_position_effect_hermit_ed = {
+				POSITION = "court_cave_hermit"
+			}
+		}
+	}
+	option = {
+		name = cpa.hermit_courtier_name.desc		#Hire a courtier (if there is such)
+		trigger = {
+			exists = scope:courtier_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:courtier_candidate.court_cave_hermit_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:courtier_candidate.court_cave_hermit_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:courtier_candidate.court_cave_hermit_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:courtier_candidate.court_cave_hermit_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+				desc = cpa.you_do_not_like_them_much.desc
+			}
+		}
+		appoint_court_position = {
+			recipient = scope:courtier_candidate
+			court_position = court_cave_hermit_position
+		}
+	}
+	option = {
+		name = cpa.hermit_stranger_name.desc		#Hire a skilled stranger
+		trigger = {
+			exists = scope:stranger_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:stranger_candidate.court_cave_hermit_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:stranger_candidate.court_cave_hermit_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:stranger_candidate.court_cave_hermit_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:stranger_candidate.court_cave_hermit_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+			}
+		}
+		scope:stranger_candidate = {
+			save_scope_as = candidate
+			assign_to_position_effect_hermit_ed = {
+				POSITION = "court_cave_hermit"
+			}
+		}
+	}
+	option = {
+		name = cpa.hermit_prisoner_name.desc		#Hire a skilled prisoner (if there is such)
+		trigger = {
+			exists = scope:prisoner_candidate
+		}
+		flavor = {
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							scope:prisoner_candidate.court_cave_hermit_aptitude > 79
+						}
+						desc = cpa.excellent.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:prisoner_candidate.court_cave_hermit_aptitude > 59
+						}
+						desc = cpa.good.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:prisoner_candidate.court_cave_hermit_aptitude > 39
+						}
+						desc = cpa.average.desc
+					}
+					triggered_desc = {
+						trigger = {
+							scope:prisoner_candidate.court_cave_hermit_aptitude > 19
+						}
+						desc = cpa.poor.desc
+					}
+					desc = cpa.terrible.desc
+				}
+			}
+		}
+		scope:prisoner_candidate = {
+			if = {
+				limit = {
+					root = {
+						culture = {
+							has_cultural_parameter = can_recruit_prisoners_easily
+						}
+					}
+				}
+				add_opinion = {
+					modifier = loyal_servant
+					target = root
+				}
+				root = {
+					if = {
+						limit = {
+							can_add_hook = {
+								target = scope:prisoner_candidate
+								type = loyalty_hook
+							}
+						}
+						add_hook = {
+							type = loyalty_hook
+							target = scope:prisoner_candidate
+						}
+					}
+				}
+			}
+			else = {
+				add_opinion = {
+					modifier = demanded_recruitment
+					target = root
+				}
+			}
+			root = {
+				add_courtier = scope:prisoner_candidate
+			}
+			release_from_prison = yes
+		}
+		appoint_court_position = {
+			recipient = scope:prisoner_candidate
+			court_position = court_cave_hermit_position
+		}
+	}
+	option = {
+		name = cpa.default_not_hire_name.desc		#Don't hire anyone
+		flavor = {
+			desc = cpa.not_hire_flavor
+		}
+		hidden_effect = {
+			remove_global_variable = court_cave_hermit_auto
+		}
+	}
+}

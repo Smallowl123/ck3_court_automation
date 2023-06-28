@@ -98,3 +98,30 @@ assign_to_position_effect = {
 		}
 	}
 }
+
+assign_to_position_effect_hermit_ed = {
+	scope:candidate = {
+		if = {
+			limit = {
+				NOT = {
+					liege = root
+				}
+			}
+			every_traveling_family_member = {
+				limit = {
+					cpa_is_unemployed_adult = yes
+				}
+				root = { add_courtier = prev }
+				hidden_effect = {
+					return_to_court = yes
+				}
+			}
+		}
+	}
+	root = {
+		appoint_court_position = {
+			recipient = scope:candidate
+			court_position = $POSITION$_position
+		}
+	}
+}

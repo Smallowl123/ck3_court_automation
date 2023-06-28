@@ -256,6 +256,7 @@ cpa_court_jester.1 = {
 					}
 					desc = cpa.terrible.desc
 				}
+				desc = cpa.you_do_not_like_them_much.desc
 			}
 		}
 		scope:close_nepo_candidate = {
@@ -300,6 +301,7 @@ cpa_court_jester.1 = {
 					}
 					desc = cpa.terrible.desc
 				}
+				desc = cpa.you_do_not_like_them_much.desc
 			}
 		}
 		scope:nepo_candidate = {
@@ -472,6 +474,7 @@ cpa_court_jester.1 = {
 					}
 					desc = cpa.terrible.desc
 				}
+				desc = cpa.you_do_not_like_them_much.desc
 			}
 		}
 		appoint_court_position = {
