@@ -1,7 +1,7 @@
 ﻿namespace = cpa_executioner
 cpa_executioner.1 = {
 	#Executioner
-	title = cpa.9.t
+	title = cpa.20.t
 	desc = cpa.default_event.desc
 	theme = stewardship
 	right_portrait = {
