@@ -1624,3 +1624,49 @@ chief_qadi_aptitude = {
 	add = court_position_aptitude_family_business_value
 	add = court_position_aptitude_low_penalty_value
 }
+
+cultural_emissary_aptitude = {
+	value = 1
+	add = {
+		value = diplomacy
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_diplomacy
+	}
+	add = {
+		value = num_of_known_languages
+		subtract = 1
+		multiply = 10
+		max = 100
+		desc = court_position_languages
+	}
+	if = {
+		limit = {
+			has_trait = just
+		}
+		add = {
+			value = 15
+			desc = court_position_just_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = gregarious
+		}
+		add = {
+			value = 15
+			desc = court_position_gregarious_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = diplomat
+		}
+		add = {
+			value = 30
+			desc = court_position_diplomat_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}

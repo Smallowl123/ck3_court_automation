@@ -644,6 +644,17 @@ chief_qadi_title_accepted_effect = {
 # CULTURAL EMISSARY
 cultural_emissary_title_accepted_effect = {
 	basic_gained_court_position_effect = yes
+	if = {
+		limit = {
+			scope:liege = {
+				is_ai = no
+			}
+		}
+		set_global_variable = {
+			name = cultural_emissary_auto
+			value = yes
+		}
+	}
 }
 
 # COURT ARTIFICER
