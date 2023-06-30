@@ -1774,3 +1774,11 @@ court_cave_hermit_aptitude = {
 	add = court_position_aptitude_family_business_value
 	add = court_position_aptitude_low_penalty_value
 }
+
+knight_aptitude = {
+	add = {
+		value = prowess
+		multiply = 10
+	}
+	subtract = age
+}

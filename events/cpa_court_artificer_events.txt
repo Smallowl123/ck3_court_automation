@@ -7,6 +7,12 @@ cpa_court_artificer.2 = {
 		character = root
 		animation = personality_rational
 	}
+	immediate = {
+		set_global_variable = {
+			name = cpa_event_been_triggered
+			value = yes
+		}
+	}
 	option = {
 		#Close family member (if there is such)
 		name = cpa.default_close_nepo_name.desc
@@ -364,7 +370,7 @@ cpa_court_artificer.2 = {
 			assign_to_position_effect = {
 				POSITION = "court_artificer"
 			}
-		} 
+		}
 	}
 	option = {
 		name = cpa.default_prisoner_name.desc		#Hire a skilled prisoner (if there is such)
@@ -502,7 +508,7 @@ cpa_court_artificer.1 = {
 		ordered_in_list = {
 			list = nepo_candidates
 			order_by = court_artificer_aptitude
-			save_scope_as = nepo_candidate 
+			save_scope_as = nepo_candidate
 		}
 		if = {
 			limit = {
@@ -719,7 +725,6 @@ cpa_court_artificer.1 = {
 			order_by = court_artificer_aptitude
 			save_scope_as = prisoner_candidate
 		}
-
 		if = {
 			limit = {
 				OR = {

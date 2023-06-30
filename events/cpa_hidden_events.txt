@@ -377,10 +377,11 @@ cpa.1 = {
 				has_global_variable = court_artificer_auto
 			}
 			trigger_event = cpa_court_artificer.1
-			set_global_variable = {
-				name = cpa_event_been_triggered
-				value = yes
-			}
+			#Is set if cpa_court_artificer.2 triggered
+			# set_global_variable = {
+			# 	name = cpa_event_been_triggered
+			# 	value = yes
+			# }
 		}
 		#Court Cave Hermit
 		if = {
@@ -397,6 +398,29 @@ cpa.1 = {
 				value = yes
 			}
 		}
-		
+		#Knights
+		ordered_knight = {
+			order_by = prowess
+			limit = {
+				prowess < 12
+			}
+			save_scope_as = weak_knight
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = cpa_event_been_triggered
+				}
+				OR = {
+					max_number_of_knights > root.number_of_knights
+					exists = scope:weak_knight
+				}
+			}
+			trigger_event = cpa_knights.1
+			set_global_variable = {
+				name = cpa_event_been_triggered
+				value = yes
+			}
+		}
 	}
 }
