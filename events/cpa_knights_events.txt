@@ -17,7 +17,6 @@ cpa_knights.1 = {
 					can_be_combatant_based_on_gender_trigger = {
 						ARMY_OWNER = root
 					}
-					is_knight = no
 					prowess >= 12
 				}
 				add_to_list = close_nepo_candidates
@@ -147,7 +146,6 @@ cpa_knights.1 = {
 				can_be_combatant_based_on_gender_trigger = {
 					ARMY_OWNER = root
 				}
-				is_knight = no
 				prowess >= 12
 			}
 			add_to_list = friend_candidates
@@ -166,7 +164,6 @@ cpa_knights.1 = {
 				can_be_combatant_based_on_gender_trigger = {
 					ARMY_OWNER = root
 				}
-				is_knight = no
 				prowess >= 12
 			}
 			add_to_list = lover_candidates
