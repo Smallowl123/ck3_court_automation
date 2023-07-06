@@ -150,6 +150,9 @@ cpa_knights.1 = {
 					ARMY_OWNER = root
 				}
 				prowess >= 12
+				NOT = {
+					is_courtier_of = root
+				}
 			}
 			add_to_list = friend_candidates
 		}
@@ -168,6 +171,9 @@ cpa_knights.1 = {
 					ARMY_OWNER = root
 				}
 				prowess >= 12
+				NOT = {
+					is_courtier_of = root
+				}
 			}
 			add_to_list = lover_candidates
 		}
@@ -374,7 +380,8 @@ cpa_knights.1 = {
 		flavor = {
 			desc = cpa.age
 			desc = "[prisoner_candidate.GetAge] "
-			desc = "@skill_prowess_icon![prisoner_candidate.GetProwess]"
+			desc = "[prisoner_candidate.GetProwess]"
+			desc = cpa.prowess
 		}
 		scope:prisoner_candidate = {
 			if = {
