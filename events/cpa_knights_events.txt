@@ -18,6 +18,9 @@ cpa_knights.1 = {
 						ARMY_OWNER = root
 					}
 					prowess >= 12
+					NOT = {
+						is_courtier_of = root
+					}
 				}
 				add_to_list = close_nepo_candidates
 			}
