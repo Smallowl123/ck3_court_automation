@@ -13,7 +13,7 @@ cpa_court_poet.1 = {
 			if = {
 				limit = {
 					is_unemployed_able_adult = yes
-					is_landed = no
+					is_ruler = no
 					cpa_is_not_a_candidate = yes
 					has_trait = poet
 				}
@@ -29,7 +29,7 @@ cpa_court_poet.1 = {
 			if = {
 				limit = {
 					is_unemployed_able_adult = yes
-					is_landed = no
+					is_ruler = no
 					cpa_is_not_a_candidate = yes
 					has_trait = poet
 				}
@@ -53,7 +53,7 @@ cpa_court_poet.1 = {
 					if = {
 						limit = {
 							is_unemployed_able_adult = yes
-							is_landed = no
+							is_ruler = no
 							cpa_is_not_a_candidate = yes
 							has_trait = poet
 						}
@@ -109,7 +109,7 @@ cpa_court_poet.1 = {
 					if = {
 						limit = {
 							is_unemployed_able_adult = yes
-							is_landed = no
+							is_ruler = no
 							cpa_is_not_a_candidate = yes
 							has_trait = poet
 						}
@@ -127,7 +127,7 @@ cpa_court_poet.1 = {
 			type = friend
 			limit = {
 				is_unemployed_able_adult = yes
-				is_landed = no
+				is_ruler = no
 				cpa_is_not_a_candidate = yes
 				has_trait = poet
 			}
@@ -142,7 +142,7 @@ cpa_court_poet.1 = {
 			type = lover
 			limit = {
 				is_unemployed_able_adult = yes
-				is_landed = no
+				is_ruler = no
 				cpa_is_not_a_candidate = yes
 				has_trait = poet
 			}
@@ -157,7 +157,7 @@ cpa_court_poet.1 = {
 			order_by = court_poet_aptitude
 			limit = {
 				is_unemployed_able_adult = yes
-				is_landed = no
+				is_ruler = no
 				cpa_is_not_a_candidate = yes
 				has_trait = poet
 			}
@@ -184,7 +184,7 @@ cpa_court_poet.1 = {
 				province = scope:pool_province
 				limit = {
 					is_unemployed_able_adult = yes
-					is_landed = no
+					is_ruler = no
 					cpa_is_not_a_candidate = yes
 					has_trait = poet
 				}
@@ -198,7 +198,7 @@ cpa_court_poet.1 = {
 		}
 		every_prisoner = {
 			limit = {
-				is_landed = no
+				is_ruler = no
 				is_adult = yes
 				is_incapable = no
 				is_alive = yes
@@ -225,7 +225,7 @@ cpa_court_poet.1 = {
 					province = scope:pool_province
 					limit = {
 						is_unemployed_able_adult = yes
-						is_landed = no
+						is_ruler = no
 						cpa_is_not_a_candidate = yes
 					}
 					add_to_temporary_list = stranger_candidates

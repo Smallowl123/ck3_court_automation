@@ -14,7 +14,7 @@ cpa_cultural_emissary.1 = {
 				limit = {
 					is_unemployed_able_adult = yes
 					OR = {
-						is_landed = no
+						is_ruler = no
 						liege = root
 					}
 					cpa_is_not_a_candidate = yes
@@ -33,7 +33,7 @@ cpa_cultural_emissary.1 = {
 				limit = {
 					is_unemployed_able_adult = yes
 					OR = {
-						is_landed = no
+						is_ruler = no
 						liege = root
 					}
 					cpa_is_not_a_candidate = yes
@@ -60,7 +60,7 @@ cpa_cultural_emissary.1 = {
 						limit = {
 							is_unemployed_able_adult = yes
 							OR = {
-								is_landed = no
+								is_ruler = no
 								liege = root
 							}
 							cpa_is_not_a_candidate = yes
@@ -118,7 +118,7 @@ cpa_cultural_emissary.1 = {
 			limit = {
 				is_unemployed_able_adult = yes
 				OR = {
-					is_landed = no
+					is_ruler = no
 					liege = root
 				}
 				cpa_is_not_a_candidate = yes
@@ -136,7 +136,7 @@ cpa_cultural_emissary.1 = {
 			limit = {
 				is_unemployed_able_adult = yes
 				OR = {
-					is_landed = no
+					is_ruler = no
 					liege = root
 				}
 				cpa_is_not_a_candidate = yes
@@ -153,7 +153,7 @@ cpa_cultural_emissary.1 = {
 			order_by = cultural_emissary_aptitude
 			limit = {
 				is_unemployed_able_adult = yes
-				is_landed = no
+				is_ruler = no
 				cpa_is_not_a_candidate = yes
 				diplomacy >= 8
 			}
@@ -180,7 +180,7 @@ cpa_cultural_emissary.1 = {
 				province = scope:pool_province
 				limit = {
 					is_unemployed_able_adult = yes
-					is_landed = no
+					is_ruler = no
 					cpa_is_not_a_candidate = yes
 					cultural_emissary_aptitude > 40
 					diplomacy >= 8
@@ -195,7 +195,7 @@ cpa_cultural_emissary.1 = {
 		}
 		every_prisoner = {
 			limit = {
-				is_landed = no
+				is_ruler = no
 				is_adult = yes
 				is_incapable = no
 				is_alive = yes

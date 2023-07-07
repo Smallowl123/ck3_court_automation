@@ -15,7 +15,7 @@ cpa_master_of_hunt.1 = {
 				limit = {
 					is_unemployed_able_adult = yes
 					OR = {
-						is_landed = no
+						is_ruler = no
 						liege = root
 					}
 					cpa_is_not_a_candidate = yes
@@ -42,7 +42,7 @@ cpa_master_of_hunt.1 = {
 				limit = {
 					is_unemployed_able_adult = yes
 					OR = {
-						is_landed = no
+						is_ruler = no
 						liege = root
 					}
 					cpa_is_not_a_candidate = yes
@@ -77,7 +77,7 @@ cpa_master_of_hunt.1 = {
 						limit = {
 							is_unemployed_able_adult = yes
 							OR = {
-								is_landed = no
+								is_ruler = no
 								liege = root
 							}
 							cpa_is_not_a_candidate = yes
@@ -159,7 +159,7 @@ cpa_master_of_hunt.1 = {
 			limit = {
 				is_unemployed_able_adult = yes
 				OR = {
-					is_landed = no
+					is_ruler = no
 					liege = root
 				}
 				cpa_is_not_a_candidate = yes
@@ -185,7 +185,7 @@ cpa_master_of_hunt.1 = {
 			limit = {
 				is_unemployed_able_adult = yes
 				OR = {
-					is_landed = no
+					is_ruler = no
 					liege = root
 				}
 				cpa_is_not_a_candidate = yes
@@ -210,7 +210,7 @@ cpa_master_of_hunt.1 = {
 			order_by = master_of_hunt_aptitude
 			limit = {
 				is_unemployed_able_adult = yes
-				is_landed = no
+				is_ruler = no
 				cpa_is_not_a_candidate = yes
 				NOR = {
 					has_trait = blind
@@ -245,7 +245,7 @@ cpa_master_of_hunt.1 = {
 				province = scope:pool_province
 				limit = {
 					is_unemployed_able_adult = yes
-					is_landed = no
+					is_ruler = no
 					cpa_is_not_a_candidate = yes
 					master_of_hunt_aptitude > 40
 					NOR = {
@@ -268,7 +268,7 @@ cpa_master_of_hunt.1 = {
 		}
 		every_prisoner = {
 			limit = {
-				is_landed = no
+				is_ruler = no
 				is_adult = yes
 				is_incapable = no
 				is_alive = yes

@@ -12,7 +12,7 @@ cpa_food_taster.1 = {
 			if = {
 				limit = {
 					is_unemployed_able_adult = yes
-					is_landed = no
+					is_ruler = no
 					cpa_is_not_a_candidate = yes
 					can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
 				}
@@ -28,7 +28,7 @@ cpa_food_taster.1 = {
 			if = {
 				limit = {
 					is_unemployed_able_adult = yes
-					is_landed = no
+					is_ruler = no
 					cpa_is_not_a_candidate = yes
 					can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
 				}
@@ -52,7 +52,7 @@ cpa_food_taster.1 = {
 					if = {
 						limit = {
 							is_unemployed_able_adult = yes
-							is_landed = no
+							is_ruler = no
 							cpa_is_not_a_candidate = yes
 							can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
 						}
@@ -108,7 +108,7 @@ cpa_food_taster.1 = {
 					if = {
 						limit = {
 							is_unemployed_able_adult = yes
-							is_landed = no
+							is_ruler = no
 							cpa_is_not_a_candidate = yes
 							can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
 						}
@@ -126,7 +126,7 @@ cpa_food_taster.1 = {
 			type = friend
 			limit = {
 				is_unemployed_able_adult = yes
-				is_landed = no
+				is_ruler = no
 				cpa_is_not_a_candidate = yes
 				can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
 			}
@@ -141,7 +141,7 @@ cpa_food_taster.1 = {
 			type = lover
 			limit = {
 				is_unemployed_able_adult = yes
-				is_landed = no
+				is_ruler = no
 				cpa_is_not_a_candidate = yes
 				can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
 			}
@@ -156,7 +156,7 @@ cpa_food_taster.1 = {
 			order_by = food_taster_aptitude
 			limit = {
 				is_unemployed_able_adult = yes
-				is_landed = no
+				is_ruler = no
 				cpa_is_not_a_candidate = yes
 				can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
 			}
@@ -183,7 +183,7 @@ cpa_food_taster.1 = {
 				province = scope:pool_province
 				limit = {
 					is_unemployed_able_adult = yes
-					is_landed = no
+					is_ruler = no
 					cpa_is_not_a_candidate = yes
 					food_taster_aptitude > 40
 					can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
@@ -198,7 +198,7 @@ cpa_food_taster.1 = {
 		}
 		every_prisoner = {
 			limit = {
-				is_landed = no
+				is_ruler = no
 				is_adult = yes
 				is_incapable = no
 				is_alive = yes
