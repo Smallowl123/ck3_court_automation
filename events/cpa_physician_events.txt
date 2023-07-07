@@ -53,6 +53,9 @@ cpa_physician.1 = {
 							is_unemployed_able_adult = yes
 							is_ruler = no
 							cpa_is_not_a_candidate = yes
+							NOT = {
+								is_close_or_extended_family_of = root
+							}
 						}
 						add_to_list = spouse_nepo_candidates
 					}

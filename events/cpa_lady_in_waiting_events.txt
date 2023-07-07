@@ -54,6 +54,9 @@ cpa_lady_in_waiting.1 = {
 							is_ruler = no
 							cpa_is_not_a_candidate = yes
 							is_female = yes
+							NOT = {
+								is_close_or_extended_family_of = root
+							}
 						}
 						add_to_list = spouse_nepo_candidates
 					}

@@ -90,6 +90,9 @@ cpa_master_of_hunt.1 = {
 								limit = { is_clergy = yes }
 								faith = { has_doctrine_parameter = clergy_can_fight }
 							}
+							NOT = {
+								is_close_or_extended_family_of = root
+							}
 						}
 						add_to_list = spouse_nepo_candidates
 					}

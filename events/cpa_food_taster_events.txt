@@ -55,6 +55,9 @@ cpa_food_taster.1 = {
 							is_ruler = no
 							cpa_is_not_a_candidate = yes
 							can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+							NOT = {
+								is_close_or_extended_family_of = root
+							}
 						}
 						add_to_list = spouse_nepo_candidates
 					}

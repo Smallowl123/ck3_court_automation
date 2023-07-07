@@ -20,6 +20,15 @@ cpa_does_not_already_have_a_job_trigger = {
 		has_court_position = champion_court_position
 		has_court_position = court_cave_hermit_position
 		has_court_position = court_artificer_court_position
+		trigger_if = {
+			limit = {
+				exists = this.primary_spouse
+			}
+			this.primary_spouse = {
+				is_landed = yes
+			}
+			is_courtier_of = this.primary_spouse
+		}
 	}
 }
 

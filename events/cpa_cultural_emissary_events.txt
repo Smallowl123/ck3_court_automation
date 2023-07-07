@@ -65,6 +65,9 @@ cpa_cultural_emissary.1 = {
 							}
 							cpa_is_not_a_candidate = yes
 							diplomacy >= 8
+							NOT = {
+								is_close_or_extended_family_of = root
+							}
 						}
 						add_to_list = spouse_nepo_candidates
 					}

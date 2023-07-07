@@ -63,6 +63,9 @@ cpa_master_of_horse.1 = {
 								liege = root
 							}
 							cpa_is_not_a_candidate = yes
+							NOT = {
+								is_close_or_extended_family_of = root
+							}
 						}
 						add_to_list = spouse_nepo_candidates
 					}

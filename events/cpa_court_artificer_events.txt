@@ -531,6 +531,9 @@ cpa_court_artificer.1 = {
 									exists = inspiration
 								}
 							}
+							NOT = {
+								is_close_or_extended_family_of = root
+							}
 						}
 						add_to_list = spouse_nepo_candidates
 					}
