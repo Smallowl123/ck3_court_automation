@@ -1,4 +1,10 @@
 ﻿quarterly_playable_pulse = {
+	on_action = {
+		cpa_on_action
+	}
+}
+
+cpa_on_action = {
 	events = {
 		cpa.1 #Fire an event that checks if there are any positions needed to be filled
 	}
