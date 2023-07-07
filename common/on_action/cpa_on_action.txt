@@ -1,5 +1,5 @@
 ﻿quarterly_playable_pulse = {
-	on_action = {
+	on_actions = {
 		cpa_on_action
 	}
 }
