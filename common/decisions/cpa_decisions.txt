@@ -1,0 +1,24 @@
+﻿enable_auto_knights_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	title = enable_auto_knight_search_t
+	ai_check_interval = 0
+
+	is_shown = {
+		has_global_variable = knight_auto_disabled
+	}
+	
+	desc = invite_knights_decision_desc
+
+	effect = {
+		remove_global_variable = knight_auto_disabled
+		custom_tooltip = invite_knights_decision.warriors.tt
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}

@@ -80,3 +80,8 @@
  cpa.you_do_not_like_them_much.desc:0 "\nThis option is available because you don't like them much."
  cpa.age:0 "Age "
  cpa.prowess:0 "@skill_prowess_icon!"
+
+#Decision
+ enable_auto_knight_search_t:0 "Enable auto search for knights"
+ enable_auto_knights_decision_confirm:0 "Send the herald"
+ enable_auto_knights_decision_tooltip:0 "$knight_culture_player_plural$ will be summoned to your court when needed"

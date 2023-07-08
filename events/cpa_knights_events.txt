@@ -431,5 +431,11 @@ cpa_knights.1 = {
 		flavor = {
 			desc = cpa.not_hire_flavor
 		}
+		hidden_effect = {
+			set_global_variable = {
+				name = knight_auto_disabled
+				value = yes
+			}
+		}
 	}
 }

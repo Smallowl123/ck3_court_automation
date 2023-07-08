@@ -408,8 +408,9 @@ cpa.1 = {
 		}
 		if = {
 			limit = {
-				NOT = {
+				NOR = {
 					has_global_variable = cpa_event_been_triggered
+					has_global_variable = knight_auto_disabled
 				}
 				OR = {
 					max_number_of_knights > root.number_of_knights
