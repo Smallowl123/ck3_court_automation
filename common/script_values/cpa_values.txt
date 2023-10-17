@@ -1782,3 +1782,93 @@ knight_aptitude = {
 	}
 	subtract = age
 }
+
+wet_nurse_aptitude = {
+	value = 25
+	if = {
+		limit = {
+			health >= 5
+		}
+		add = {
+			value = health
+			multiply = 5
+			add = 10
+			desc = court_position_skill_health_good
+		}
+	}
+	else_if = {
+		limit = {
+			health < 3
+		}
+		add = {
+			value = health
+			multiply = 10
+			add = -30
+			desc = court_position_skill_health_low
+		}
+	}
+	else = {
+		add = {
+			value = health
+			multiply = 2
+			desc = court_position_skill_health
+		}
+	}
+	if = {
+		limit = {
+			any_child = {
+				count >= 1
+			}
+		}
+		add = {
+			value = 15
+			desc = court_position_has_child
+		}
+	}
+	if = {
+		limit = {
+			has_trait = strong
+		}
+		add = {
+			value = 15
+			desc = court_position_strong_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = physique_good_3
+		}
+		add = {
+			value = 20
+			desc = court_position_physique_good_3_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = physique_good_2
+		}
+		add = {
+			value = 15
+			desc = court_position_physique_good_2_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = physique_good_1
+		}
+		add = {
+			value = 10
+			desc = court_position_physique_good_1_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = loyal
+		}
+		add = {
+			value = 10
+			desc = court_position_loyal_trait
+		}
+	}
+	add = court_position_aptitude_high_penalty_value
+}

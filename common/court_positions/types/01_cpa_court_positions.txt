@@ -1,17 +1,15 @@
 ﻿chief_qadi_court_position = {
 	max_available_positions = 1
 	category = court_position_category_special
-	minimum_rank = kingdom	# Should only be available for kings and emperors
+	minimum_rank = kingdom # Should only be available for kings and emperors
+
 	opinion = {
 		value = ceremonial_court_position_opinion
 	}
+
 	# How high the aptitude has to be to reach the 5 different modifier levels
-	aptitude_level_breakpoints = {
-		20
-		40
-		60
-		80
-	}
+	aptitude_level_breakpoints = { 20 40 60 80 }
+	
 	# How good is this character in this position? root scope is the holder of the court position
 	aptitude = {
 		value = 1
@@ -78,19 +76,23 @@
 		add = court_position_aptitude_family_business_value
 		add = court_position_aptitude_low_penalty_value
 	}
+
 	# Is this an available position for this court? (root is court owner)
 	is_shown = {
 		has_religion = religion:islam_religion
 	}
+
 	valid_position = {
 		has_religion = religion:islam_religion
 		highest_held_title_tier >= tier_kingdom
 	}
+
 	is_shown_character = {
 		scope:employee = {
 			is_imprisoned = no
 		}
 	}
+
 	valid_character = {
 		scope:employee = {
 			has_religion = religion:islam_religion
@@ -113,16 +115,17 @@
 			}
 		}
 	}
+
 	revoke_cost = {
-		prestige = {
+		prestige =  {
 			value = major_court_position_prestige_revoke_cost
+
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
 					exists = dynasty
-					dynasty = {
-						has_dynasty_perk = fp2_coterie_legacy_1
-					}
+					dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
+
 					employs_court_position = chief_qadi_court_position
 					any_court_position_holder = {
 						type = chief_qadi_court_position
@@ -134,6 +137,7 @@
 			}
 		}
 	}
+
 	salary = {
 		round = no
 		gold = {
@@ -143,9 +147,8 @@
 				limit = {
 					scope:liege = {
 						exists = dynasty
-						dynasty = {
-							has_dynasty_perk = fp2_coterie_legacy_1
-						}
+						dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
+
 						employs_court_position = chief_qadi_court_position
 						any_court_position_holder = {
 							type = chief_qadi_court_position
@@ -155,7 +158,7 @@
 					}
 				}
 				multiply = {
-					value = 0
+					value = 0.0
 					desc = inner_circle_salary_mod
 					format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
 				}
@@ -182,9 +185,11 @@
 			}
 		}
 	}
+
 	base_employer_modifier = {
 		learning_per_piety_level = 1
 	}
+
 	scaling_employer_modifiers = {
 		aptitude_level_1 = {
 			monthly_piety_gain_mult = 0.02
@@ -202,18 +207,20 @@
 			monthly_piety_gain_mult = 0.1
 		}
 	}
+
 	modifier = {
 		monthly_prestige = minor_court_position_prestige_salary
 		diplomacy = 1
 	}
+
 	on_court_position_received = {
 		chief_qadi_title_accepted_effect = yes
 	}
 	on_court_position_revoked = {
-		basic_revoked_court_position_effect = yes		#chief_qadi_title_revoked_effect = yes
+		basic_revoked_court_position_effect = yes #chief_qadi_title_revoked_effect = yes
 	}
 	on_court_position_invalidated = {
-		basic_invalidated_court_position_effect = yes		#chief_qadi_title_invalidated_effect = yes
+		basic_invalidated_court_position_effect = yes #chief_qadi_title_invalidated_effect = yes
 	}
 	candidate_score = {
 		value = 50
@@ -231,21 +238,18 @@
 		add = court_position_debt_considerations_value
 	}
 }
-
 cultural_emissary_court_position = {
 	max_available_positions = 1
 	category = court_position_category_special
 	minimum_rank = county
+
 	opinion = {
 		value = regular_court_position_opinion
 	}
+
 	# How high the aptitude has to be to reach the 5 different modifier levels
-	aptitude_level_breakpoints = {
-		20
-		40
-		60
-		80
-	}
+	aptitude_level_breakpoints = { 20 40 60 80 }
+	
 	# How good is this character in this position? root scope is the holder of the court position
 	aptitude = {
 		value = 1
@@ -292,6 +296,7 @@ cultural_emissary_court_position = {
 		add = court_position_aptitude_family_business_value
 		add = court_position_aptitude_low_penalty_value
 	}
+
 	# Is this an available position for this court? (root is court owner)
 	is_shown = {
 		exists = dynasty
@@ -299,6 +304,7 @@ cultural_emissary_court_position = {
 			has_dynasty_perk = ep1_culture_legacy_4
 		}
 	}
+
 	is_shown_character = {
 		scope:employee = {
 			is_imprisoned = no
@@ -310,16 +316,17 @@ cultural_emissary_court_position = {
 			diplomacy >= 8
 		}
 	}
+
 	revoke_cost = {
-		prestige = {
+		prestige =  {
 			value = major_court_position_prestige_revoke_cost
+
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
 					exists = dynasty
-					dynasty = {
-						has_dynasty_perk = fp2_coterie_legacy_1
-					}
+					dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
+
 					employs_court_position = cultural_emissary_court_position
 					any_court_position_holder = {
 						type = cultural_emissary_court_position
@@ -331,6 +338,7 @@ cultural_emissary_court_position = {
 			}
 		}
 	}
+
 	salary = {
 		round = no
 		gold = {
@@ -340,9 +348,8 @@ cultural_emissary_court_position = {
 				limit = {
 					scope:liege = {
 						exists = dynasty
-						dynasty = {
-							has_dynasty_perk = fp2_coterie_legacy_1
-						}
+						dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
+
 						employs_court_position = cultural_emissary_court_position
 						any_court_position_holder = {
 							type = cultural_emissary_court_position
@@ -352,7 +359,7 @@ cultural_emissary_court_position = {
 					}
 				}
 				multiply = {
-					value = 0
+					value = 0.0
 					desc = inner_circle_salary_mod
 					format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
 				}
@@ -379,6 +386,7 @@ cultural_emissary_court_position = {
 			}
 		}
 	}
+
 	scaling_employer_modifiers = {
 		aptitude_level_1 = {
 			different_culture_opinion = 2
@@ -401,9 +409,11 @@ cultural_emissary_court_position = {
 			monthly_prestige = 1
 		}
 	}
+
 	modifier = {
 		monthly_prestige = minor_court_position_prestige_salary
 	}
+
 	on_court_position_received = {
 		cultural_emissary_title_accepted_effect = yes
 	}
@@ -421,21 +431,18 @@ cultural_emissary_court_position = {
 		add = court_position_debt_considerations_value
 	}
 }
-
 court_artificer_court_position = {
 	max_available_positions = 3
 	category = court_position_category_royal
 	minimum_rank = kingdom
+
 	opinion = {
 		value = ceremonial_court_position_opinion
 	}
+
 	# How high the aptitude has to be to reach the 5 different modifier levels
-	aptitude_level_breakpoints = {
-		20
-		40
-		60
-		80
-	}
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
 	# How good is this character in this position? root scope is the holder of the court position
 	aptitude = {
 		value = 1
@@ -475,13 +482,16 @@ court_artificer_court_position = {
 		add = court_position_aptitude_family_business_value
 		#add = court_position_aptitude_high_penalty_value
 	}
+
 	is_shown = {
 		has_royal_court = yes
 		has_ep1_court_positions_dlc_trigger = yes
 	}
+
 	valid_position = {
 		highest_held_title_tier >= tier_kingdom
 	}
+
 	is_shown_character = {
 		scope:employee = {
 			is_courtier_of = scope:liege
@@ -495,13 +505,12 @@ court_artificer_court_position = {
 			is_imprisoned = no
 		}
 	}
+
 	valid_character = {
 		scope:employee = {
 			custom_tooltip = {
 				text = IS_NOT_THE_SPOUSE_OF_CHARACTER_COURT_POSITION
-				NOT = {
-					is_spouse_of = scope:liege
-				}
+				NOT = { is_spouse_of = scope:liege }
 			}
 			OR = {
 				custom_tooltip = {
@@ -514,25 +523,22 @@ court_artificer_court_position = {
 				}
 			}
 			trigger_if = {
-				limit = {
-					NOT = {
-						has_court_position = court_artificer_court_position
+				limit = { NOT = { has_court_position = court_artificer_court_position } }
+				court_position_does_not_already_have_a_job_trigger = yes # This positions is considered a job, and cannot be held at the same tims as another similar position
 					}
 				}
-				court_position_does_not_already_have_a_job_trigger = yes				# This positions is considered a job, and cannot be held at the same tims as another similar position
-			}
-		}
-	}
+							}
+		
 	revoke_cost = {
-		prestige = {
+		prestige =  {
 			value = major_court_position_prestige_revoke_cost
+
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
 					exists = dynasty
-					dynasty = {
-						has_dynasty_perk = fp2_coterie_legacy_1
-					}
+					dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
+
 					employs_court_position = court_artificer_court_position
 					any_court_position_holder = {
 						type = court_artificer_court_position
@@ -544,6 +550,7 @@ court_artificer_court_position = {
 			}
 		}
 	}
+
 	salary = {
 		round = no
 		gold = {
@@ -553,9 +560,8 @@ court_artificer_court_position = {
 				limit = {
 					scope:liege = {
 						exists = dynasty
-						dynasty = {
-							has_dynasty_perk = fp2_coterie_legacy_1
-						}
+						dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
+
 						employs_court_position = court_artificer_court_position
 						any_court_position_holder = {
 							type = court_artificer_court_position
@@ -565,7 +571,7 @@ court_artificer_court_position = {
 					}
 				}
 				multiply = {
-					value = 0
+					value = 0.0
 					desc = inner_circle_salary_mod
 					format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
 				}
@@ -592,6 +598,7 @@ court_artificer_court_position = {
 			}
 		}
 	}
+
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
 		aptitude_level_1 = {
@@ -610,10 +617,13 @@ court_artificer_court_position = {
 			court_grandeur_baseline_add = 2
 		}
 	}
+
 	custom_employer_modifier_description = court_artificer_employer_custom_effect_description
+
 	modifier = {
 		monthly_prestige = major_court_position_prestige_salary
 	}
+
 	on_court_position_received = {
 		court_artificer_title_accepted_effect = yes
 	}
@@ -650,26 +660,22 @@ court_artificer_court_position = {
 		add = court_position_debt_considerations_value
 	}
 }
-
 court_cave_hermit_position = {
 	max_available_positions = 1
 	category = court_position_category_special
-	outfit_tags = {
-		beggar_rags
-	}
+	outfit_tags = { beggar_rags }
+	
 	is_shown = {
-		has_variable = encountered_recruitable_hermit		#you need to have encountered a Court Hermit before you come up with this yourself
+		has_variable = encountered_recruitable_hermit #you need to have encountered a Court Hermit before you come up with this yourself
 	}
+
 	opinion = {
 		value = regular_court_position_opinion
 	}
+
 	# How high the aptitude has to be to reach the 5 different modifier levels
-	aptitude_level_breakpoints = {
-		20
-		40
-		60
-		80
-	}
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
 	# How good is this character in this position? root scope is the holder of the court position
 	aptitude = {
 		value = 25
@@ -677,7 +683,7 @@ court_cave_hermit_position = {
 			value = learning
 			multiply = 2.5
 			max = 50
-			desc = court_position_skill_learning
+			desc = court_position_skill_diplomacy
 		}
 		if = {
 			limit = {
@@ -735,21 +741,21 @@ court_cave_hermit_position = {
 		add = court_position_aptitude_family_business_value
 		add = court_position_aptitude_low_penalty_value
 	}
-	valid_position = {
-	}
+	
+	valid_position = { }
+
 	is_shown_character = {
 		scope:employee = {
 			is_courtier_of = scope:liege
 		}
 	}
+
 	valid_character = {
 		scope:employee = {
 			is_imprisoned = no
 			custom_tooltip = {
 				text = IS_NOT_THE_SPOUSE_OF_CHARACTER_COURT_POSITION
-				NOT = {
-					is_spouse_of = scope:liege
-				}
+				NOT = { is_spouse_of = scope:liege }
 			}
 			has_trait = lifestyle_mystic
 			has_trait_xp = {
@@ -757,25 +763,22 @@ court_cave_hermit_position = {
 				value >= 50
 			}
 			trigger_if = {
-				limit = {
-					NOT = {
-						has_court_position = court_cave_hermit_position
+				limit = { NOT = { has_court_position = court_cave_hermit_position } }
+				court_position_does_not_already_have_a_job_trigger = yes # This positions is considered a job, and cannot be held at the same tims as another similar position
 					}
 				}
-				court_position_does_not_already_have_a_job_trigger = yes				# This positions is considered a job, and cannot be held at the same tims as another similar position
-			}
-		}
-	}
+							}
+		
 	revoke_cost = {
-		prestige = {
+		prestige =  {
 			value = major_court_position_prestige_revoke_cost
+
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = {
 					exists = dynasty
-					dynasty = {
-						has_dynasty_perk = fp2_coterie_legacy_1
-					}
+					dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
+
 					employs_court_position = court_cave_hermit_position
 					any_court_position_holder = {
 						type = court_cave_hermit_position
@@ -787,10 +790,11 @@ court_cave_hermit_position = {
 			}
 		}
 	}
+
 	salary = {
 		round = no
 		gold = {
-			value = court_position_antiquarian_salary			#it's cheap to maintain a hermit in a cave
+			value = court_position_antiquarian_salary #it's cheap to maintain a hermit in a cave
 			# Set to 50% if you found your hermit around (variable lasts for 5 years)
 			if = {
 				limit = {
@@ -803,7 +807,7 @@ court_cave_hermit_position = {
 					}
 				}
 				multiply = {
-					value = 0
+					value = 0.0
 					desc = found_hermit_mod
 				}
 			}
@@ -812,9 +816,8 @@ court_cave_hermit_position = {
 				limit = {
 					scope:liege = {
 						exists = dynasty
-						dynasty = {
-							has_dynasty_perk = fp2_coterie_legacy_1
-						}
+						dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
+
 						employs_court_position = court_cave_hermit_position
 						any_court_position_holder = {
 							type = court_cave_hermit_position
@@ -824,7 +827,7 @@ court_cave_hermit_position = {
 					}
 				}
 				multiply = {
-					value = 0
+					value = 0.0
 					desc = inner_circle_salary_mod
 					format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
 				}
@@ -851,6 +854,7 @@ court_cave_hermit_position = {
 			}
 		}
 	}
+
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
 	scaling_employer_modifiers = {
 		aptitude_level_1 = {
@@ -873,9 +877,11 @@ court_cave_hermit_position = {
 			monthly_prestige = 1
 		}
 	}
+
 	modifier = {
 		monthly_prestige = minor_court_position_prestige_salary
 	}
+
 	on_court_position_received = {
 		court_cave_hermit_title_accepted_effect = yes
 	}
@@ -902,6 +908,7 @@ court_cave_hermit_position = {
 				multiply = 4
 			}
 		}
+
 		add = scope:base_value
 		add = court_position_candidate_score_base_value
 		scope:liege = {
