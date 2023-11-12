@@ -28,6 +28,8 @@
  cpa.27.t:0 "Open for hiring: Cave Hermit"
  cpa.28.t:0 "Open for hiring: Knight"
  cpa.29.t:0 "Open for hiring: Wet Nurse"
+ cpa.30.t:0 "Open for hiring: Master Assasin"
+ cpa.31.t:0 "Open for hiring: Court Scholar"
 
 #Event descs
  cpa.default_event.desc:0 "Who will you choose?"

@@ -413,6 +413,36 @@ cpa.1 = {
 				value = yes
 			}
 		}
+		#Master Assassin
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = cpa_event_been_triggered
+				}
+				can_employ_court_position_type = master_assassin_court_position
+				has_global_variable = master_assassin_auto
+			}
+			trigger_event = cpa_master_assassin.1
+			set_global_variable = {
+				name = cpa_event_been_triggered
+				value = yes
+			}
+		}
+		#Court Scholar
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = cpa_event_been_triggered
+				}
+				can_employ_court_position_type = court_scholar_court_position
+				has_global_variable = court_scholar_auto
+			}
+			trigger_event = cpa_court_scholar.1
+			set_global_variable = {
+				name = cpa_event_been_triggered
+				value = yes
+			}
+		}
 		#Knights
 		ordered_knight = {
 			order_by = prowess
