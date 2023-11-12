@@ -1,120 +1,107 @@
 ﻿court_physician_aptitude = {
 	value = 1
-	# Skill
-	add = {
-		value = learning
-		multiply = 1.75
-		max = 50
-		desc = court_position_skill_learning
-	}
-	# Physician
-	if = {
-		limit = {
-			has_trait = lifestyle_physician
-		}
+		# Skill
 		add = {
-			value = 15
-			if = {
-				limit = {
-					has_trait_xp = {
-						trait = lifestyle_physician
-						value >= 50
+			value = learning
+			multiply = 1.75
+			max = 50
+			desc = court_position_skill_learning
+		}
+		# Physician
+		if = {
+			limit = { has_trait = lifestyle_physician }
+			add = {
+				value = 15
+				if = {
+					limit = {
+						has_trait_xp = { trait = lifestyle_physician value >= 50 }
 					}
+					add = 15
 				}
-				add = 15
-			}
-			if = {
-				limit = {
-					has_trait_xp = {
-						trait = lifestyle_physician
-						value >= 100
+				if = {
+					limit = {
+						has_trait_xp = { trait = lifestyle_physician value >= 100 }
 					}
+					add = 15
 				}
-				add = 15
+				desc = court_position_physician_1_trait
 			}
-			desc = court_position_physician_1_trait
 		}
-	}
-	# Mystic
-	if = {
-		limit = {
-			has_trait = lifestyle_mystic
-		}
-		add = {
-			value = 5
-			if = {
-				limit = {
-					has_trait_xp = {
-						trait = lifestyle_mystic
-						value >= 50
+		# Mystic
+		if = {
+			limit = { has_trait = lifestyle_mystic }
+			add = {
+				value = 5
+				if = {
+					limit = {
+						has_trait_xp = { trait = lifestyle_mystic value >= 50 }
 					}
+					add = 5
 				}
-				add = 5
-			}
-			if = {
-				limit = {
-					has_trait_xp = {
-						trait = lifestyle_mystic
-						value >= 100
+				if = {
+					limit = {
+						has_trait_xp = { trait = lifestyle_mystic value >= 100 }
 					}
+					add = 5
 				}
-				add = 5
+				desc = court_position_mystic_1_trait
 			}
-			desc = court_position_mystic_1_trait
 		}
-	}
-	# Herbalist
-	if = {
-		limit = {
-			has_trait = lifestyle_herbalist
+		# Herbalist
+		if = {
+			limit = { has_trait = lifestyle_herbalist }
+			add = {
+				value = 15
+				desc = court_position_herbalist_trait
+			}
 		}
-		add = {
-			value = 15
-			desc = court_position_herbalist_trait
-		}
-	}
-	# Education
-	if = {
-		limit = {
-			has_trait = education_learning
-		}
-		add = {
-			value = 4
-			if = {
-				limit = {
-					has_trait = education_learning_2
+		# Education
+		if = {
+			limit = { has_trait = education_learning }
+			add = {
+				value = 4
+				if = {
+					limit = { has_trait = education_learning_2 }
+					add = 4
 				}
-				add = 4
-			}
-			else_if = {
-				limit = {
-					has_trait = education_learning_3
+				else_if = {
+					limit = { has_trait = education_learning_3 }
+					add = 8
 				}
-				add = 8
-			}
-			else_if = {
-				limit = {
-					has_trait = education_learning_4
+				else_if = {
+					limit = { has_trait = education_learning_4 }
+					add = 12
 				}
-				add = 12
+				else_if = {
+					limit = { has_trait = education_learning_5 }
+					add = 22
+				}
+				desc = education_learning
 			}
-			desc = education_learning
 		}
-	}
-	if = {
-		limit = {
-			has_trait = blind
+		if = {
+			limit = {
+				has_trait = blind
+			}
+			add = {
+				value = -50
+				desc = court_position_blind_trait
+			}
 		}
-		add = {
-			value = -50
-			desc = court_position_blind_trait
-		}
-	}
-	add = court_position_aptitude_family_business_value
-	add = court_position_aptitude_low_penalty_value
+		#if = {
+		#	limit = {
+		#		culture = { has_cultural_parameter = court_physicians_are_better }
+		#	}
+		#	add = {
+		#		value = learning
+		#		desc = court_physician_tradition_bonus
+		#	}
+		#}
+		add = court_position_aptitude_family_business_value
+		add = court_position_aptitude_low_penalty_value
 }
 
-chief_eunuch_aptitude = {
+cultural_emissary_aptitude = {
 	value = 1
 	add = {
 		value = diplomacy
@@ -123,38 +110,41 @@ chief_eunuch_aptitude = {
 		desc = court_position_skill_diplomacy
 	}
 	add = {
-		value = intrigue
-		multiply = 2.5
-		desc = court_position_skill_intrigue
+		value = num_of_known_languages
+		subtract = 1
+		multiply = 10
+		max = 100
+		desc = court_position_languages
 	}
 	if = {
 		limit = {
-			is_landed = yes
+			has_trait = just
 		}
 		add = {
-			value = -20
-			desc = court_position_landed_penalty
-		}
-	}
-	if = {
-		limit = {
-			has_trait = blind
-		}
-		add = {
-			value = -50
-			desc = court_position_blind_trait
+			value = 15
+			desc = court_position_just_trait
 		}
 	}
 	if = {
 		limit = {
-			has_trait = infirm
+			has_trait = gregarious
 		}
 		add = {
-			value = -75
-			desc = court_position_infirm_trait
+			value = 15
+			desc = court_position_gregarious_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = diplomat
+		}
+		add = {
+			value = 30
+			desc = court_position_diplomat_trait
 		}
 	}
 	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
 }
 
 keeper_of_swans_aptitude = {
@@ -167,44 +157,867 @@ keeper_of_swans_aptitude = {
 	}
 	if = {
 		limit = {
-			hunt_lifestyle_track_greater_equal_trigger = {
-				TRACK = hunter
-				GREATER_EQUAL = 100
-			}
+			hunt_lifestyle_track_greater_equal_trigger = { TRACK = hunter GREATER_EQUAL = 100 }
 		}
-		add = {
+		add = { 
 			value = 20
 			desc = court_position_hunter_3_trait
 		}
 	}
 	else_if = {
 		limit = {
-			hunt_lifestyle_track_greater_equal_trigger = {
-				TRACK = hunter
-				GREATER_EQUAL = 50
-			}
+			hunt_lifestyle_track_greater_equal_trigger = { TRACK = hunter GREATER_EQUAL = 50 }
 		}
-		add = {
+		add = { 
 			value = 10
 			desc = court_position_hunter_2_trait
 		}
 	}
 	else_if = {
-		limit = {
-			has_trait = lifestyle_hunter
-		}
-		add = {
+		limit = { has_trait = lifestyle_hunter }
+		add = { 
 			value = 5
 			desc = court_position_hunter_1_trait
 		}
 	}
 	if = {
 		limit = {
-			has_trait = blind			# Can't see the damn birds
+			has_trait = blind # Can't see the damn birds
 		}
 		add = {
 			value = -20
 			desc = court_position_blind_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
+
+chief_qadi_aptitude = {
+	value = 1
+	add = {
+		value = learning
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_learning
+	}
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_1 }
+		}
+		add = {
+			value = 10
+			desc =  court_position_khvarenah_legacy_1
+		}
+	}
+	if = {
+		limit = {
+			has_trait = generous
+		}
+		add = {
+			value = 15
+			desc = court_position_generous_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = just
+		}
+		add = {
+			value = 15
+			desc = court_position_just_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = temperate
+		}
+		add = {
+			value = 15
+			desc = court_position_temperate_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = scholar
+		}
+		add = {
+			value = 15
+			desc = court_position_scholar_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = greedy
+		}
+		add = {
+			value = -10
+			desc = court_position_greedy_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = arbitrary
+		}
+		add = {
+			value = -10
+			desc = court_position_arbitrary_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
+
+garuda_aptitude = {
+	value = 1
+	add = {
+		value = martial
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_martial
+	}
+	add = {
+		value = prowess
+		multiply = 2
+		max = 50
+		desc = court_position_skill_prowess
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_blademaster
+			has_trait_xp = {
+				trait = lifestyle_blademaster
+				value >= 100
+			}
+		}
+		add = { 
+			value = 30
+			desc = court_position_blademaster_3_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_blademaster
+			has_trait_xp = {
+				trait = lifestyle_blademaster
+				value >= 50
+			}
+		}
+		add = { 
+			value = 15
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_blademaster
+		}
+		add = { 
+			value = 5
+			desc = court_position_blademaster_1_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_high_penalty_value
+}
+
+court_gardener_aptitude = {
+	value = 1
+	add = {
+		value = stewardship
+		multiply = 2.5
+		max = 60
+		desc = court_position_skill_stewardship
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_gardener
+		}
+		add = {
+			value = 20
+			desc = court_position_gardener_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_herbalist
+		}
+		add = {
+			value = 10
+			desc = court_position_herbalist_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = patient
+		}
+		add = {
+			value = 10
+			desc = court_position_patient_trait
+		}
+	}
+	if = { # Architect gives a tiny bonus, since building stuff is also a part of gardening
+		limit = {
+			has_trait = architect
+		}
+		add = {
+			value = 5
+			desc = court_position_architect_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+}
+
+lady_in_waiting_aptitude = {
+	value = 25
+	add = {
+		value = diplomacy
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_diplomacy
+	}
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_1 }
+		}
+		add = {
+			value = 10
+			desc =  court_position_khvarenah_legacy_1
+		}
+	}
+	if = {
+		limit = {
+			has_trait = gregarious
+		}
+		add = {
+			value = 40
+			desc = court_position_gregarious_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = honest
+		}
+		add = {
+			value = 10
+			desc = court_position_honest_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
+
+antiquarian_aptitude = {
+	value = 1
+	add = {
+		value = learning
+		multiply = 2.5
+		max = 60
+		desc = court_position_skill_learning
+	}
+	if = { # Characters with a completed inspiration are very good Antiquarians
+		limit = {
+			has_completed_inspiration = yes
+		}
+		add = {
+			value = 30
+			desc = court_position_completed_inspiration
+		}
+	}
+	if = { # Shy characters are likely to spend more time with the artifacts than other people
+		limit = {
+			has_trait = shy
+		}
+		add = {
+			value = 10
+			desc = court_position_shy_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = administrator
+		}
+		add = {
+			value = 10
+			desc = court_position_administrator_trait
+		}
+	}
+	if = {
+		limit = {
+			has_variable = fund_inspiration_6508_architect_improvement
+		}
+		add = {
+			value = 5
+			desc = court_position_architect_study_experience
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
+
+travel_leader_aptitude = {
+	value = 1
+	add = {
+		value = learning
+		multiply = 1
+		max = 50
+		desc = court_position_skill_learning
+	}
+	add = {
+		value = stewardship
+		multiply = 1.3
+		max = 50
+		desc = court_position_skill_stewardship
+	}
+	if = {
+		limit = {
+			num_of_known_languages >= 2
+		}
+		add = {
+			value = num_of_known_languages
+			subtract = 1
+			multiply = 5
+			max = 50
+			desc = court_position_languages
+		}
+	}
+
+	# SPEED 
+	add = {
+		value = travel_leader_speed 
+		multiply = 1.8
+		subtract = 10
+		min = 0
+		desc = court_position_speed
+	}
+
+	# SAFETY 
+	add = {
+		value = travel_leader_safety 
+		multiply = 1.8
+		subtract = 10
+		min = 0
+		desc = court_position_safety
+	}
+
+	# POSITIVES
+	if = {
+		limit = {
+			has_trait = adventurer
+		}
+		add = {
+			value = 10 
+			desc = court_position_adventurer_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = brave
+		}
+		add = {
+			value = 5 
+			desc = court_position_brave_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_herbalist
+		}
+		add = {
+			value = 5 
+			desc = court_position_herbalist_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_hunter
+		}
+		add = {
+			value = 5 
+			desc = court_position_hunter_1_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = diligent
+		}
+		add = {
+			value = 5 
+			desc = court_position_diligent_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = flexible_leader
+		}
+		add = {
+			value = 10 
+			desc = court_position_flexible_leader_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = forest_fighter
+		}
+		add = {
+			value = 10 
+			desc = court_position_forest_fighter_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = open_terrain_expert
+		}
+		add = {
+			value = 10 
+			desc = court_position_open_terrain_expert_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = rough_terrain_expert
+		}
+		add = {
+			value = 10 
+			desc = court_position_rough_terrain_expert_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = desert_warrior
+		}
+		add = {
+			value = 10 
+			desc = court_position_desert_warrior_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = jungle_stalker
+		}
+		add = {
+			value = 10 
+			desc = court_position_jungle_stalker_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = winter_soldier
+		}
+		add = {
+			value = 10 
+			desc = court_position_winter_soldier_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = administrator
+		}
+		add = {
+			value = 5
+			desc = court_position_administrator_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = scholar
+		}
+		add = {
+			value = 5
+			desc = court_position_scholar_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_physician
+		}
+		add = {
+			value = 5
+			desc = court_position_physician_1_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait_xp = {
+				trait = lifestyle_traveler 
+				track = travel 
+				value >= 75
+			}
+		}
+		add = {
+			value = 40
+			desc = court_position_traveler_trait_experienced
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait_xp = {
+				trait = lifestyle_traveler 
+				track = danger 
+				value >= 75
+			}
+		}
+		add = {
+			value = 40
+			desc = court_position_traveler_trait_experienced_danger
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait_xp = {
+				trait = lifestyle_traveler 
+				track = travel 
+				value >= 50
+			}
+		}
+		add = {
+			value = 30
+			desc = court_position_traveler_trait_experienced
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait_xp = {
+				trait = lifestyle_traveler 
+				track = danger 
+				value >= 50
+			}
+		}
+		add = {
+			value = 30
+			desc = court_position_traveler_trait_experienced_danger
+		}
+	}
+	else = {
+		limit = {
+			has_trait = lifestyle_traveler
+		}
+		add = {
+			value = 20
+			desc = court_position_traveler_trait
+		}
+	}
+	if = {
+		limit = {
+			has_character_modifier = ep2_beastmaster_modifier
+		}
+		add = {
+			value = 30
+			desc = court_position_beastmaster_modifier
+		}
+	}
+
+	# NEGATIVES
+	if = {
+		limit = {
+			has_trait = craven
+		}
+		add = {
+			value = -20 
+			desc = court_position_craven_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lazy
+		}
+		add = {
+			value = -10 
+			desc = court_position_lazy_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = clubfooted
+		}
+		add = {
+			value = -30 
+			desc = court_position_clubfooted_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = blind
+		}
+		add = {
+			value = -50
+			desc = court_position_blind_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = incapable
+		}
+		multiply = {
+			value = 0
+			desc = court_position_incapable_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = infirm
+		}
+		add = {
+			value = -50
+			desc = court_position_infirm_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = maimed
+		}
+		add = {
+			value = -30
+			desc = court_position_maimed_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_reveler
+		}
+		add = {
+			value = -5
+			desc = court_position_reveler_1_trait
+		}
+	}
+	min = 0
+}
+
+wet_nurse_aptitude = {
+	value = 25
+	if = {
+		limit = { health >= 5 }
+		add = {
+			value = health
+			multiply = 5
+			add = 10
+			desc = court_position_skill_health_good
+		}
+	}
+	else_if = {
+		limit = { health < 3 }
+		add = {
+			value = health
+			multiply = 10
+			add = -30
+			desc = court_position_skill_health_low
+		}
+	}
+	else = {
+		add = {
+			value = health
+			multiply = 2
+			desc = court_position_skill_health
+		}
+	}
+	if = {
+		limit = {
+			any_child = {
+				count >= 1
+			}
+		}
+		add = {
+			value = 15
+			desc = court_position_has_child
+		}
+	}
+	if = {
+		limit = {
+			has_trait = strong
+		}
+		add = {
+			value = 15
+			desc = court_position_strong_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = physique_good_3
+		}
+		add = {
+			value = 20
+			desc = court_position_physique_good_3_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = physique_good_2
+		}
+		add = {
+			value = 15
+			desc = court_position_physique_good_2_trait
+		}
+	}	
+	if = {
+		limit = {
+			has_trait = physique_good_1
+		}
+		add = {
+			value = 10
+			desc = court_position_physique_good_1_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = loyal
+		}
+		add = {
+			value = 10
+			desc = court_position_loyal_trait
+		}
+	}
+	add = court_position_aptitude_high_penalty_value
+}
+
+court_tutor_aptitude = {
+	value = 25
+	add = {
+		value = learning
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_learning
+	}
+	if = {
+		limit = {
+			diplomacy >= high_skill_rating
+			martial >= high_skill_rating
+			stewardship >= high_skill_rating
+			intrigue >= high_skill_rating
+			learning >= high_skill_rating
+		}
+		add = { 
+			value = 20
+			desc = court_position_high_skills_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = patient
+		}
+		add = { 
+			value = 10
+			desc = court_position_patient_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = shy
+		}
+		add = { 
+			value = -10
+			desc = court_position_shy_trait
+		}
+	}
+	if = {
+		limit = {
+			is_landed = yes
+		}
+		add = {
+			value = -20
+			desc = court_position_landed_penalty
+		}
+	}
+	if = {
+		limit = {
+			has_trait = intellect_good_3
+		}
+		add = { 
+			value = 40
+			desc = court_position_intellect_good_3_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = intellect_good_2
+		}
+		add = { 
+			value = 20
+			desc = court_position_intellect_good_2_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = intellect_good_1
+		}
+		add = {
+			value = 10
+			desc = court_position_intellect_good_1_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = shrewd
+		}
+		add = {
+			value = 10
+			desc = court_position_shrewd_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = reclusive
+		}
+		add = {
+			value = -10
+			desc = court_position_reclusive_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
+
+food_taster_aptitude = {
+	value = 10
+	add = {
+		value = intrigue
+		multiply = 3
+		max = 50
+		desc = court_position_skill_intrigue
+	}
+	if = {
+		limit = {
+			has_trait = gluttonous
+		}
+		add = {
+			value = 25
+			desc = court_position_gluttonous_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = comfort_eater
+		}
+		add = {
+			value = 15
+			desc = court_position_comfort_eater_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_herbalist
+		}
+		add = {
+			value = 15
+			desc = court_position_herbalist_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = inappetetic
+		}
+		add = {
+			value = -50
+			desc = court_position_inappetetic_trait
+		}
+	}
+	if = {
+		limit = {
+			culture = { has_cultural_parameter = characters_are_better_food_tasters }
+		}
+		add = {
+			value = 20
+			desc = court_position_tradition_culinary_art
 		}
 	}
 	add = court_position_aptitude_family_business_value
@@ -226,70 +1039,10 @@ master_of_horse_aptitude = {
 		desc = court_position_skill_prowess
 	}
 	if = {
-		limit = {
-			has_trait = overseer
-		}
+		limit = { has_trait = overseer }
 		add = {
 			value = 10
 			desc = court_position_overseer_trait
-		}
-	}
-	add = court_position_aptitude_family_business_value
-	add = court_position_aptitude_high_penalty_value
-}
-
-court_jester_aptitude = {
-	value = 1
-	add = {
-		value = diplomacy
-		multiply = 2.5
-		max = 50
-		desc = court_position_skill_diplomacy
-	}
-	if = {
-		limit = {
-			has_trait = gregarious
-		}
-		add = {
-			value = 20
-			desc = court_position_gregarious_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = stubborn
-		}
-		add = {
-			value = 20
-			desc = court_position_stubborn_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = shrewd
-		}
-		add = {
-			value = 20
-			desc = court_position_shrewd_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = poet
-		}
-		add = {
-			value = 10
-			desc = court_position_poet_trait
-		}
-	}
-	if = {
-		# An acrobatic jester is a good jester
-		limit = {
-			has_trait = athletic
-		}
-		add = {
-			value = 10
-			desc = court_position_athletic_trait
 		}
 	}
 	add = court_position_aptitude_family_business_value
@@ -312,50 +1065,38 @@ master_of_hunt_aptitude = {
 	}
 	if = {
 		limit = {
-			hunt_lifestyle_track_greater_equal_trigger = {
-				TRACK = hunter
-				GREATER_EQUAL = 100
-			}
+			hunt_lifestyle_track_greater_equal_trigger = { TRACK = hunter GREATER_EQUAL = 100 }
 		}
-		add = {
+		add = { 
 			value = 40
 			desc = court_position_hunter_3_trait
 		}
 	}
 	else_if = {
 		limit = {
-			hunt_lifestyle_track_greater_equal_trigger = {
-				TRACK = hunter
-				GREATER_EQUAL = 50
-			}
+			hunt_lifestyle_track_greater_equal_trigger = { TRACK = hunter GREATER_EQUAL = 50 }
 		}
-		add = {
+		add = { 
 			value = 30
 			desc = court_position_hunter_2_trait
 		}
 	}
 	else_if = {
-		limit = {
-			has_trait = lifestyle_hunter
-		}
-		add = {
+		limit = { has_trait = lifestyle_hunter }
+		add = { 
 			value = 20
 			desc = court_position_hunter_1_trait
 		}
 	}
 	if = {
-		limit = {
-			has_trait = brave
-		}
+		limit = { has_trait = brave }
 		add = {
 			value = 5
 			desc = court_position_brave_trait
 		}
 	}
 	if = {
-		limit = {
-			has_trait = craven
-		}
+		limit = { has_trait = craven }
 		add = {
 			value = -10
 			desc = court_position_craven_trait
@@ -372,6 +1113,46 @@ master_of_hunt_aptitude = {
 	}
 	add = court_position_aptitude_family_business_value
 	add = court_position_aptitude_high_penalty_value
+}
+
+royal_architect_aptitude = {
+	value = 25
+	add = {
+		value = stewardship
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_stewardship
+	}
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_1 }
+		}
+		add = {
+			value = 10
+			desc =  court_position_khvarenah_legacy_1
+		}
+	}
+	if = {
+		limit = {
+			has_trait = architect
+		}
+		add = {
+			value = 40
+			desc = court_position_architect_trait
+		}
+	}
+	if = { #Hard to design building if you can't see them
+		limit = {
+			has_trait = blind
+		}
+		add = {
+			value = -50
+			desc = court_position_blind_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
 }
 
 high_almoner_aptitude = {
@@ -439,13 +1220,41 @@ high_almoner_aptitude = {
 	if = {
 		limit = {
 			has_trait = devoted
-			culture = {
-				has_cultural_parameter = devoted_trait_bonuses
-			}
+			culture = { has_cultural_parameter = devoted_trait_bonuses }
 		}
 		add = {
 			value = 20
 			desc = tradition_monastic_communities_name
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
+
+seneschal_aptitude = {
+	value = 25
+	add = {
+		value = stewardship
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_stewardship
+	}
+	if = {
+		limit = {
+			has_trait = administrator
+		}
+		add = {
+			value = 20
+			desc = court_position_administrator_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = overseer
+		}
+		add = {
+			value = 20
+			desc = court_position_overseer_trait
 		}
 	}
 	add = court_position_aptitude_family_business_value
@@ -491,124 +1300,18 @@ cupbearer_aptitude = {
 	add = court_position_aptitude_high_penalty_value
 }
 
-seneschal_aptitude = {
-	value = 25
-	add = {
-		value = stewardship
-		multiply = 2.5
-		max = 50
-		desc = court_position_skill_stewardship
-	}
-	if = {
-		limit = {
-			has_trait = administrator
-		}
-		add = {
-			value = 20
-			desc = court_position_administrator_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = overseer
-		}
-		add = {
-			value = 20
-			desc = court_position_overseer_trait
-		}
-	}
-	add = court_position_aptitude_family_business_value
-	add = court_position_aptitude_low_penalty_value
-}
-
-antiquarian_aptitude = {
+chief_eunuch_aptitude = {
 	value = 1
 	add = {
-		value = learning
-		multiply = 2.5
-		max = 60
-		desc = court_position_skill_learning
-	}
-	if = {
-		# Characters with a completed inspiration are very good Antiquarians
-		limit = {
-			has_completed_inspiration = yes
-		}
-		add = {
-			value = 30
-			desc = court_position_completed_inspiration
-		}
-	}
-	if = {
-		# Shy characters are likely to spend more time with the artifacts than other people
-		limit = {
-			has_trait = shy
-		}
-		add = {
-			value = 10
-			desc = court_position_shy_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = administrator
-		}
-		add = {
-			value = 10
-			desc = court_position_administrator_trait
-		}
-	}
-	if = {
-		limit = {
-			has_variable = fund_inspiration_6508_architect_improvement
-		}
-		add = {
-			value = 5
-			desc = court_position_architect_study_experience
-		}
-	}
-	add = court_position_aptitude_family_business_value
-	add = court_position_aptitude_low_penalty_value
-}
-
-court_tutor_aptitude = {
-	value = 25
-	add = {
-		value = learning
+		value = diplomacy
 		multiply = 2.5
 		max = 50
-		desc = court_position_skill_learning
+		desc = court_position_skill_diplomacy
 	}
-	if = {
-		limit = {
-			diplomacy >= high_skill_rating
-			martial >= high_skill_rating
-			stewardship >= high_skill_rating
-			intrigue >= high_skill_rating
-			learning >= high_skill_rating
-		}
-		add = {
-			value = 20
-			desc = court_position_high_skills_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = patient
-		}
-		add = {
-			value = 10
-			desc = court_position_patient_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = shy
-		}
-		add = {
-			value = -10
-			desc = court_position_shy_trait
-		}
+	add = {
+		value = intrigue
+		multiply = 2.5
+		desc = court_position_skill_intrigue
 	}
 	if = {
 		limit = {
@@ -621,73 +1324,6 @@ court_tutor_aptitude = {
 	}
 	if = {
 		limit = {
-			has_trait = intellect_good_3
-		}
-		add = {
-			value = 40
-			desc = court_position_intellect_good_3_trait
-		}
-	}
-	else_if = {
-		limit = {
-			has_trait = intellect_good_2
-		}
-		add = {
-			value = 20
-			desc = court_position_intellect_good_2_trait
-		}
-	}
-	else_if = {
-		limit = {
-			has_trait = intellect_good_1
-		}
-		add = {
-			value = 10
-			desc = court_position_intellect_good_1_trait
-		}
-	}
-	else_if = {
-		limit = {
-			has_trait = shrewd
-		}
-		add = {
-			value = 10
-			desc = court_position_shrewd_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = reclusive
-		}
-		add = {
-			value = -10
-			desc = court_position_reclusive_trait
-		}
-	}
-	add = court_position_aptitude_family_business_value
-	add = court_position_aptitude_low_penalty_value
-}
-
-royal_architect_aptitude = {
-	value = 25
-	add = {
-		value = stewardship
-		multiply = 2.5
-		max = 50
-		desc = court_position_skill_stewardship
-	}
-	if = {
-		limit = {
-			has_trait = architect
-		}
-		add = {
-			value = 40
-			desc = court_position_architect_trait
-		}
-	}
-	if = {
-		#Hard to design building if you can't see them
-		limit = {
 			has_trait = blind
 		}
 		add = {
@@ -695,8 +1331,73 @@ royal_architect_aptitude = {
 			desc = court_position_blind_trait
 		}
 	}
+	if = {
+		limit = {
+			has_trait = infirm
+		}
+		add = {
+			value = -75
+			desc = court_position_infirm_trait
+		}
+	}
 	add = court_position_aptitude_family_business_value
-	add = court_position_aptitude_low_penalty_value
+}
+
+court_jester_aptitude = {
+	value = 1
+	add = {
+		value = diplomacy
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_diplomacy
+	}
+	if = {
+		limit = {
+			has_trait = gregarious
+		}
+		add = { 
+			value = 20
+			desc = court_position_gregarious_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = stubborn
+		}
+		add = { 
+			value = 20
+			desc = court_position_stubborn_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = shrewd
+		}
+		add = { 
+			value = 20
+			desc = court_position_shrewd_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = poet
+		}
+		add = { 
+			value = 10
+			desc = court_position_poet_trait
+		}
+	}
+	if = { # An acrobatic jester is a good jester
+		limit = {
+			has_trait = athletic
+		}
+		add = { 
+			value = 10
+			desc = court_position_athletic_trait
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_high_penalty_value
 }
 
 court_poet_aptitude = {
@@ -722,16 +1423,61 @@ court_poet_aptitude = {
 			desc = court_position_gregarious_trait
 		}
 	}
-	if = {
-		#Cultural Tradition that improves the aptitude of characters of that culture
+	if = { #Cultural Tradition that improves the aptitude of characters of that culture
 		limit = {
-			culture = {
-				has_cultural_parameter = characters_are_better_court_poets
-			}
+			culture = { has_cultural_parameter = characters_are_better_court_poets }
 		}
 		add = {
 			value = 20
 			desc = court_position_tradition_poetry
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
+
+court_musician_aptitude = {
+	value = 1
+	add = {
+		value = diplomacy
+		multiply = 2.5
+		max = 50
+		desc = court_position_skill_diplomacy
+	}
+	if = {
+		limit = {
+			has_trait = gregarious
+		}
+		add = {
+			value = 30
+			desc = court_position_gregarious_trait
+		}
+	}
+	if = { #Being a poet helps a little bit
+		limit = {
+			has_trait = poet
+		}
+		add = {
+			value = 10
+			desc = court_position_poet_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = shy
+		}
+		add = {
+			value = -10
+			desc = court_position_shy_trait
+		}
+	}
+	if = { #Cultural Tradition that improves the aptitude of characters of that culture
+		limit = {
+			culture = { has_cultural_parameter = characters_are_better_court_musicians }
+		}
+		add = {
+			value = 20
+			desc = court_position_tradition_music_theory
 		}
 	}
 	add = court_position_aptitude_family_business_value
@@ -877,7 +1623,7 @@ champion_aptitude = {
 		limit = {
 			has_trait = shieldmaiden
 		}
-		add = {
+		add = { 
 			value = 20
 			desc = court_position_shieldmaiden_trait
 		}
@@ -886,7 +1632,7 @@ champion_aptitude = {
 		limit = {
 			has_trait = brave
 		}
-		add = {
+		add = { 
 			value = 20
 			desc = court_position_brave_trait
 		}
@@ -895,7 +1641,7 @@ champion_aptitude = {
 		limit = {
 			has_trait = craven
 		}
-		add = {
+		add = { 
 			value = -10
 			desc = court_position_craven_trait
 		}
@@ -958,147 +1704,6 @@ champion_aptitude = {
 	add = court_position_aptitude_family_business_value
 }
 
-court_musician_aptitude = {
-	value = 1
-	add = {
-		value = diplomacy
-		multiply = 2.5
-		max = 50
-		desc = court_position_skill_diplomacy
-	}
-	if = {
-		limit = {
-			has_trait = gregarious
-		}
-		add = {
-			value = 30
-			desc = court_position_gregarious_trait
-		}
-	}
-	if = {
-		#Being a poet helps a little bit
-		limit = {
-			has_trait = poet
-		}
-		add = {
-			value = 10
-			desc = court_position_poet_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = shy
-		}
-		add = {
-			value = -10
-			desc = court_position_shy_trait
-		}
-	}
-	if = {
-		#Cultural Tradition that improves the aptitude of characters of that culture
-		limit = {
-			culture = {
-				has_cultural_parameter = characters_are_better_court_musicians
-			}
-		}
-		add = {
-			value = 20
-			desc = court_position_tradition_music_theory
-		}
-	}
-	add = court_position_aptitude_family_business_value
-	add = court_position_aptitude_low_penalty_value
-}
-
-food_taster_aptitude = {
-	value = 10
-	add = {
-		value = intrigue
-		multiply = 3
-		max = 50
-		desc = court_position_skill_intrigue
-	}
-	if = {
-		limit = {
-			has_trait = gluttonous
-		}
-		add = {
-			value = 25
-			desc = court_position_gluttonous_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = comfort_eater
-		}
-		add = {
-			value = 15
-			desc = court_position_comfort_eater_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = lifestyle_herbalist
-		}
-		add = {
-			value = 15
-			desc = court_position_herbalist_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = inappetetic
-		}
-		add = {
-			value = -50
-			desc = court_position_inappetetic_trait
-		}
-	}
-	if = {
-		limit = {
-			culture = {
-				has_cultural_parameter = characters_are_better_food_tasters
-			}
-		}
-		add = {
-			value = 20
-			desc = court_position_tradition_culinary_art
-		}
-	}
-	add = court_position_aptitude_family_business_value
-	add = court_position_aptitude_low_penalty_value
-}
-
-lady_in_waiting_aptitude = {
-	value = 25
-	add = {
-		value = diplomacy
-		multiply = 2.5
-		max = 50
-		desc = court_position_skill_diplomacy
-	}
-	if = {
-		limit = {
-			has_trait = gregarious
-		}
-		add = {
-			value = 40
-			desc = court_position_gregarious_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = honest
-		}
-		add = {
-			value = 10
-			desc = court_position_honest_trait
-		}
-	}
-	add = court_position_aptitude_family_business_value
-	add = court_position_aptitude_low_penalty_value
-}
-
 executioner_aptitude = {
 	value = 1
 	add = {
@@ -1135,547 +1740,11 @@ executioner_aptitude = {
 	add = court_position_aptitude_high_penalty_value
 }
 
-garuda_aptitude = {
-	value = 1
-	add = {
-		value = martial
-		multiply = 2.5
-		max = 50
-		desc = court_position_skill_martial
-	}
-	add = {
-		value = prowess
-		multiply = 2
-		max = 50
-		desc = court_position_skill_prowess
-	}
-	if = {
-		limit = {
-			has_trait = lifestyle_blademaster
-			has_trait_xp = {
-				trait = lifestyle_blademaster
-				value >= 100
-			}
-		}
-		add = {
-			value = 30
-			desc = court_position_blademaster_3_trait
-		}
-	}
-	else_if = {
-		limit = {
-			has_trait = lifestyle_blademaster
-			has_trait_xp = {
-				trait = lifestyle_blademaster
-				value >= 50
-			}
-		}
-		add = {
-			value = 15
-		}
-	}
-	else_if = {
-		limit = {
-			has_trait = lifestyle_blademaster
-		}
-		add = {
-			value = 5
-			desc = court_position_blademaster_1_trait
-		}
-	}
-	add = court_position_aptitude_family_business_value
-	add = court_position_aptitude_high_penalty_value
-}
-
-court_gardener_aptitude = {
-	value = 1
-	add = {
-		value = stewardship
-		multiply = 2.5
-		max = 60
-		desc = court_position_skill_stewardship
-	}
-	if = {
-		limit = {
-			has_trait = lifestyle_gardener
-		}
-		add = {
-			value = 20
-			desc = court_position_gardener_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = lifestyle_herbalist
-		}
-		add = {
-			value = 10
-			desc = court_position_herbalist_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = patient
-		}
-		add = {
-			value = 10
-			desc = court_position_patient_trait
-		}
-	}
-	if = {
-		# Architect gives a tiny bonus, since building stuff is also a part of gardening
-		limit = {
-			has_trait = architect
-		}
-		add = {
-			value = 5
-			desc = court_position_architect_trait
-		}
-	}
-	add = court_position_aptitude_family_business_value
-}
-
-travel_leader_aptitude = {
-	value = 1
-	add = {
-		value = learning
-		multiply = 1
-		max = 50
-		desc = court_position_skill_learning
-	}
-	add = {
-		value = stewardship
-		multiply = 1.3
-		max = 50
-		desc = court_position_skill_stewardship
-	}
-	if = {
-		limit = {
-			num_of_known_languages >= 2
-		}
-		add = {
-			value = num_of_known_languages
-			subtract = 1
-			multiply = 5
-			max = 50
-			desc = court_position_languages
-		}
-	}
-	# SPEED 
-	add = {
-		value = travel_leader_speed
-		multiply = 1.8
-		subtract = 10
-		min = 0
-		desc = court_position_speed
-	}
-	# SAFETY 
-	add = {
-		value = travel_leader_safety
-		multiply = 1.8
-		subtract = 10
-		min = 0
-		desc = court_position_safety
-	}
-	# POSITIVES
-	if = {
-		limit = {
-			has_trait = adventurer
-		}
-		add = {
-			value = 10
-			desc = court_position_adventurer_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = brave
-		}
-		add = {
-			value = 5
-			desc = court_position_brave_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = lifestyle_herbalist
-		}
-		add = {
-			value = 5
-			desc = court_position_herbalist_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = lifestyle_hunter
-		}
-		add = {
-			value = 5
-			desc = court_position_hunter_1_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = diligent
-		}
-		add = {
-			value = 5
-			desc = court_position_diligent_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = flexible_leader
-		}
-		add = {
-			value = 10
-			desc = court_position_flexible_leader_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = forest_fighter
-		}
-		add = {
-			value = 10
-			desc = court_position_forest_fighter_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = open_terrain_expert
-		}
-		add = {
-			value = 10
-			desc = court_position_open_terrain_expert_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = rough_terrain_expert
-		}
-		add = {
-			value = 10
-			desc = court_position_rough_terrain_expert_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = desert_warrior
-		}
-		add = {
-			value = 10
-			desc = court_position_desert_warrior_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = jungle_stalker
-		}
-		add = {
-			value = 10
-			desc = court_position_jungle_stalker_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = winter_soldier
-		}
-		add = {
-			value = 10
-			desc = court_position_winter_soldier_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = administrator
-		}
-		add = {
-			value = 5
-			desc = court_position_administrator_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = scholar
-		}
-		add = {
-			value = 5
-			desc = court_position_scholar_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = lifestyle_physician
-		}
-		add = {
-			value = 5
-			desc = court_position_physician_1_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait_xp = {
-				trait = lifestyle_traveler
-				track = travel
-				value >= 75
-			}
-		}
-		add = {
-			value = 40
-			desc = court_position_traveler_trait_experienced
-		}
-	}
-	else_if = {
-		limit = {
-			has_trait_xp = {
-				trait = lifestyle_traveler
-				track = danger
-				value >= 75
-			}
-		}
-		add = {
-			value = 40
-			desc = court_position_traveler_trait_experienced_danger
-		}
-	}
-	else_if = {
-		limit = {
-			has_trait_xp = {
-				trait = lifestyle_traveler
-				track = travel
-				value >= 50
-			}
-		}
-		add = {
-			value = 30
-			desc = court_position_traveler_trait_experienced
-		}
-	}
-	else_if = {
-		limit = {
-			has_trait_xp = {
-				trait = lifestyle_traveler
-				track = danger
-				value >= 50
-			}
-		}
-		add = {
-			value = 30
-			desc = court_position_traveler_trait_experienced_danger
-		}
-	}
-	else = {
-		limit = {
-			has_trait = lifestyle_traveler
-		}
-		add = {
-			value = 20
-			desc = court_position_traveler_trait
-		}
-	}
-	if = {
-		limit = {
-			has_character_modifier = ep2_beastmaster_modifier
-		}
-		add = {
-			value = 30
-			desc = court_position_beastmaster_modifier
-		}
-	}
-	# NEGATIVES
-	if = {
-		limit = {
-			has_trait = craven
-		}
-		add = {
-			value = -20
-			desc = court_position_craven_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = lazy
-		}
-		add = {
-			value = -10
-			desc = court_position_lazy_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = clubfooted
-		}
-		add = {
-			value = -30
-			desc = court_position_clubfooted_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = blind
-		}
-		add = {
-			value = -50
-			desc = court_position_blind_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = incapable
-		}
-		multiply = {
-			value = 0
-			desc = court_position_incapable_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = infirm
-		}
-		add = {
-			value = -50
-			desc = court_position_infirm_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = maimed
-		}
-		add = {
-			value = -30
-			desc = court_position_maimed_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = lifestyle_reveler
-		}
-		add = {
-			value = -5
-			desc = court_position_reveler_1_trait
-		}
-	}
-	min = 0
-}
-
-chief_qadi_aptitude = {
-	value = 1
-	add = {
-		value = learning
-		multiply = 2.5
-		max = 50
-		desc = court_position_skill_learning
-	}
-	if = {
-		limit = {
-			has_trait = generous
-		}
-		add = {
-			value = 15
-			desc = court_position_generous_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = just
-		}
-		add = {
-			value = 15
-			desc = court_position_just_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = temperate
-		}
-		add = {
-			value = 15
-			desc = court_position_temperate_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = scholar
-		}
-		add = {
-			value = 15
-			desc = court_position_scholar_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = greedy
-		}
-		add = {
-			value = -10
-			desc = court_position_greedy_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = arbitrary
-		}
-		add = {
-			value = -10
-			desc = court_position_arbitrary_trait
-		}
-	}
-	add = court_position_aptitude_family_business_value
-	add = court_position_aptitude_low_penalty_value
-}
-
-cultural_emissary_aptitude = {
-	value = 1
-	add = {
-		value = diplomacy
-		multiply = 2.5
-		max = 50
-		desc = court_position_skill_diplomacy
-	}
-	add = {
-		value = num_of_known_languages
-		subtract = 1
-		multiply = 10
-		max = 100
-		desc = court_position_languages
-	}
-	if = {
-		limit = {
-			has_trait = just
-		}
-		add = {
-			value = 15
-			desc = court_position_just_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = gregarious
-		}
-		add = {
-			value = 15
-			desc = court_position_gregarious_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = diplomat
-		}
-		add = {
-			value = 30
-			desc = court_position_diplomat_trait
-		}
-	}
-	add = court_position_aptitude_family_business_value
-	add = court_position_aptitude_low_penalty_value
-}
-
 court_artificer_aptitude = {
 	value = 1
 	add = {
 		value = prowess
-		desc = court_position_skill_prowess
+		desc = court_position_skill_intrigue
 	}
 	add = {
 		value = diplomacy
@@ -1716,7 +1785,7 @@ court_cave_hermit_aptitude = {
 		value = learning
 		multiply = 2.5
 		max = 50
-		desc = court_position_skill_diplomacy
+		desc = court_position_skill_learning
 	}
 	if = {
 		limit = {
@@ -1726,7 +1795,7 @@ court_cave_hermit_aptitude = {
 				value >= 100
 			}
 		}
-		add = {
+		add = { 
 			value = 20
 			desc = court_position_mystic_3_trait
 		}
@@ -1739,16 +1808,16 @@ court_cave_hermit_aptitude = {
 				value >= 50
 			}
 		}
-		add = {
+		add = { 
 			value = 10
 			desc = court_position_mystic_2_trait
 		}
 	}
 	else_if = {
-		limit = {
+		limit = { 
 			has_trait = lifestyle_mystic
 		}
-		add = {
+		add = { 
 			value = 5
 			desc = court_position_mystic_1_trait
 		}
@@ -1775,100 +1844,270 @@ court_cave_hermit_aptitude = {
 	add = court_position_aptitude_low_penalty_value
 }
 
+master_assassin_aptitude = {
+	value = 1
+	add = {
+		value = intrigue
+		multiply = 1.25
+		max = 50
+		desc = court_position_skill_intrigue
+	}
+	add = {
+		value = prowess
+		multiply = 2
+		max = 50
+		desc = court_position_skill_prowess
+	}
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = { has_dynasty_perk = fp3_khvarenah_legacy_1 }
+		}
+		add = {
+			value = 10
+			desc =  court_position_khvarenah_legacy_1
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_blademaster
+			has_trait_xp = {
+				trait = lifestyle_blademaster
+				value >= 100
+			}
+		}
+		add = { 
+			value = 15
+			desc = court_position_blademaster_3_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_blademaster
+			has_trait_xp = {
+				trait = lifestyle_blademaster
+				value >= 50
+			}
+		}
+		add = { 
+			value = 10
+			desc = court_position_blademaster_2_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_blademaster
+		}
+		add = { 
+			value = 5
+			desc = court_position_blademaster_1_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = deceitful
+		}
+		add = {
+			value = 10
+			desc = court_position_deceitful_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = murderer
+		}
+		add = {
+			value = 20
+			desc = court_position_murderer_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = order_member
+		}
+		add = {
+			value = 25
+			desc = court_position_order_member_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = faith_warrior
+		}
+		add = {
+			value = 25
+			desc = court_position_faith_warrior_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = zealous
+		}
+		add = {
+			value = 25
+			desc = court_position_zealous_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = brave
+		}
+		add = {
+			value = 25
+			desc = court_position_brave_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = compassionate
+		}
+		add = {
+			value = -50
+			desc = court_position_compassionate_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = just
+		}
+		add = {
+			value = -20
+			desc = court_position_just_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = honest
+		}
+		add = {
+			value = -20
+			desc = court_position_honest_trait
+		}
+	}
+
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_high_penalty_value
+}
+
+court_scholar_aptitude = {
+	value = 0
+	add = {
+		value = learning
+		multiply = 4
+		desc = court_position_skill_learning
+		max = 65
+	}
+	if = {
+		limit = {
+			scope:liege.dynasty ?= { has_dynasty_perk = fp3_khvarenah_legacy_1 }
+		}
+		add = {
+			value = 10
+			desc =  court_position_khvarenah_legacy_1
+		}
+	}
+	if = {
+		limit = { has_trait = theologian }
+		add = {
+			value = 15
+			desc = court_position_theologian_trait
+		}
+	}
+	if = {
+		limit = { has_trait = scholar }
+		add = {
+			value = 15
+			desc = court_position_scholar_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = lifestyle_physician
+			has_trait_xp = {
+				trait = lifestyle_physician
+				value >= 100
+			}
+		}
+		add = { 
+			value = 15
+			desc = court_position_physician_3_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = lifestyle_physician
+			has_trait_xp = {
+				trait = lifestyle_physician
+				value >= 50
+			}
+		}
+		add = { 
+			value = 10
+			desc = court_position_physician_2_trait
+		}
+	}
+	else_if = {
+		limit = { has_trait = lifestyle_physician }
+		add = { 
+			value = 5
+			desc = court_position_physician_1_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = intellect_good_3
+		}
+		add = { 
+			value = 20
+			desc = court_position_intellect_good_3_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = intellect_good_2
+		}
+		add = { 
+			value = 15
+			desc = court_position_intellect_good_2_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = intellect_good_1
+		}
+		add = {
+			value = 10
+			desc = court_position_intellect_good_1_trait
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = shrewd
+		}
+		add = {
+			value = 10
+			desc = court_position_shrewd_trait
+		}
+	}
+	if = {
+		limit = {
+			scope:liege.culture ?= {
+				has_innovation = fp3_innovation_mural_sextant
+			}
+		}
+		add = {
+			value = 10
+			desc = court_position_innovation_mural_sextant
+		}
+	}
+	add = court_position_aptitude_family_business_value
+	add = court_position_aptitude_low_penalty_value
+}
+
 knight_aptitude = {
 	add = {
 		value = prowess
 		multiply = 10
 	}
 	subtract = age
-}
-
-wet_nurse_aptitude = {
-	value = 25
-	if = {
-		limit = {
-			health >= 5
-		}
-		add = {
-			value = health
-			multiply = 5
-			add = 10
-			desc = court_position_skill_health_good
-		}
-	}
-	else_if = {
-		limit = {
-			health < 3
-		}
-		add = {
-			value = health
-			multiply = 10
-			add = -30
-			desc = court_position_skill_health_low
-		}
-	}
-	else = {
-		add = {
-			value = health
-			multiply = 2
-			desc = court_position_skill_health
-		}
-	}
-	if = {
-		limit = {
-			any_child = {
-				count >= 1
-			}
-		}
-		add = {
-			value = 15
-			desc = court_position_has_child
-		}
-	}
-	if = {
-		limit = {
-			has_trait = strong
-		}
-		add = {
-			value = 15
-			desc = court_position_strong_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = physique_good_3
-		}
-		add = {
-			value = 20
-			desc = court_position_physique_good_3_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = physique_good_2
-		}
-		add = {
-			value = 15
-			desc = court_position_physique_good_2_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = physique_good_1
-		}
-		add = {
-			value = 10
-			desc = court_position_physique_good_1_trait
-		}
-	}
-	if = {
-		limit = {
-			has_trait = loyal
-		}
-		add = {
-			value = 10
-			desc = court_position_loyal_trait
-		}
-	}
-	add = court_position_aptitude_high_penalty_value
 }
